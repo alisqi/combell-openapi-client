@@ -6,10 +6,10 @@ class ChangePhpVersion extends \Combell\Client\Runtime\Client\BaseEndpoint imple
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\PhpVersion $requestBody 
+     * @param null|\Combell\Client\Model\PhpVersion $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\PhpVersion $requestBody = null)
     {

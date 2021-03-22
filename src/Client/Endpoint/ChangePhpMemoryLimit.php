@@ -6,10 +6,10 @@ class ChangePhpMemoryLimit extends \Combell\Client\Runtime\Client\BaseEndpoint i
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\UpdatePhpMemoryLimitRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdatePhpMemoryLimitRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\UpdatePhpMemoryLimitRequest $requestBody = null)
     {

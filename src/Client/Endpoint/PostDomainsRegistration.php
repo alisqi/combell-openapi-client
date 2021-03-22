@@ -7,7 +7,7 @@ class PostDomainsRegistration extends \Combell\Client\Runtime\Client\BaseEndpoin
     /**
      * Registers an available domain.<br />Domain names with extension '.ca' are only available for registrants with country code 'CA'.
      *
-     * @param null|\Combell\Client\Model\RegisterDomain $requestBody 
+     * @param null|\Combell\Client\Model\RegisterDomain $requestBody
      */
     public function __construct(?\Combell\Client\Model\RegisterDomain $requestBody = null)
     {

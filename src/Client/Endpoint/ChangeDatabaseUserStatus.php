@@ -7,11 +7,11 @@ class ChangeDatabaseUserStatus extends \Combell\Client\Runtime\Client\BaseEndpoi
     protected $database_name;
     protected $user_name;
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $userName Name of the user.
-     * @param null|\Combell\Client\Model\UpdateUserStatusRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateUserStatusRequest $requestBody
      */
     public function __construct(string $databaseName, string $userName, ?\Combell\Client\Model\UpdateUserStatusRequest $requestBody = null)
     {

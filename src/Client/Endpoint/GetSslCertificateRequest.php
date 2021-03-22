@@ -6,7 +6,7 @@ class GetSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param int $id The id of the certificate request.
      */

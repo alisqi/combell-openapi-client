@@ -5,7 +5,7 @@ namespace Combell\Client\Model;
 class MailboxDetail
 {
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -29,19 +29,19 @@ class MailboxDetail
      */
     protected $actualSize;
     /**
-     * 
+     *
      *
      * @var AutoReply
      */
     protected $autoReply;
     /**
-     * 
+     *
      *
      * @var AutoForward
      */
     protected $autoForward;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -50,7 +50,7 @@ class MailboxDetail
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -125,7 +125,7 @@ class MailboxDetail
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AutoReply
      */
@@ -134,7 +134,7 @@ class MailboxDetail
         return $this->autoReply;
     }
     /**
-     * 
+     *
      *
      * @param AutoReply $autoReply
      *
@@ -146,7 +146,7 @@ class MailboxDetail
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AutoForward
      */
@@ -155,7 +155,7 @@ class MailboxDetail
         return $this->autoForward;
     }
     /**
-     * 
+     *
      *
      * @param AutoForward $autoForward
      *

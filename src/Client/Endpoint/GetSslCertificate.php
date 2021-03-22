@@ -6,7 +6,7 @@ class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint impl
 {
     protected $sha1_fingerprint;
     /**
-     * 
+     *
      *
      * @param string $sha1Fingerprint The SHA-1 fingerprint of the certificate.
      */

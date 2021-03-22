@@ -6,10 +6,10 @@ class ChangeGzipCompression extends \Combell\Client\Runtime\Client\BaseEndpoint 
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name
-     * @param null|\Combell\Client\Model\GzipConfig $requestBody 
+     * @param null|\Combell\Client\Model\GzipConfig $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\GzipConfig $requestBody = null)
     {

@@ -6,10 +6,10 @@ class PutDomainsByDomainNameNameserver extends \Combell\Client\Runtime\Client\Ba
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name
-     * @param null|\Combell\Client\Model\EditNameServers $requestBody 
+     * @param null|\Combell\Client\Model\EditNameServers $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\EditNameServers $requestBody = null)
     {

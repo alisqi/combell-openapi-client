@@ -6,7 +6,7 @@ class GetWindowsHosting extends \Combell\Client\Runtime\Client\BaseEndpoint impl
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The Windows hosting domain name.
      */

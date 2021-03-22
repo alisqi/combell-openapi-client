@@ -7,11 +7,11 @@ class CreateHostHeader extends \Combell\Client\Runtime\Client\BaseEndpoint imple
     protected $domain_name;
     protected $site_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $siteName Name of the site on the linux hosting.
-     * @param null|\Combell\Client\Model\AddHostHeaderRequest $requestBody 
+     * @param null|\Combell\Client\Model\AddHostHeaderRequest $requestBody
      */
     public function __construct(string $domainName, string $siteName, ?\Combell\Client\Model\AddHostHeaderRequest $requestBody = null)
     {

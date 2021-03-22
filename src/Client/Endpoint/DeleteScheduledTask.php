@@ -7,7 +7,7 @@ class DeleteScheduledTask extends \Combell\Client\Runtime\Client\BaseEndpoint im
     protected $domain_name;
     protected $scheduled_task_id;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $scheduledTaskId Id of the scheduled task.

@@ -5,7 +5,7 @@ namespace Combell\Client\Model;
 class MailZone
 {
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -30,13 +30,13 @@ class MailZone
     */
     protected $aliases;
     /**
-     * 
+     *
      *
      * @var AntiSpam
      */
     protected $antiSpam;
     /**
-     * 
+     *
      *
      * @var CatchAll
      */
@@ -50,7 +50,7 @@ class MailZone
     */
     protected $smtpDomains;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class MailZone
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -136,7 +136,7 @@ class MailZone
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AntiSpam
      */
@@ -145,7 +145,7 @@ class MailZone
         return $this->antiSpam;
     }
     /**
-     * 
+     *
      *
      * @param AntiSpam $antiSpam
      *
@@ -157,7 +157,7 @@ class MailZone
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return CatchAll
      */
@@ -166,7 +166,7 @@ class MailZone
         return $this->catchAll;
     }
     /**
-     * 
+     *
      *
      * @param CatchAll $catchAll
      *

@@ -6,10 +6,10 @@ class ChangeMailboxPassword extends \Combell\Client\Runtime\Client\BaseEndpoint 
 {
     protected $mailbox_name;
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\UpdateMailboxPasswordRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateMailboxPasswordRequest $requestBody
      */
     public function __construct(string $mailboxName, ?\Combell\Client\Model\UpdateMailboxPasswordRequest $requestBody = null)
     {

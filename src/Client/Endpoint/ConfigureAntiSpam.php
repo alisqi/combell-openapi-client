@@ -6,10 +6,10 @@ class ConfigureAntiSpam extends \Combell\Client\Runtime\Client\BaseEndpoint impl
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\UpdateAntiSpamRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateAntiSpamRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\UpdateAntiSpamRequest $requestBody = null)
     {

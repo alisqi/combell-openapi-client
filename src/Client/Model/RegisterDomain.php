@@ -18,7 +18,7 @@ class RegisterDomain
      */
     protected $nameServers;
     /**
-     * 
+     *
      *
      * @var RegistrantInput
      */
@@ -68,7 +68,7 @@ class RegisterDomain
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return RegistrantInput
      */
@@ -77,7 +77,7 @@ class RegisterDomain
         return $this->registrant;
     }
     /**
-     * 
+     *
      *
      * @param RegistrantInput $registrant
      *

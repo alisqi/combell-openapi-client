@@ -7,12 +7,12 @@ class ConfigureHttp2 extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
     protected $domain_name;
     protected $site_name;
     /**
-    * 
+    *
     *
     * @param string $domainName Linux hosting domain name.
     * @param string $siteName Site name where HTTP/2 should be configured.<br />
     For HTTP/2 to work correctly, the site must have ssl enabled.
-    * @param null|\Combell\Client\Model\Http2Configuration $requestBody 
+    * @param null|\Combell\Client\Model\Http2Configuration $requestBody
     */
     public function __construct(string $domainName, string $siteName, ?\Combell\Client\Model\Http2Configuration $requestBody = null)
     {

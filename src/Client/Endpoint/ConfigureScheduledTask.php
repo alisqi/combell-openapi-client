@@ -7,11 +7,11 @@ class ConfigureScheduledTask extends \Combell\Client\Runtime\Client\BaseEndpoint
     protected $domain_name;
     protected $scheduled_task_id;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $scheduledTaskId Id of the scheduled task.
-     * @param null|\Combell\Client\Model\ScheduledTask $requestBody 
+     * @param null|\Combell\Client\Model\ScheduledTask $requestBody
      */
     public function __construct(string $domainName, string $scheduledTaskId, ?\Combell\Client\Model\ScheduledTask $requestBody = null)
     {

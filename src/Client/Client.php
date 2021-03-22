@@ -5,7 +5,7 @@ namespace Combell\Client;
 class Client extends \Combell\Client\Runtime\Client\Client
 {
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -24,7 +24,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
     /**
      * The creation of an account requires some background processing. There is no instant feedback of the creation status.
      *
-     * @param null|\Combell\Client\Model\CreateAccount $requestBody 
+     * @param null|\Combell\Client\Model\CreateAccount $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\CreateAccountBadRequestException
      *
@@ -35,7 +35,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateAccount($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $accountId The id of the account.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -47,7 +47,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetAccount($accountId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param array $queryParameters {
@@ -66,10 +66,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetDnsByDomainNameRecords($domainName, $queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
-     * @param null|\Combell\Client\Model\DnsRecord $requestBody 
+     * @param null|\Combell\Client\Model\DnsRecord $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -79,7 +79,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\PostDnsByDomainNameRecord($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
@@ -92,7 +92,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteDnsByDomainNameRecordByRecordId($domainName, $recordId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
@@ -105,11 +105,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetDnsByDomainNameRecordByRecordId($domainName, $recordId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
-     * @param null|\Combell\Client\Model\DnsRecord $requestBody 
+     * @param null|\Combell\Client\Model\DnsRecord $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -119,7 +119,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\PutDnsByDomainNameRecordByRecordId($domainName, $recordId, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -134,7 +134,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\Domains($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -148,7 +148,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
     /**
      * Registers an available domain.<br />Domain names with extension '.ca' are only available for registrants with country code 'CA'.
      *
-     * @param null|\Combell\Client\Model\RegisterDomain $requestBody 
+     * @param null|\Combell\Client\Model\RegisterDomain $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -158,10 +158,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\PostDomainsRegistration($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name
-     * @param null|\Combell\Client\Model\EditNameServers $requestBody 
+     * @param null|\Combell\Client\Model\EditNameServers $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -175,7 +175,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
     Allowed if the requesting user has the finance role.
     *
     * @param string $domainName The domain name
-    * @param null|\Combell\Client\Model\EditDomainWillRenewRequest $requestBody 
+    * @param null|\Combell\Client\Model\EditDomainWillRenewRequest $requestBody
     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
     *
     * @return null|\Psr\Http\Message\ResponseInterface
@@ -185,7 +185,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureDomain($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -200,7 +200,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetLinuxHostings($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The Linux hosting domain name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -212,7 +212,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetLinuxHosting($domainName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -224,10 +224,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetAvailablePhpVersions($domainName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\PhpVersion $requestBody 
+     * @param null|\Combell\Client\Model\PhpVersion $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -237,10 +237,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangePhpVersion($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name
-     * @param null|\Combell\Client\Model\GzipConfig $requestBody 
+     * @param null|\Combell\Client\Model\GzipConfig $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -250,10 +250,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangeGzipCompression($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\AddSubsiteRequest $requestBody 
+     * @param null|\Combell\Client\Model\AddSubsiteRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -263,7 +263,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateSubsite($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $siteName Name of the site on the linux hosting.
@@ -277,11 +277,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteSubsite($domainName, $siteName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $siteName Name of the site on the linux hosting.
-     * @param null|\Combell\Client\Model\AddHostHeaderRequest $requestBody 
+     * @param null|\Combell\Client\Model\AddHostHeaderRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -291,12 +291,12 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateHostHeader($domainName, $siteName, $requestBody), $fetch);
     }
     /**
-    * 
+    *
     *
     * @param string $domainName Linux hosting domain name.
     * @param string $siteName Site name where HTTP/2 should be configured.<br />
     For HTTP/2 to work correctly, the site must have ssl enabled.
-    * @param null|\Combell\Client\Model\Http2Configuration $requestBody 
+    * @param null|\Combell\Client\Model\Http2Configuration $requestBody
     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
     * @throws \Combell\Client\Exception\ConfigureHttp2BadRequestException
     *
@@ -307,10 +307,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureHttp2($domainName, $siteName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\FtpConfiguration $requestBody 
+     * @param null|\Combell\Client\Model\FtpConfiguration $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\ConfigureFtpBadRequestException
      *
@@ -321,11 +321,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureFtp($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $hostname Specific hostname.
-     * @param null|\Combell\Client\Model\LetsEncryptConfig $requestBody 
+     * @param null|\Combell\Client\Model\LetsEncryptConfig $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -335,11 +335,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangeLetsEncrypt($domainName, $hostname, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $hostname Specific hostname.
-     * @param null|\Combell\Client\Model\AutoRedirectConfig $requestBody 
+     * @param null|\Combell\Client\Model\AutoRedirectConfig $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -349,10 +349,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangeAutoRedirect($domainName, $hostname, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\UpdatePhpMemoryLimitRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdatePhpMemoryLimitRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -362,10 +362,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangePhpMemoryLimit($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name
-     * @param null|\Combell\Client\Model\UpdatePhpAPcuRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdatePhpAPcuRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -387,10 +387,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetScheduledTasks($domainName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\ScheduledTask $requestBody 
+     * @param null|\Combell\Client\Model\ScheduledTask $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -400,7 +400,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\AddScheduledTasks($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $scheduledTaskId Id of the scheduled task.
@@ -414,7 +414,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteScheduledTask($domainName, $scheduledTaskId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $scheduledTaskId Id of the scheduled task.
@@ -427,11 +427,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetScheduledTask($domainName, $scheduledTaskId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $scheduledTaskId Id of the scheduled task.
-     * @param null|\Combell\Client\Model\ScheduledTask $requestBody 
+     * @param null|\Combell\Client\Model\ScheduledTask $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\ConfigureScheduledTaskBadRequestException
      *
@@ -442,7 +442,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureScheduledTask($domainName, $scheduledTaskId, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -454,10 +454,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetSshKeys($domainName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\AddSshKeyRequest $requestBody 
+     * @param null|\Combell\Client\Model\AddSshKeyRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -467,10 +467,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\AddSshKey($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\SshConfiguration $requestBody 
+     * @param null|\Combell\Client\Model\SshConfiguration $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\ConfigureSshBadRequestException
      *
@@ -481,7 +481,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureSsh($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $fingerprint Fingerprint of public key.
@@ -509,9 +509,9 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetMailboxes($queryParameters), $fetch);
     }
     /**
-     * 
      *
-     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody 
+     *
+     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -521,7 +521,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateMailbox($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -534,7 +534,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteMailbox($mailboxName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -546,10 +546,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetMailbox($mailboxName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\UpdateMailboxPasswordRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateMailboxPasswordRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -559,10 +559,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangeMailboxPassword($mailboxName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\AutoReply $requestBody 
+     * @param null|\Combell\Client\Model\AutoReply $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -572,10 +572,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureMailboxAutoReply($mailboxName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\AutoForward $requestBody 
+     * @param null|\Combell\Client\Model\AutoForward $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -585,7 +585,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureMailboxAutoForward($mailboxName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -597,10 +597,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetMailZone($domainName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateCatchAllRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateCatchAllRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -610,7 +610,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateCatchAll($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress E-mail address to which all e-mails are sent to inexistent mailboxes or aliases.
@@ -623,10 +623,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteCatchAll($domainName, $emailAddress), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\UpdateAntiSpamRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateAntiSpamRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -636,10 +636,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureAntiSpam($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateAliasRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateAliasRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\CreateAliasBadRequestException
      *
@@ -650,7 +650,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateAlias($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress Alias e-mail address.
@@ -664,11 +664,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteAlias($domainName, $emailAddress), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress Alias e-mail address.
-     * @param null|\Combell\Client\Model\UpdateAliasRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateAliasRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\ConfigureAliasBadRequestException
      *
@@ -679,10 +679,10 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureAlias($domainName, $emailAddress, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateSmtpDomainRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateSmtpDomainRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\CreateSmtpDomainBadRequestException
      *
@@ -693,7 +693,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateSmtpDomain($domainName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $hostname Smtp domain name.
@@ -707,11 +707,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteSmtpDomain($domainName, $hostname), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $hostname Smtp domain name.
-     * @param null|\Combell\Client\Model\UpdateSmtpDomainRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateSmtpDomainRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\ConfigureSmtpDomainBadRequestException
      *
@@ -722,7 +722,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ConfigureSmtpDomain($domainName, $hostname, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -737,9 +737,9 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetMySqlDatabases($queryParameters), $fetch);
     }
     /**
-     * 
      *
-     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody 
+     *
+     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\CreateMySqlDatabaseBadRequestException
      *
@@ -750,7 +750,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateMySqlDatabase($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -763,9 +763,9 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DeleteDatabase($databaseName), $fetch);
     }
     /**
-     * 
      *
-     * @param string $databaseName 
+     *
+     * @param string $databaseName
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Combell\Client\Model\MySqlDatabase|\Psr\Http\Message\ResponseInterface
@@ -775,7 +775,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetMySqlDatabase($databaseName), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -790,7 +790,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
      * The creation of a new mysql user will result in a user with read_only rights.
      *
      * @param string $databaseName Name of the database.
-     * @param null|\Combell\Client\Model\CreateMySqlUser $requestBody 
+     * @param null|\Combell\Client\Model\CreateMySqlUser $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \Combell\Client\Exception\CreateMySqlUserBadRequestException
      *
@@ -801,11 +801,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\CreateMySqlUser($databaseName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $userName Name of the user.
-     * @param null|\Combell\Client\Model\UpdateUserStatusRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateUserStatusRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -815,11 +815,11 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\ChangeDatabaseUserStatus($databaseName, $userName, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $userName Name of the user.
-     * @param null|\Combell\Client\Model\UpdateUserPasswordRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateUserPasswordRequest $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\Psr\Http\Message\ResponseInterface
@@ -846,7 +846,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
     * Provisioning failures may occur. Contact support in the event of a failure or wait for error resolution.<br />
     Do NOT retry provisioning until the job reports finished or cancelled.
     *
-    * @param string $jobId 
+    * @param string $jobId
     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
     *
     * @return null|\Combell\Client\Model\ProvisioningJobInfo|\Combell\Client\Model\ProvisioningJobCompletion|\Psr\Http\Message\ResponseInterface
@@ -865,7 +865,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\Servicepacks(), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -880,7 +880,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetAllSshKeys($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -899,7 +899,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
     Log on to our website to see your current (renewal) prices or contact our Sales department.<br />
     Please note that promotional pricing does not apply for purchases made through our API.
     *
-    * @param null|\Combell\Client\Model\CreateSslCertificateRequest $requestBody 
+    * @param null|\Combell\Client\Model\CreateSslCertificateRequest $requestBody
     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
     *
     * @return null|\Psr\Http\Message\ResponseInterface
@@ -909,7 +909,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\AddSslCertificateRequest($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id The id of the certificate request.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -922,7 +922,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetSslCertificateRequest($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id The id of the certificate request.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -935,7 +935,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\VerifySslCertificateRequestDomainValidations($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -950,7 +950,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetSslCertificates($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $sha1Fingerprint The SHA-1 fingerprint of the certificate.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -980,7 +980,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\DownloadCertificate($sha1Fingerprint, $queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -995,7 +995,7 @@ class Client extends \Combell\Client\Runtime\Client\Client
         return $this->executeEndpoint(new \Combell\Client\Endpoint\GetWindowsHostings($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainName The Windows hosting domain name.
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

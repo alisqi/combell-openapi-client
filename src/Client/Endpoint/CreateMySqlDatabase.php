@@ -5,9 +5,9 @@ namespace Combell\Client\Endpoint;
 class CreateMySqlDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
     /**
-     * 
      *
-     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody 
+     *
+     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody
      */
     public function __construct(?\Combell\Client\Model\CreateMySqlDatabase $requestBody = null)
     {

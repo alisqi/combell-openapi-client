@@ -6,10 +6,10 @@ class CreateSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\AddSubsiteRequest $requestBody 
+     * @param null|\Combell\Client\Model\AddSubsiteRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\AddSubsiteRequest $requestBody = null)
     {

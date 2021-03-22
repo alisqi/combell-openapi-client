@@ -7,11 +7,11 @@ class ConfigureAlias extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
     protected $domain_name;
     protected $email_address;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress Alias e-mail address.
-     * @param null|\Combell\Client\Model\UpdateAliasRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateAliasRequest $requestBody
      */
     public function __construct(string $domainName, string $emailAddress, ?\Combell\Client\Model\UpdateAliasRequest $requestBody = null)
     {

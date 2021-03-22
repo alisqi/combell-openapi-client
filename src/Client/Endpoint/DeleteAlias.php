@@ -7,7 +7,7 @@ class DeleteAlias extends \Combell\Client\Runtime\Client\BaseEndpoint implements
     protected $domain_name;
     protected $email_address;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress Alias e-mail address.

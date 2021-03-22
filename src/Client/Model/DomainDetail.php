@@ -30,7 +30,7 @@ class DomainDetail
      */
     protected $nameServers;
     /**
-     * 
+     *
      *
      * @var Registrant
      */
@@ -128,7 +128,7 @@ class DomainDetail
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return Registrant
      */
@@ -137,7 +137,7 @@ class DomainDetail
         return $this->registrant;
     }
     /**
-     * 
+     *
      *
      * @param Registrant $registrant
      *

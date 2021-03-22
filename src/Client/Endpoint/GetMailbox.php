@@ -6,7 +6,7 @@ class GetMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implements 
 {
     protected $mailbox_name;
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
      */

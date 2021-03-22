@@ -6,7 +6,7 @@ class GetDnsByDomainNameRecords extends \Combell\Client\Runtime\Client\BaseEndpo
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param array $queryParameters {

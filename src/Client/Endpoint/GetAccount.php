@@ -6,7 +6,7 @@ class GetAccount extends \Combell\Client\Runtime\Client\BaseEndpoint implements 
 {
     protected $account_id;
     /**
-     * 
+     *
      *
      * @param int $accountId The id of the account.
      */

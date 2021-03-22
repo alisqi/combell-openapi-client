@@ -6,10 +6,10 @@ class ConfigureSsh extends \Combell\Client\Runtime\Client\BaseEndpoint implement
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\SshConfiguration $requestBody 
+     * @param null|\Combell\Client\Model\SshConfiguration $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\SshConfiguration $requestBody = null)
     {

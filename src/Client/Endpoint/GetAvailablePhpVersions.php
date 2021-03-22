@@ -6,7 +6,7 @@ class GetAvailablePhpVersions extends \Combell\Client\Runtime\Client\BaseEndpoin
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      */

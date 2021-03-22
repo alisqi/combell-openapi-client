@@ -5,19 +5,19 @@ namespace Combell\Client\Model;
 class ValidationErrorMessage
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $errorCode;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $errorText;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -26,7 +26,7 @@ class ValidationErrorMessage
         return $this->errorCode;
     }
     /**
-     * 
+     *
      *
      * @param string $errorCode
      *
@@ -38,7 +38,7 @@ class ValidationErrorMessage
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class ValidationErrorMessage
         return $this->errorText;
     }
     /**
-     * 
+     *
      *
      * @param string $errorText
      *

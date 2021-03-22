@@ -9,7 +9,7 @@ class GetProvisioningjobByJobId extends \Combell\Client\Runtime\Client\BaseEndpo
     * Provisioning failures may occur. Contact support in the event of a failure or wait for error resolution.<br />
     Do NOT retry provisioning until the job reports finished or cancelled.
     *
-    * @param string $jobId 
+    * @param string $jobId
     */
     public function __construct(string $jobId)
     {

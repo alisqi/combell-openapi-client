@@ -6,7 +6,7 @@ class GetLinuxHosting extends \Combell\Client\Runtime\Client\BaseEndpoint implem
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The Linux hosting domain name.
      */

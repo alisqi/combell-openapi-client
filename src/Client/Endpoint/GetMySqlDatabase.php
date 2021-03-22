@@ -6,9 +6,9 @@ class GetMySqlDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint imple
 {
     protected $database_name;
     /**
-     * 
      *
-     * @param string $databaseName 
+     *
+     * @param string $databaseName
      */
     public function __construct(string $databaseName)
     {

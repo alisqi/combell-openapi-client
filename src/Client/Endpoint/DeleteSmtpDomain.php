@@ -7,7 +7,7 @@ class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
     protected $domain_name;
     protected $hostname;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $hostname Smtp domain name.

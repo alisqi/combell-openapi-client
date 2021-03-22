@@ -6,10 +6,10 @@ class ConfigureMailboxAutoReply extends \Combell\Client\Runtime\Client\BaseEndpo
 {
     protected $mailbox_name;
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\AutoReply $requestBody 
+     * @param null|\Combell\Client\Model\AutoReply $requestBody
      */
     public function __construct(string $mailboxName, ?\Combell\Client\Model\AutoReply $requestBody = null)
     {

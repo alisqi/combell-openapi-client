@@ -9,7 +9,7 @@ class CreateMySqlUser extends \Combell\Client\Runtime\Client\BaseEndpoint implem
      * The creation of a new mysql user will result in a user with read_only rights.
      *
      * @param string $databaseName Name of the database.
-     * @param null|\Combell\Client\Model\CreateMySqlUser $requestBody 
+     * @param null|\Combell\Client\Model\CreateMySqlUser $requestBody
      */
     public function __construct(string $databaseName, ?\Combell\Client\Model\CreateMySqlUser $requestBody = null)
     {

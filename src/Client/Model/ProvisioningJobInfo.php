@@ -17,7 +17,7 @@ class ProvisioningJobInfo
      */
     protected $status;
     /**
-     * 
+     *
      *
      * @var CompletionEstimation
      */
@@ -65,7 +65,7 @@ class ProvisioningJobInfo
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return CompletionEstimation
      */
@@ -74,7 +74,7 @@ class ProvisioningJobInfo
         return $this->completion;
     }
     /**
-     * 
+     *
      *
      * @param CompletionEstimation $completion
      *

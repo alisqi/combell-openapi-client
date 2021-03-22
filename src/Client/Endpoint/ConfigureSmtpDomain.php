@@ -7,11 +7,11 @@ class ConfigureSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint im
     protected $domain_name;
     protected $hostname;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $hostname Smtp domain name.
-     * @param null|\Combell\Client\Model\UpdateSmtpDomainRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateSmtpDomainRequest $requestBody
      */
     public function __construct(string $domainName, string $hostname, ?\Combell\Client\Model\UpdateSmtpDomainRequest $requestBody = null)
     {

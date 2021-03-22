@@ -6,10 +6,10 @@ class CreateSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateSmtpDomainRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateSmtpDomainRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\CreateSmtpDomainRequest $requestBody = null)
     {

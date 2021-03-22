@@ -7,7 +7,7 @@ class CreateAccount extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
     /**
      * The creation of an account requires some background processing. There is no instant feedback of the creation status.
      *
-     * @param null|\Combell\Client\Model\CreateAccount $requestBody 
+     * @param null|\Combell\Client\Model\CreateAccount $requestBody
      */
     public function __construct(?\Combell\Client\Model\CreateAccount $requestBody = null)
     {

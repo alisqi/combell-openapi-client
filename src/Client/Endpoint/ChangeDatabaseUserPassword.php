@@ -7,11 +7,11 @@ class ChangeDatabaseUserPassword extends \Combell\Client\Runtime\Client\BaseEndp
     protected $database_name;
     protected $user_name;
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      * @param string $userName Name of the user.
-     * @param null|\Combell\Client\Model\UpdateUserPasswordRequest $requestBody 
+     * @param null|\Combell\Client\Model\UpdateUserPasswordRequest $requestBody
      */
     public function __construct(string $databaseName, string $userName, ?\Combell\Client\Model\UpdateUserPasswordRequest $requestBody = null)
     {

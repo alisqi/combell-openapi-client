@@ -7,11 +7,11 @@ class ChangeAutoRedirect extends \Combell\Client\Runtime\Client\BaseEndpoint imp
     protected $domain_name;
     protected $hostname;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $hostname Specific hostname.
-     * @param null|\Combell\Client\Model\AutoRedirectConfig $requestBody 
+     * @param null|\Combell\Client\Model\AutoRedirectConfig $requestBody
      */
     public function __construct(string $domainName, string $hostname, ?\Combell\Client\Model\AutoRedirectConfig $requestBody = null)
     {

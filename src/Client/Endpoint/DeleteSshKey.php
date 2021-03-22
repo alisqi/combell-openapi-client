@@ -7,7 +7,7 @@ class DeleteSshKey extends \Combell\Client\Runtime\Client\BaseEndpoint implement
     protected $domain_name;
     protected $fingerprint;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $fingerprint Fingerprint of public key.

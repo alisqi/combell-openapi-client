@@ -6,7 +6,7 @@ class GetDomainByDomainName extends \Combell\Client\Runtime\Client\BaseEndpoint 
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name
      */

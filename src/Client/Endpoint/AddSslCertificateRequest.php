@@ -9,7 +9,7 @@ class AddSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
     Log on to our website to see your current (renewal) prices or contact our Sales department.<br />
     Please note that promotional pricing does not apply for purchases made through our API.
     *
-    * @param null|\Combell\Client\Model\CreateSslCertificateRequest $requestBody 
+    * @param null|\Combell\Client\Model\CreateSslCertificateRequest $requestBody
     */
     public function __construct(?\Combell\Client\Model\CreateSslCertificateRequest $requestBody = null)
     {

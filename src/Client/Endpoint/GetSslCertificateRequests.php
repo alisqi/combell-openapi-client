@@ -5,7 +5,7 @@ namespace Combell\Client\Endpoint;
 class GetSslCertificateRequests extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
     /**
-     * 
+     *
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.

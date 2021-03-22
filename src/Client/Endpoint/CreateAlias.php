@@ -6,10 +6,10 @@ class CreateAlias extends \Combell\Client\Runtime\Client\BaseEndpoint implements
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateAliasRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateAliasRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\CreateAliasRequest $requestBody = null)
     {

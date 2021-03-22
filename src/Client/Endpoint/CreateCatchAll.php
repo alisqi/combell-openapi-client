@@ -6,10 +6,10 @@ class CreateCatchAll extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
-     * @param null|\Combell\Client\Model\CreateCatchAllRequest $requestBody 
+     * @param null|\Combell\Client\Model\CreateCatchAllRequest $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\CreateCatchAllRequest $requestBody = null)
     {

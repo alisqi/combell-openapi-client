@@ -6,10 +6,10 @@ class PostDnsByDomainNameRecord extends \Combell\Client\Runtime\Client\BaseEndpo
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
-     * @param null|\Combell\Client\Model\DnsRecord $requestBody 
+     * @param null|\Combell\Client\Model\DnsRecord $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\DnsRecord $requestBody = null)
     {

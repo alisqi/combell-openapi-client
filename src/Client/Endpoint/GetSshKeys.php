@@ -6,7 +6,7 @@ class GetSshKeys extends \Combell\Client\Runtime\Client\BaseEndpoint implements 
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      */

@@ -10,7 +10,7 @@ class ConfigureDomain extends \Combell\Client\Runtime\Client\BaseEndpoint implem
     Allowed if the requesting user has the finance role.
     *
     * @param string $domainName The domain name
-    * @param null|\Combell\Client\Model\EditDomainWillRenewRequest $requestBody 
+    * @param null|\Combell\Client\Model\EditDomainWillRenewRequest $requestBody
     */
     public function __construct(string $domainName, ?\Combell\Client\Model\EditDomainWillRenewRequest $requestBody = null)
     {

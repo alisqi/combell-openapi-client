@@ -6,7 +6,7 @@ class DeleteMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
 {
     protected $mailbox_name;
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
      */

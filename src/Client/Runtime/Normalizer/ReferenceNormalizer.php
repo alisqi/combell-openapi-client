@@ -4,6 +4,7 @@ namespace Combell\Client\Runtime\Normalizer;
 
 use Jane\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 class ReferenceNormalizer implements NormalizerInterface
 {
     /**

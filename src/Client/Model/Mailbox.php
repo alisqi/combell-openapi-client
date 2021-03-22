@@ -5,7 +5,7 @@ namespace Combell\Client\Model;
 class Mailbox
 {
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -23,7 +23,7 @@ class Mailbox
      */
     protected $actualSize;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -32,7 +32,7 @@ class Mailbox
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *

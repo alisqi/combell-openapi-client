@@ -5,9 +5,9 @@ namespace Combell\Client\Endpoint;
 class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
     /**
-     * 
      *
-     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody 
+     *
+     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody
      */
     public function __construct(?\Combell\Client\Model\CreateMailboxRequest $requestBody = null)
     {

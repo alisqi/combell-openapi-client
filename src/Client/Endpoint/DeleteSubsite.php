@@ -7,7 +7,7 @@ class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
     protected $domain_name;
     protected $site_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $siteName Name of the site on the linux hosting.

@@ -6,10 +6,10 @@ class ConfigureMailboxAutoForward extends \Combell\Client\Runtime\Client\BaseEnd
 {
     protected $mailbox_name;
     /**
-     * 
+     *
      *
      * @param string $mailboxName Mailbox name.
-     * @param null|\Combell\Client\Model\AutoForward $requestBody 
+     * @param null|\Combell\Client\Model\AutoForward $requestBody
      */
     public function __construct(string $mailboxName, ?\Combell\Client\Model\AutoForward $requestBody = null)
     {

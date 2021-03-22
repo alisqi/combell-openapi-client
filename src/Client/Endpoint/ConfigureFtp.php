@@ -6,10 +6,10 @@ class ConfigureFtp extends \Combell\Client\Runtime\Client\BaseEndpoint implement
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\FtpConfiguration $requestBody 
+     * @param null|\Combell\Client\Model\FtpConfiguration $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\FtpConfiguration $requestBody = null)
     {

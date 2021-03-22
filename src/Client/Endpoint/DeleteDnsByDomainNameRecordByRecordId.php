@@ -7,7 +7,7 @@ class DeleteDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Clie
     protected $domain_name;
     protected $record_id;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.

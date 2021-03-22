@@ -7,7 +7,7 @@ class DeleteCatchAll extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
     protected $domain_name;
     protected $email_address;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress E-mail address to which all e-mails are sent to inexistent mailboxes or aliases.

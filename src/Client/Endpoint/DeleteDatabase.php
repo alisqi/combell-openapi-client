@@ -6,7 +6,7 @@ class DeleteDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
 {
     protected $database_name;
     /**
-     * 
+     *
      *
      * @param string $databaseName Name of the database.
      */

@@ -6,7 +6,7 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param int $id The id of the certificate request.
      */

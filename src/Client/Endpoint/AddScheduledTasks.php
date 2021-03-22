@@ -6,10 +6,10 @@ class AddScheduledTasks extends \Combell\Client\Runtime\Client\BaseEndpoint impl
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
-     * @param null|\Combell\Client\Model\ScheduledTask $requestBody 
+     * @param null|\Combell\Client\Model\ScheduledTask $requestBody
      */
     public function __construct(string $domainName, ?\Combell\Client\Model\ScheduledTask $requestBody = null)
     {

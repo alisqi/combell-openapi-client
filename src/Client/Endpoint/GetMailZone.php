@@ -6,7 +6,7 @@ class GetMailZone extends \Combell\Client\Runtime\Client\BaseEndpoint implements
 {
     protected $domain_name;
     /**
-     * 
+     *
      *
      * @param string $domainName Mail zone domain name.
      */

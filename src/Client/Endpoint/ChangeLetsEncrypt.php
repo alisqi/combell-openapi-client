@@ -7,11 +7,11 @@ class ChangeLetsEncrypt extends \Combell\Client\Runtime\Client\BaseEndpoint impl
     protected $domain_name;
     protected $hostname;
     /**
-     * 
+     *
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $hostname Specific hostname.
-     * @param null|\Combell\Client\Model\LetsEncryptConfig $requestBody 
+     * @param null|\Combell\Client\Model\LetsEncryptConfig $requestBody
      */
     public function __construct(string $domainName, string $hostname, ?\Combell\Client\Model\LetsEncryptConfig $requestBody = null)
     {

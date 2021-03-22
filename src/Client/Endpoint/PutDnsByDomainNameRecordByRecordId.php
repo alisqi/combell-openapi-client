@@ -7,11 +7,11 @@ class PutDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\
     protected $domain_name;
     protected $record_id;
     /**
-     * 
+     *
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
-     * @param null|\Combell\Client\Model\DnsRecord $requestBody 
+     * @param null|\Combell\Client\Model\DnsRecord $requestBody
      */
     public function __construct(string $domainName, string $recordId, ?\Combell\Client\Model\DnsRecord $requestBody = null)
     {
