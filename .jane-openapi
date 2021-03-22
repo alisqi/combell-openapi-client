@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'openapi-file' => 'https://api.combell.com/v2/documentation/swagger-v2.json',
+    'namespace' => 'Combell\Client',
+    'directory' => __DIR__ . '/src/Client',
+];
