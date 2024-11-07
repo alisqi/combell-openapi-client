@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class Account
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the account
      *
      * @var int
@@ -40,6 +48,7 @@ class Account
      */
     public function setId(int $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -61,6 +70,7 @@ class Account
      */
     public function setIdentifier(string $identifier): self
     {
+        $this->initialized['identifier'] = true;
         $this->identifier = $identifier;
         return $this;
     }
@@ -82,6 +92,7 @@ class Account
      */
     public function setServicepackId(int $servicepackId): self
     {
+        $this->initialized['servicepackId'] = true;
         $this->servicepackId = $servicepackId;
         return $this;
     }

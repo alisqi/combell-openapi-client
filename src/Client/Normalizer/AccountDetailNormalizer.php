@@ -2,8 +2,9 @@
 
 namespace Combell\Client\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
+use Jane\Component\JsonSchemaRuntime\Reference;
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -11,69 +12,153 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class AccountDetailNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class AccountDetailNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return $type === 'Combell\\Client\\Model\\AccountDetail';
-    }
-    public function supportsNormalization($data, $format = null)
-    {
-        return is_object($data) && get_class($data) === 'Combell\\Client\\Model\\AccountDetail';
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        if (isset($data['$ref'])) {
-            return new Reference($data['$ref'], $context['document-origin']);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\AccountDetail::class;
         }
-        if (isset($data['$recursiveRef'])) {
-            return new Reference($data['$recursiveRef'], $context['document-origin']);
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\AccountDetail::class;
         }
-        $object = new \Combell\Client\Model\AccountDetail();
-        if (null === $data || false === \is_array($data)) {
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\AccountDetail();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('id', $data)) {
+                $object->setId($data['id']);
+            }
+            if (\array_key_exists('identifier', $data)) {
+                $object->setIdentifier($data['identifier']);
+            }
+            if (\array_key_exists('servicepack', $data)) {
+                $object->setServicepack($this->denormalizer->denormalize($data['servicepack'], \Combell\Client\Model\Servicepack::class, 'json', $context));
+            }
+            if (\array_key_exists('addons', $data)) {
+                $values = [];
+                foreach ($data['addons'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \Combell\Client\Model\Addon::class, 'json', $context);
+                }
+                $object->setAddons($values);
+            }
             return $object;
         }
-        if (\array_key_exists('id', $data)) {
-            $object->setId($data['id']);
-        }
-        if (\array_key_exists('identifier', $data)) {
-            $object->setIdentifier($data['identifier']);
-        }
-        if (\array_key_exists('servicepack', $data)) {
-            $object->setServicepack($this->denormalizer->denormalize($data['servicepack'], 'Combell\\Client\\Model\\Servicepack', 'json', $context));
-        }
-        if (\array_key_exists('addons', $data)) {
-            $values = array();
-            foreach ($data['addons'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Combell\\Client\\Model\\Addon', 'json', $context);
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $data = [];
+            if ($object->isInitialized('id') && null !== $object->getId()) {
+                $data['id'] = $object->getId();
             }
-            $object->setAddons($values);
+            if ($object->isInitialized('identifier') && null !== $object->getIdentifier()) {
+                $data['identifier'] = $object->getIdentifier();
+            }
+            if ($object->isInitialized('servicepack') && null !== $object->getServicepack()) {
+                $data['servicepack'] = $this->normalizer->normalize($object->getServicepack(), 'json', $context);
+            }
+            if ($object->isInitialized('addons') && null !== $object->getAddons()) {
+                $values = [];
+                foreach ($object->getAddons() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['addons'] = $values;
+            }
+            return $data;
         }
-        return $object;
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\AccountDetail::class => false];
+        }
     }
-    public function normalize($object, $format = null, array $context = array())
+} else {
+    class AccountDetailNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        $data = array();
-        if (null !== $object->getId()) {
-            $data['id'] = $object->getId();
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization($data, $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\AccountDetail::class;
         }
-        if (null !== $object->getIdentifier()) {
-            $data['identifier'] = $object->getIdentifier();
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\AccountDetail::class;
         }
-        if (null !== $object->getServicepack()) {
-            $data['servicepack'] = $this->normalizer->normalize($object->getServicepack(), 'json', $context);
-        }
-        if (null !== $object->getAddons()) {
-            $values = array();
-            foreach ($object->getAddons() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
             }
-            $data['addons'] = $values;
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\AccountDetail();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('id', $data)) {
+                $object->setId($data['id']);
+            }
+            if (\array_key_exists('identifier', $data)) {
+                $object->setIdentifier($data['identifier']);
+            }
+            if (\array_key_exists('servicepack', $data)) {
+                $object->setServicepack($this->denormalizer->denormalize($data['servicepack'], \Combell\Client\Model\Servicepack::class, 'json', $context));
+            }
+            if (\array_key_exists('addons', $data)) {
+                $values = [];
+                foreach ($data['addons'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \Combell\Client\Model\Addon::class, 'json', $context);
+                }
+                $object->setAddons($values);
+            }
+            return $object;
         }
-        return $data;
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $data = [];
+            if ($object->isInitialized('id') && null !== $object->getId()) {
+                $data['id'] = $object->getId();
+            }
+            if ($object->isInitialized('identifier') && null !== $object->getIdentifier()) {
+                $data['identifier'] = $object->getIdentifier();
+            }
+            if ($object->isInitialized('servicepack') && null !== $object->getServicepack()) {
+                $data['servicepack'] = $this->normalizer->normalize($object->getServicepack(), 'json', $context);
+            }
+            if ($object->isInitialized('addons') && null !== $object->getAddons()) {
+                $values = [];
+                foreach ($object->getAddons() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['addons'] = $values;
+            }
+            return $data;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\AccountDetail::class => false];
+        }
     }
 }

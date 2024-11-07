@@ -4,16 +4,16 @@ namespace Combell\Client\Endpoint;
 
 class CreateMySqlDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
+     * 
      *
-     *
-     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody
+     * @param null|\Combell\Client\Model\CreateMySqlDatabase $requestBody 
      */
     public function __construct(?\Combell\Client\Model\CreateMySqlDatabase $requestBody = null)
     {
         $this->body = $requestBody;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'POST';
@@ -25,13 +25,13 @@ class CreateMySqlDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint im
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\CreateMySqlDatabase) {
-            return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
+            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        return array(array(), null);
+        return [[], null];
     }
     public function getExtraHeaders(): array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
     /**
      * {@inheritdoc}
@@ -40,17 +40,19 @@ class CreateMySqlDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint im
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (202 === $status) {
             return null;
         }
         if (is_null($contentType) === false && (400 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            throw new \Combell\Client\Exception\CreateMySqlDatabaseBadRequestException($serializer->deserialize($body, 'Combell\\Client\\Model\\BadRequestResponse', 'json'));
+            throw new \Combell\Client\Exception\CreateMySqlDatabaseBadRequestException($serializer->deserialize($body, 'Combell\Client\Model\BadRequestResponse', 'json'), $response);
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

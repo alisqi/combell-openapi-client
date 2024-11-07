@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class Servicepack
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the service pack
      *
      * @var int
@@ -34,6 +42,7 @@ class Servicepack
      */
     public function setId(int $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -55,6 +64,7 @@ class Servicepack
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }

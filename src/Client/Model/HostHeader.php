@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class HostHeader
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The name of the host header.
      *
      * @var string
@@ -34,6 +42,7 @@ class HostHeader
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -55,6 +64,7 @@ class HostHeader
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SslCertificateRequestValidation
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * A domain name of the certificate.
      *
      * @var string
@@ -25,7 +33,7 @@ class SslCertificateRequestValidation
     /**
      * An array of eligible domain verification email addresses.
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $emailAddresses;
     /**
@@ -55,7 +63,7 @@ class SslCertificateRequestValidation
     /**
      * The content your verification file must contain, consisting of three lines of plain-text.
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $fileValidationContent;
     /**
@@ -76,6 +84,7 @@ class SslCertificateRequestValidation
      */
     public function setDnsName(string $dnsName): self
     {
+        $this->initialized['dnsName'] = true;
         $this->dnsName = $dnsName;
         return $this;
     }
@@ -97,6 +106,7 @@ class SslCertificateRequestValidation
      */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }
@@ -118,13 +128,14 @@ class SslCertificateRequestValidation
      */
     public function setAutoValidated(bool $autoValidated): self
     {
+        $this->initialized['autoValidated'] = true;
         $this->autoValidated = $autoValidated;
         return $this;
     }
     /**
      * An array of eligible domain verification email addresses.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getEmailAddresses(): array
     {
@@ -133,12 +144,13 @@ class SslCertificateRequestValidation
     /**
      * An array of eligible domain verification email addresses.
      *
-     * @param string[] $emailAddresses
+     * @param list<string> $emailAddresses
      *
      * @return self
      */
     public function setEmailAddresses(array $emailAddresses): self
     {
+        $this->initialized['emailAddresses'] = true;
         $this->emailAddresses = $emailAddresses;
         return $this;
     }
@@ -160,6 +172,7 @@ class SslCertificateRequestValidation
      */
     public function setCnameValidationName(string $cnameValidationName): self
     {
+        $this->initialized['cnameValidationName'] = true;
         $this->cnameValidationName = $cnameValidationName;
         return $this;
     }
@@ -181,6 +194,7 @@ class SslCertificateRequestValidation
      */
     public function setCnameValidationContent(string $cnameValidationContent): self
     {
+        $this->initialized['cnameValidationContent'] = true;
         $this->cnameValidationContent = $cnameValidationContent;
         return $this;
     }
@@ -202,6 +216,7 @@ class SslCertificateRequestValidation
      */
     public function setFileValidationUrlHttp(string $fileValidationUrlHttp): self
     {
+        $this->initialized['fileValidationUrlHttp'] = true;
         $this->fileValidationUrlHttp = $fileValidationUrlHttp;
         return $this;
     }
@@ -223,13 +238,14 @@ class SslCertificateRequestValidation
      */
     public function setFileValidationUrlHttps(string $fileValidationUrlHttps): self
     {
+        $this->initialized['fileValidationUrlHttps'] = true;
         $this->fileValidationUrlHttps = $fileValidationUrlHttps;
         return $this;
     }
     /**
      * The content your verification file must contain, consisting of three lines of plain-text.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getFileValidationContent(): array
     {
@@ -238,12 +254,13 @@ class SslCertificateRequestValidation
     /**
      * The content your verification file must contain, consisting of three lines of plain-text.
      *
-     * @param string[] $fileValidationContent
+     * @param list<string> $fileValidationContent
      *
      * @return self
      */
     public function setFileValidationContent(array $fileValidationContent): self
     {
+        $this->initialized['fileValidationContent'] = true;
         $this->fileValidationContent = $fileValidationContent;
         return $this;
     }

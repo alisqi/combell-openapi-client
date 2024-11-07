@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class UpdatePhpMemoryLimitRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The php memory limit
      *
      * @var int
@@ -28,6 +36,7 @@ class UpdatePhpMemoryLimitRequest
      */
     public function setMemoryLimit(int $memoryLimit): self
     {
+        $this->initialized['memoryLimit'] = true;
         $this->memoryLimit = $memoryLimit;
         return $this;
     }

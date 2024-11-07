@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class ProvisioningJobCompletion
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the job.
      *
      * @var string
@@ -13,7 +21,7 @@ class ProvisioningJobCompletion
     /**
      * Links to the created resource(s).
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $resourceLinks;
     /**
@@ -34,13 +42,14 @@ class ProvisioningJobCompletion
      */
     public function setId(string $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
     /**
      * Links to the created resource(s).
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getResourceLinks(): array
     {
@@ -49,12 +58,13 @@ class ProvisioningJobCompletion
     /**
      * Links to the created resource(s).
      *
-     * @param string[] $resourceLinks
+     * @param list<string> $resourceLinks
      *
      * @return self
      */
     public function setResourceLinks(array $resourceLinks): self
     {
+        $this->initialized['resourceLinks'] = true;
         $this->resourceLinks = $resourceLinks;
         return $this;
     }

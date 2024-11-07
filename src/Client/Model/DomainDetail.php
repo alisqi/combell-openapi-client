@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class DomainDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The domain name
      *
      * @var string
@@ -26,11 +34,11 @@ class DomainDetail
     /**
      * Nameservers of the domain
      *
-     * @var NameServer[]
+     * @var list<NameServer>
      */
     protected $nameServers;
     /**
-     *
+     * 
      *
      * @var Registrant
      */
@@ -59,6 +67,7 @@ class DomainDetail
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -80,6 +89,7 @@ class DomainDetail
      */
     public function setExpirationDate(\DateTime $expirationDate): self
     {
+        $this->initialized['expirationDate'] = true;
         $this->expirationDate = $expirationDate;
         return $this;
     }
@@ -103,13 +113,14 @@ class DomainDetail
     */
     public function setWillRenew(bool $willRenew): self
     {
+        $this->initialized['willRenew'] = true;
         $this->willRenew = $willRenew;
         return $this;
     }
     /**
      * Nameservers of the domain
      *
-     * @return NameServer[]
+     * @return list<NameServer>
      */
     public function getNameServers(): array
     {
@@ -118,17 +129,18 @@ class DomainDetail
     /**
      * Nameservers of the domain
      *
-     * @param NameServer[] $nameServers
+     * @param list<NameServer> $nameServers
      *
      * @return self
      */
     public function setNameServers(array $nameServers): self
     {
+        $this->initialized['nameServers'] = true;
         $this->nameServers = $nameServers;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return Registrant
      */
@@ -137,7 +149,7 @@ class DomainDetail
         return $this->registrant;
     }
     /**
-     *
+     * 
      *
      * @param Registrant $registrant
      *
@@ -145,6 +157,7 @@ class DomainDetail
      */
     public function setRegistrant(Registrant $registrant): self
     {
+        $this->initialized['registrant'] = true;
         $this->registrant = $registrant;
         return $this;
     }
@@ -166,6 +179,7 @@ class DomainDetail
      */
     public function setCanToggleRenew(bool $canToggleRenew): self
     {
+        $this->initialized['canToggleRenew'] = true;
         $this->canToggleRenew = $canToggleRenew;
         return $this;
     }

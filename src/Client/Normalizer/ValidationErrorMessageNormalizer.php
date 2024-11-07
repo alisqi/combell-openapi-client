@@ -2,8 +2,9 @@
 
 namespace Combell\Client\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
+use Jane\Component\JsonSchemaRuntime\Reference;
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -11,49 +12,113 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class ValidationErrorMessageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class ValidationErrorMessageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return $type === 'Combell\\Client\\Model\\ValidationErrorMessage';
-    }
-    public function supportsNormalization($data, $format = null)
-    {
-        return is_object($data) && get_class($data) === 'Combell\\Client\\Model\\ValidationErrorMessage';
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        if (isset($data['$ref'])) {
-            return new Reference($data['$ref'], $context['document-origin']);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\ValidationErrorMessage::class;
         }
-        if (isset($data['$recursiveRef'])) {
-            return new Reference($data['$recursiveRef'], $context['document-origin']);
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\ValidationErrorMessage::class;
         }
-        $object = new \Combell\Client\Model\ValidationErrorMessage();
-        if (null === $data || false === \is_array($data)) {
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\ValidationErrorMessage();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('error_code', $data)) {
+                $object->setErrorCode($data['error_code']);
+            }
+            if (\array_key_exists('error_text', $data)) {
+                $object->setErrorText($data['error_text']);
+            }
             return $object;
         }
-        if (\array_key_exists('error_code', $data)) {
-            $object->setErrorCode($data['error_code']);
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $data = [];
+            if ($object->isInitialized('errorCode') && null !== $object->getErrorCode()) {
+                $data['error_code'] = $object->getErrorCode();
+            }
+            if ($object->isInitialized('errorText') && null !== $object->getErrorText()) {
+                $data['error_text'] = $object->getErrorText();
+            }
+            return $data;
         }
-        if (\array_key_exists('error_text', $data)) {
-            $object->setErrorText($data['error_text']);
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\ValidationErrorMessage::class => false];
         }
-        return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+} else {
+    class ValidationErrorMessageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        $data = array();
-        if (null !== $object->getErrorCode()) {
-            $data['error_code'] = $object->getErrorCode();
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization($data, $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\ValidationErrorMessage::class;
         }
-        if (null !== $object->getErrorText()) {
-            $data['error_text'] = $object->getErrorText();
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\ValidationErrorMessage::class;
         }
-        return $data;
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\ValidationErrorMessage();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('error_code', $data)) {
+                $object->setErrorCode($data['error_code']);
+            }
+            if (\array_key_exists('error_text', $data)) {
+                $object->setErrorText($data['error_text']);
+            }
+            return $object;
+        }
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $data = [];
+            if ($object->isInitialized('errorCode') && null !== $object->getErrorCode()) {
+                $data['error_code'] = $object->getErrorCode();
+            }
+            if ($object->isInitialized('errorText') && null !== $object->getErrorText()) {
+                $data['error_text'] = $object->getErrorText();
+            }
+            return $data;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\ValidationErrorMessage::class => false];
+        }
     }
 }

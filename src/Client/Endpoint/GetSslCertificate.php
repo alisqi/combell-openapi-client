@@ -4,10 +4,9 @@ namespace Combell\Client\Endpoint;
 
 class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $sha1_fingerprint;
     /**
-     *
+     * 
      *
      * @param string $sha1Fingerprint The SHA-1 fingerprint of the certificate.
      */
@@ -15,21 +14,22 @@ class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint impl
     {
         $this->sha1_fingerprint = $sha1Fingerprint;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'GET';
     }
     public function getUri(): string
     {
-        return str_replace(array('{sha1_fingerprint}'), array($this->sha1_fingerprint), '/sslcertificates/{sha1Fingerprint}');
+        return str_replace(['{sha1_fingerprint}'], [$this->sha1_fingerprint], '/sslcertificates/{sha1Fingerprint}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     public function getExtraHeaders(): array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
     /**
      * {@inheritdoc}
@@ -37,14 +37,16 @@ class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint impl
      *
      * @return null|\Combell\Client\Model\SslCertificateDetail
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Combell\\Client\\Model\\SslCertificateDetail', 'json');
+            return $serializer->deserialize($body, 'Combell\Client\Model\SslCertificateDetail', 'json');
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

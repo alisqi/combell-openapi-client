@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class EditNameServers
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The domain name to register.
      *
      * @var string
@@ -13,7 +21,7 @@ class EditNameServers
     /**
      * List of name servers.
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $nameServers;
     /**
@@ -34,13 +42,14 @@ class EditNameServers
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
     /**
      * List of name servers.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getNameServers(): array
     {
@@ -49,12 +58,13 @@ class EditNameServers
     /**
      * List of name servers.
      *
-     * @param string[] $nameServers
+     * @param list<string> $nameServers
      *
      * @return self
      */
     public function setNameServers(array $nameServers): self
     {
+        $this->initialized['nameServers'] = true;
         $this->nameServers = $nameServers;
         return $this;
     }

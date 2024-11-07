@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SslCertificate
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The SHA-1 fingerprint of the certificate.<br />
     The fingerprint is a cryptographic hash which is a short unique identification of the certificate.
     *
@@ -57,6 +65,7 @@ class SslCertificate
     */
     public function setSha1Fingerprint(string $sha1Fingerprint): self
     {
+        $this->initialized['sha1Fingerprint'] = true;
         $this->sha1Fingerprint = $sha1Fingerprint;
         return $this;
     }
@@ -78,6 +87,7 @@ class SslCertificate
      */
     public function setCommonName(string $commonName): self
     {
+        $this->initialized['commonName'] = true;
         $this->commonName = $commonName;
         return $this;
     }
@@ -99,6 +109,7 @@ class SslCertificate
      */
     public function setExpiresAfter(\DateTime $expiresAfter): self
     {
+        $this->initialized['expiresAfter'] = true;
         $this->expiresAfter = $expiresAfter;
         return $this;
     }
@@ -122,6 +133,7 @@ class SslCertificate
     */
     public function setValidationLevel(string $validationLevel): self
     {
+        $this->initialized['validationLevel'] = true;
         $this->validationLevel = $validationLevel;
         return $this;
     }
@@ -145,6 +157,7 @@ class SslCertificate
     */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }

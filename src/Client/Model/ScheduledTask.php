@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class ScheduledTask
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The id of the scheduled task.<br />
     This value is ignored for creation of new scheduled tasks.
     *
@@ -36,7 +44,7 @@ class ScheduledTask
     *
     * @return string
     */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -48,8 +56,9 @@ class ScheduledTask
     *
     * @return self
     */
-    public function setId(string $id) : self
+    public function setId(string $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -58,7 +67,7 @@ class ScheduledTask
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -69,8 +78,9 @@ class ScheduledTask
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }
@@ -80,7 +90,7 @@ class ScheduledTask
     *
     * @return string
     */
-    public function getCronExpression() : string
+    public function getCronExpression(): string
     {
         return $this->cronExpression;
     }
@@ -92,8 +102,9 @@ class ScheduledTask
     *
     * @return self
     */
-    public function setCronExpression(string $cronExpression) : self
+    public function setCronExpression(string $cronExpression): self
     {
+        $this->initialized['cronExpression'] = true;
         $this->cronExpression = $cronExpression;
         return $this;
     }
@@ -102,7 +113,7 @@ class ScheduledTask
      *
      * @return string
      */
-    public function getScriptLocation() : string
+    public function getScriptLocation(): string
     {
         return $this->scriptLocation;
     }
@@ -113,8 +124,9 @@ class ScheduledTask
      *
      * @return self
      */
-    public function setScriptLocation(string $scriptLocation) : self
+    public function setScriptLocation(string $scriptLocation): self
     {
+        $this->initialized['scriptLocation'] = true;
         $this->scriptLocation = $scriptLocation;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class NameServer
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Nameserver name
      *
      * @var string
@@ -34,6 +42,7 @@ class NameServer
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -55,6 +64,7 @@ class NameServer
      */
     public function setIp(string $ip): self
     {
+        $this->initialized['ip'] = true;
         $this->ip = $ip;
         return $this;
     }

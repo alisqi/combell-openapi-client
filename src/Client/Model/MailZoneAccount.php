@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class MailZoneAccount
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Mail zone account id, use this value to create a mailbox
      *
      * @var int
@@ -34,6 +42,7 @@ class MailZoneAccount
      */
     public function setAccountId(int $accountId): self
     {
+        $this->initialized['accountId'] = true;
         $this->accountId = $accountId;
         return $this;
     }
@@ -55,6 +64,7 @@ class MailZoneAccount
      */
     public function setSize(int $size): self
     {
+        $this->initialized['size'] = true;
         $this->size = $size;
         return $this;
     }

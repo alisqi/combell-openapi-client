@@ -2,13 +2,12 @@
 
 namespace Combell\Client\Endpoint;
 
-class DeleteDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
+class DeleteRecord extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $record_id;
     /**
-     *
+     * 
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
@@ -18,17 +17,18 @@ class DeleteDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Clie
         $this->domain_name = $domainName;
         $this->record_id = $recordId;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'DELETE';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}', '{record_id}'), array($this->domain_name, $this->record_id), '/dns/{domainName}/records/{recordId}');
+        return str_replace(['{domain_name}', '{record_id}'], [$this->domain_name, $this->record_id], '/dns/{domainName}/records/{recordId}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -36,14 +36,16 @@ class DeleteDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Clie
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (204 === $status) {
             return null;
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

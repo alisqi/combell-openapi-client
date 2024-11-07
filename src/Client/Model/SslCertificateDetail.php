@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SslCertificateDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The SHA-1 fingerprint of the certificate.<br />
     The fingerprint is a cryptographic hash which is a short unique identification of the certificate.
     *
@@ -40,7 +48,7 @@ class SslCertificateDetail
     /**
      * The list of all supported dns names in the certificate.
      *
-     * @var SslSubjectAltName[]
+     * @var list<SslSubjectAltName>
      */
     protected $subjectAltNames;
     /**
@@ -63,6 +71,7 @@ class SslCertificateDetail
     */
     public function setSha1Fingerprint(string $sha1Fingerprint): self
     {
+        $this->initialized['sha1Fingerprint'] = true;
         $this->sha1Fingerprint = $sha1Fingerprint;
         return $this;
     }
@@ -84,6 +93,7 @@ class SslCertificateDetail
      */
     public function setCommonName(string $commonName): self
     {
+        $this->initialized['commonName'] = true;
         $this->commonName = $commonName;
         return $this;
     }
@@ -105,6 +115,7 @@ class SslCertificateDetail
      */
     public function setExpiresAfter(\DateTime $expiresAfter): self
     {
+        $this->initialized['expiresAfter'] = true;
         $this->expiresAfter = $expiresAfter;
         return $this;
     }
@@ -128,6 +139,7 @@ class SslCertificateDetail
     */
     public function setValidationLevel(string $validationLevel): self
     {
+        $this->initialized['validationLevel'] = true;
         $this->validationLevel = $validationLevel;
         return $this;
     }
@@ -151,13 +163,14 @@ class SslCertificateDetail
     */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }
     /**
      * The list of all supported dns names in the certificate.
      *
-     * @return SslSubjectAltName[]
+     * @return list<SslSubjectAltName>
      */
     public function getSubjectAltNames(): array
     {
@@ -166,12 +179,13 @@ class SslCertificateDetail
     /**
      * The list of all supported dns names in the certificate.
      *
-     * @param SslSubjectAltName[] $subjectAltNames
+     * @param list<SslSubjectAltName> $subjectAltNames
      *
      * @return self
      */
     public function setSubjectAltNames(array $subjectAltNames): self
     {
+        $this->initialized['subjectAltNames'] = true;
         $this->subjectAltNames = $subjectAltNames;
         return $this;
     }

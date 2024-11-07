@@ -2,8 +2,9 @@
 
 namespace Combell\Client\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
+use Jane\Component\JsonSchemaRuntime\Reference;
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -11,51 +12,117 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class BadRequestResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class BadRequestResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return $type === 'Combell\\Client\\Model\\BadRequestResponse';
-    }
-    public function supportsNormalization($data, $format = null)
-    {
-        return is_object($data) && get_class($data) === 'Combell\\Client\\Model\\BadRequestResponse';
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        if (isset($data['$ref'])) {
-            return new Reference($data['$ref'], $context['document-origin']);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\BadRequestResponse::class;
         }
-        if (isset($data['$recursiveRef'])) {
-            return new Reference($data['$recursiveRef'], $context['document-origin']);
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\BadRequestResponse::class;
         }
-        $object = new \Combell\Client\Model\BadRequestResponse();
-        if (null === $data || false === \is_array($data)) {
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\BadRequestResponse();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('validation_errors', $data)) {
+                $values = [];
+                foreach ($data['validation_errors'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \Combell\Client\Model\ValidationErrorMessage::class, 'json', $context);
+                }
+                $object->setValidationErrors($values);
+            }
             return $object;
         }
-        if (\array_key_exists('validation_errors', $data)) {
-            $values = array();
-            foreach ($data['validation_errors'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Combell\\Client\\Model\\ValidationErrorMessage', 'json', $context);
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $data = [];
+            if ($object->isInitialized('validationErrors') && null !== $object->getValidationErrors()) {
+                $values = [];
+                foreach ($object->getValidationErrors() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['validation_errors'] = $values;
             }
-            $object->setValidationErrors($values);
+            return $data;
         }
-        return $object;
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\BadRequestResponse::class => false];
+        }
     }
-    public function normalize($object, $format = null, array $context = array())
+} else {
+    class BadRequestResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        $data = array();
-        if (null !== $object->getValidationErrors()) {
-            $values = array();
-            foreach ($object->getValidationErrors() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data['validation_errors'] = $values;
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization($data, $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\BadRequestResponse::class;
         }
-        return $data;
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\BadRequestResponse::class;
+        }
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\BadRequestResponse();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('validation_errors', $data)) {
+                $values = [];
+                foreach ($data['validation_errors'] as $value) {
+                    $values[] = $this->denormalizer->denormalize($value, \Combell\Client\Model\ValidationErrorMessage::class, 'json', $context);
+                }
+                $object->setValidationErrors($values);
+            }
+            return $object;
+        }
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $data = [];
+            if ($object->isInitialized('validationErrors') && null !== $object->getValidationErrors()) {
+                $values = [];
+                foreach ($object->getValidationErrors() as $value) {
+                    $values[] = $this->normalizer->normalize($value, 'json', $context);
+                }
+                $data['validation_errors'] = $values;
+            }
+            return $data;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\BadRequestResponse::class => false];
+        }
     }
 }

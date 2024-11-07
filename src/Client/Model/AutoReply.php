@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AutoReply
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Enabled
      *
      * @var bool
@@ -40,6 +48,7 @@ class AutoReply
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }
@@ -61,6 +70,7 @@ class AutoReply
      */
     public function setSubject(string $subject): self
     {
+        $this->initialized['subject'] = true;
         $this->subject = $subject;
         return $this;
     }
@@ -82,6 +92,7 @@ class AutoReply
      */
     public function setMessage(string $message): self
     {
+        $this->initialized['message'] = true;
         $this->message = $message;
         return $this;
     }

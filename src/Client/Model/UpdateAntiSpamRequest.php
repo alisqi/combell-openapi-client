@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class UpdateAntiSpamRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Types of anti-spam scanning
      *
      * @var string
@@ -28,6 +36,7 @@ class UpdateAntiSpamRequest
      */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }

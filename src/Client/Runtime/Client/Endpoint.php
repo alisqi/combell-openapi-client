@@ -4,7 +4,6 @@ namespace Combell\Client\Runtime\Client;
 
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-
 interface Endpoint
 {
     /**

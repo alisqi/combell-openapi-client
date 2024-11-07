@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class RegistrantInput
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * First name of the registrant.
      *
      * @var string
@@ -86,7 +94,7 @@ class RegistrantInput
     * List of registrant extra fields for the domain name.
     <table><tr><th>Extension</th><th>Registrant specifics</th><th>Required extra field(s)</th></tr><tr><td>.dk</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.fr</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.it</td><td>is an individual and has country code 'IT'</td><td>CodiceFiscal</td></tr><tr><td>.it</td><td>is an individual and has not country code 'IT'</td><td>PassportNumber</td></tr><tr><td>.nu</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.nu</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.se</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.se</td><td>is an individual</td><td>PassportNumber</td></tr></table>
     *
-    * @var ExtraField[]
+    * @var list<ExtraField>
     */
     protected $extraFields;
     /**
@@ -107,6 +115,7 @@ class RegistrantInput
      */
     public function setFirstName(string $firstName): self
     {
+        $this->initialized['firstName'] = true;
         $this->firstName = $firstName;
         return $this;
     }
@@ -128,6 +137,7 @@ class RegistrantInput
      */
     public function setLastName(string $lastName): self
     {
+        $this->initialized['lastName'] = true;
         $this->lastName = $lastName;
         return $this;
     }
@@ -149,6 +159,7 @@ class RegistrantInput
      */
     public function setAddress(string $address): self
     {
+        $this->initialized['address'] = true;
         $this->address = $address;
         return $this;
     }
@@ -170,6 +181,7 @@ class RegistrantInput
      */
     public function setPostalCode(string $postalCode): self
     {
+        $this->initialized['postalCode'] = true;
         $this->postalCode = $postalCode;
         return $this;
     }
@@ -191,6 +203,7 @@ class RegistrantInput
      */
     public function setCity(string $city): self
     {
+        $this->initialized['city'] = true;
         $this->city = $city;
         return $this;
     }
@@ -214,6 +227,7 @@ class RegistrantInput
     */
     public function setCountryCode(string $countryCode): self
     {
+        $this->initialized['countryCode'] = true;
         $this->countryCode = $countryCode;
         return $this;
     }
@@ -235,6 +249,7 @@ class RegistrantInput
      */
     public function setEmail(string $email): self
     {
+        $this->initialized['email'] = true;
         $this->email = $email;
         return $this;
     }
@@ -258,6 +273,7 @@ class RegistrantInput
     */
     public function setFax(string $fax): self
     {
+        $this->initialized['fax'] = true;
         $this->fax = $fax;
         return $this;
     }
@@ -281,6 +297,7 @@ class RegistrantInput
     */
     public function setPhone(string $phone): self
     {
+        $this->initialized['phone'] = true;
         $this->phone = $phone;
         return $this;
     }
@@ -304,6 +321,7 @@ class RegistrantInput
     */
     public function setLanguageCode(string $languageCode): self
     {
+        $this->initialized['languageCode'] = true;
         $this->languageCode = $languageCode;
         return $this;
     }
@@ -327,6 +345,7 @@ class RegistrantInput
     */
     public function setCompanyName(string $companyName): self
     {
+        $this->initialized['companyName'] = true;
         $this->companyName = $companyName;
         return $this;
     }
@@ -350,6 +369,7 @@ class RegistrantInput
     */
     public function setEnterpriseNumber(string $enterpriseNumber): self
     {
+        $this->initialized['enterpriseNumber'] = true;
         $this->enterpriseNumber = $enterpriseNumber;
         return $this;
     }
@@ -357,7 +377,7 @@ class RegistrantInput
     * List of registrant extra fields for the domain name.
     <table><tr><th>Extension</th><th>Registrant specifics</th><th>Required extra field(s)</th></tr><tr><td>.dk</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.fr</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.it</td><td>is an individual and has country code 'IT'</td><td>CodiceFiscal</td></tr><tr><td>.it</td><td>is an individual and has not country code 'IT'</td><td>PassportNumber</td></tr><tr><td>.nu</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.nu</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.se</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.se</td><td>is an individual</td><td>PassportNumber</td></tr></table>
     *
-    * @return ExtraField[]
+    * @return list<ExtraField>
     */
     public function getExtraFields(): array
     {
@@ -367,12 +387,13 @@ class RegistrantInput
     * List of registrant extra fields for the domain name.
     <table><tr><th>Extension</th><th>Registrant specifics</th><th>Required extra field(s)</th></tr><tr><td>.dk</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.es</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.fr</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.it</td><td>is an individual and has country code 'IT'</td><td>CodiceFiscal</td></tr><tr><td>.it</td><td>is an individual and has not country code 'IT'</td><td>PassportNumber</td></tr><tr><td>.nu</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.nu</td><td>is an individual</td><td>PassportNumber</td></tr><tr><td>.se</td><td>is a company</td><td>CompanyNumber</td></tr><tr><td>.se</td><td>is an individual</td><td>PassportNumber</td></tr></table>
     *
-    * @param ExtraField[] $extraFields
+    * @param list<ExtraField> $extraFields
     *
     * @return self
     */
     public function setExtraFields(array $extraFields): self
     {
+        $this->initialized['extraFields'] = true;
         $this->extraFields = $extraFields;
         return $this;
     }

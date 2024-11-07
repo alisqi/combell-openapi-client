@@ -5,7 +5,15 @@ namespace Combell\Client\Model;
 class MailboxDetail
 {
     /**
-     *
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
+     * 
      *
      * @var string
      */
@@ -29,19 +37,19 @@ class MailboxDetail
      */
     protected $actualSize;
     /**
-     *
+     * 
      *
      * @var AutoReply
      */
     protected $autoReply;
     /**
-     *
+     * 
      *
      * @var AutoForward
      */
     protected $autoForward;
     /**
-     *
+     * 
      *
      * @return string
      */
@@ -50,7 +58,7 @@ class MailboxDetail
         return $this->name;
     }
     /**
-     *
+     * 
      *
      * @param string $name
      *
@@ -58,6 +66,7 @@ class MailboxDetail
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -79,6 +88,7 @@ class MailboxDetail
      */
     public function setLogin(string $login): self
     {
+        $this->initialized['login'] = true;
         $this->login = $login;
         return $this;
     }
@@ -100,6 +110,7 @@ class MailboxDetail
      */
     public function setMaxSize(int $maxSize): self
     {
+        $this->initialized['maxSize'] = true;
         $this->maxSize = $maxSize;
         return $this;
     }
@@ -121,11 +132,12 @@ class MailboxDetail
      */
     public function setActualSize(int $actualSize): self
     {
+        $this->initialized['actualSize'] = true;
         $this->actualSize = $actualSize;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return AutoReply
      */
@@ -134,7 +146,7 @@ class MailboxDetail
         return $this->autoReply;
     }
     /**
-     *
+     * 
      *
      * @param AutoReply $autoReply
      *
@@ -142,11 +154,12 @@ class MailboxDetail
      */
     public function setAutoReply(AutoReply $autoReply): self
     {
+        $this->initialized['autoReply'] = true;
         $this->autoReply = $autoReply;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return AutoForward
      */
@@ -155,7 +168,7 @@ class MailboxDetail
         return $this->autoForward;
     }
     /**
-     *
+     * 
      *
      * @param AutoForward $autoForward
      *
@@ -163,6 +176,7 @@ class MailboxDetail
      */
     public function setAutoForward(AutoForward $autoForward): self
     {
+        $this->initialized['autoForward'] = true;
         $this->autoForward = $autoForward;
         return $this;
     }

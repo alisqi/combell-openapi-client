@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class ApplicationPool
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The active runtime for the hosting account.
      *
      * @var string
@@ -19,7 +27,7 @@ class ApplicationPool
     /**
      * The installed .NET Core runtimes for the hosting account.
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $installedNetCoreRuntimes;
     /**
@@ -40,6 +48,7 @@ class ApplicationPool
      */
     public function setRuntime(string $runtime): self
     {
+        $this->initialized['runtime'] = true;
         $this->runtime = $runtime;
         return $this;
     }
@@ -61,13 +70,14 @@ class ApplicationPool
      */
     public function setPipelineMode(string $pipelineMode): self
     {
+        $this->initialized['pipelineMode'] = true;
         $this->pipelineMode = $pipelineMode;
         return $this;
     }
     /**
      * The installed .NET Core runtimes for the hosting account.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getInstalledNetCoreRuntimes(): array
     {
@@ -76,12 +86,13 @@ class ApplicationPool
     /**
      * The installed .NET Core runtimes for the hosting account.
      *
-     * @param string[] $installedNetCoreRuntimes
+     * @param list<string> $installedNetCoreRuntimes
      *
      * @return self
      */
     public function setInstalledNetCoreRuntimes(array $installedNetCoreRuntimes): self
     {
+        $this->initialized['installedNetCoreRuntimes'] = true;
         $this->installedNetCoreRuntimes = $installedNetCoreRuntimes;
         return $this;
     }

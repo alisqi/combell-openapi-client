@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class MySqlDatabase
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Database name
      *
      * @var string
@@ -58,6 +66,7 @@ class MySqlDatabase
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -79,6 +88,7 @@ class MySqlDatabase
      */
     public function setHostname(string $hostname): self
     {
+        $this->initialized['hostname'] = true;
         $this->hostname = $hostname;
         return $this;
     }
@@ -100,6 +110,7 @@ class MySqlDatabase
      */
     public function setUserCount(int $userCount): self
     {
+        $this->initialized['userCount'] = true;
         $this->userCount = $userCount;
         return $this;
     }
@@ -121,6 +132,7 @@ class MySqlDatabase
      */
     public function setMaxSize(int $maxSize): self
     {
+        $this->initialized['maxSize'] = true;
         $this->maxSize = $maxSize;
         return $this;
     }
@@ -142,6 +154,7 @@ class MySqlDatabase
      */
     public function setActualSize(int $actualSize): self
     {
+        $this->initialized['actualSize'] = true;
         $this->actualSize = $actualSize;
         return $this;
     }
@@ -163,6 +176,7 @@ class MySqlDatabase
      */
     public function setAccountId(int $accountId): self
     {
+        $this->initialized['accountId'] = true;
         $this->accountId = $accountId;
         return $this;
     }

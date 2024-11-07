@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class UpdatePhpAPcuRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The APcu size.
      *
      * @var int
@@ -34,6 +42,7 @@ class UpdatePhpAPcuRequest
      */
     public function setApcuSize(int $apcuSize): self
     {
+        $this->initialized['apcuSize'] = true;
         $this->apcuSize = $apcuSize;
         return $this;
     }
@@ -55,6 +64,7 @@ class UpdatePhpAPcuRequest
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }

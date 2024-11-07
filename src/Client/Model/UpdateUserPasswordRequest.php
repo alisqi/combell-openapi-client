@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class UpdateUserPasswordRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The password for the database user.<br />
     Passwords have to adhere to following rules:<br /><ul><li>Between 8-20 characters.</li><li>Must be a mix of letters and digits.</li><li>Must contain at least one digit (0-9).</li><li>Must contain at least one letter (a-z).</li><li>Cannot contain spaces.</li><li>Cannot contain characters: * € $ & + } { ' " \ </li></ul>
     *
@@ -31,6 +39,7 @@ class UpdateUserPasswordRequest
     */
     public function setPassword(string $password): self
     {
+        $this->initialized['password'] = true;
         $this->password = $password;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateAccount
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * An identifier for the account.<br />
     Should be a domain name for hosting accounts.
     *
@@ -45,6 +53,7 @@ class CreateAccount
     */
     public function setIdentifier(string $identifier): self
     {
+        $this->initialized['identifier'] = true;
         $this->identifier = $identifier;
         return $this;
     }
@@ -66,6 +75,7 @@ class CreateAccount
      */
     public function setServicepackId(int $servicepackId): self
     {
+        $this->initialized['servicepackId'] = true;
         $this->servicepackId = $servicepackId;
         return $this;
     }
@@ -91,6 +101,7 @@ class CreateAccount
     */
     public function setFtpPassword(string $ftpPassword): self
     {
+        $this->initialized['ftpPassword'] = true;
         $this->ftpPassword = $ftpPassword;
         return $this;
     }

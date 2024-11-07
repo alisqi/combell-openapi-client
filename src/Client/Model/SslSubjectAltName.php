@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SslSubjectAltName
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The type of the alt name:
     <ul><li>Dns</li><li>Ip</li></ul>
     *
@@ -37,6 +45,7 @@ class SslSubjectAltName
     */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }
@@ -58,6 +67,7 @@ class SslSubjectAltName
      */
     public function setValue(string $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
         return $this;
     }

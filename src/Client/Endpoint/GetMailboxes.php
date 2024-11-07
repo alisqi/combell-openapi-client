@@ -4,7 +4,6 @@ namespace Combell\Client\Endpoint;
 
 class GetMailboxes extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
      * Currently only supports getting the mailboxes filtered by domain name.
      *
@@ -12,10 +11,11 @@ class GetMailboxes extends \Combell\Client\Runtime\Client\BaseEndpoint implement
      *     @var string $domain_name Obligated domain name for getting mailboxes.
      * }
      */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'GET';
@@ -26,19 +26,19 @@ class GetMailboxes extends \Combell\Client\Runtime\Client\BaseEndpoint implement
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     public function getExtraHeaders(): array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('domain_name'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('domain_name', array('string', 'null'));
+        $optionsResolver->setDefined(['domain_name']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->addAllowedTypes('domain_name', ['string', 'null']);
         return $optionsResolver;
     }
     /**
@@ -47,14 +47,16 @@ class GetMailboxes extends \Combell\Client\Runtime\Client\BaseEndpoint implement
      *
      * @return null|\Combell\Client\Model\Mailbox[]
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Combell\\Client\\Model\\Mailbox[]', 'json');
+            return $serializer->deserialize($body, 'Combell\Client\Model\Mailbox[]', 'json');
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

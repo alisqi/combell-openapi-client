@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SslCertificateRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the certificate request.
      *
      * @var int
@@ -60,6 +68,7 @@ class SslCertificateRequest
      */
     public function setId(int $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -83,6 +92,7 @@ class SslCertificateRequest
     */
     public function setCertificateType(string $certificateType): self
     {
+        $this->initialized['certificateType'] = true;
         $this->certificateType = $certificateType;
         return $this;
     }
@@ -106,6 +116,7 @@ class SslCertificateRequest
     */
     public function setValidationLevel(string $validationLevel): self
     {
+        $this->initialized['validationLevel'] = true;
         $this->validationLevel = $validationLevel;
         return $this;
     }
@@ -127,6 +138,7 @@ class SslCertificateRequest
      */
     public function setVendor(string $vendor): self
     {
+        $this->initialized['vendor'] = true;
         $this->vendor = $vendor;
         return $this;
     }
@@ -148,6 +160,7 @@ class SslCertificateRequest
      */
     public function setCommonName(string $commonName): self
     {
+        $this->initialized['commonName'] = true;
         $this->commonName = $commonName;
         return $this;
     }
@@ -169,6 +182,7 @@ class SslCertificateRequest
      */
     public function setOrderCode(string $orderCode): self
     {
+        $this->initialized['orderCode'] = true;
         $this->orderCode = $orderCode;
         return $this;
     }

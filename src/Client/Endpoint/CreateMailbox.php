@@ -4,16 +4,16 @@ namespace Combell\Client\Endpoint;
 
 class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
+     * 
      *
-     *
-     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody
+     * @param null|\Combell\Client\Model\CreateMailboxRequest $requestBody 
      */
     public function __construct(?\Combell\Client\Model\CreateMailboxRequest $requestBody = null)
     {
         $this->body = $requestBody;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'POST';
@@ -25,9 +25,9 @@ class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\CreateMailboxRequest) {
-            return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
+            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -35,14 +35,16 @@ class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (201 === $status) {
             return null;
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

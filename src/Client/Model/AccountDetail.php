@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AccountDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the account
      *
      * @var int
@@ -25,7 +33,7 @@ class AccountDetail
     /**
      * A list of addons applied to the account.
      *
-     * @var Addon[]
+     * @var list<Addon>
      */
     protected $addons;
     /**
@@ -46,6 +54,7 @@ class AccountDetail
      */
     public function setId(int $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -67,6 +76,7 @@ class AccountDetail
      */
     public function setIdentifier(string $identifier): self
     {
+        $this->initialized['identifier'] = true;
         $this->identifier = $identifier;
         return $this;
     }
@@ -88,13 +98,14 @@ class AccountDetail
      */
     public function setServicepack(Servicepack $servicepack): self
     {
+        $this->initialized['servicepack'] = true;
         $this->servicepack = $servicepack;
         return $this;
     }
     /**
      * A list of addons applied to the account.
      *
-     * @return Addon[]
+     * @return list<Addon>
      */
     public function getAddons(): array
     {
@@ -103,12 +114,13 @@ class AccountDetail
     /**
      * A list of addons applied to the account.
      *
-     * @param Addon[] $addons
+     * @param list<Addon> $addons
      *
      * @return self
      */
     public function setAddons(array $addons): self
     {
+        $this->initialized['addons'] = true;
         $this->addons = $addons;
         return $this;
     }

@@ -4,11 +4,10 @@ namespace Combell\Client\Endpoint;
 
 class DeleteCatchAll extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $email_address;
     /**
-     *
+     * 
      *
      * @param string $domainName Mail zone domain name.
      * @param string $emailAddress E-mail address to which all e-mails are sent to inexistent mailboxes or aliases.
@@ -18,17 +17,18 @@ class DeleteCatchAll extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
         $this->domain_name = $domainName;
         $this->email_address = $emailAddress;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'DELETE';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}', '{email_address}'), array($this->domain_name, $this->email_address), '/mailzones/{domainName}/catchall/{emailAddress}');
+        return str_replace(['{domain_name}', '{email_address}'], [$this->domain_name, $this->email_address], '/mailzones/{domainName}/catchall/{emailAddress}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -36,14 +36,16 @@ class DeleteCatchAll extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (204 === $status) {
             return null;
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

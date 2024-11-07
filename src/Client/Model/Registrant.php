@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class Registrant
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * First name of the registrant.
      *
      * @var string
@@ -100,6 +108,7 @@ class Registrant
      */
     public function setFirstName(string $firstName): self
     {
+        $this->initialized['firstName'] = true;
         $this->firstName = $firstName;
         return $this;
     }
@@ -121,6 +130,7 @@ class Registrant
      */
     public function setLastName(string $lastName): self
     {
+        $this->initialized['lastName'] = true;
         $this->lastName = $lastName;
         return $this;
     }
@@ -142,6 +152,7 @@ class Registrant
      */
     public function setAddress(string $address): self
     {
+        $this->initialized['address'] = true;
         $this->address = $address;
         return $this;
     }
@@ -163,6 +174,7 @@ class Registrant
      */
     public function setPostalCode(string $postalCode): self
     {
+        $this->initialized['postalCode'] = true;
         $this->postalCode = $postalCode;
         return $this;
     }
@@ -184,6 +196,7 @@ class Registrant
      */
     public function setCity(string $city): self
     {
+        $this->initialized['city'] = true;
         $this->city = $city;
         return $this;
     }
@@ -207,6 +220,7 @@ class Registrant
     */
     public function setCountryCode(string $countryCode): self
     {
+        $this->initialized['countryCode'] = true;
         $this->countryCode = $countryCode;
         return $this;
     }
@@ -228,6 +242,7 @@ class Registrant
      */
     public function setEmail(string $email): self
     {
+        $this->initialized['email'] = true;
         $this->email = $email;
         return $this;
     }
@@ -251,6 +266,7 @@ class Registrant
     */
     public function setFax(string $fax): self
     {
+        $this->initialized['fax'] = true;
         $this->fax = $fax;
         return $this;
     }
@@ -274,6 +290,7 @@ class Registrant
     */
     public function setPhone(string $phone): self
     {
+        $this->initialized['phone'] = true;
         $this->phone = $phone;
         return $this;
     }
@@ -297,6 +314,7 @@ class Registrant
     */
     public function setLanguageCode(string $languageCode): self
     {
+        $this->initialized['languageCode'] = true;
         $this->languageCode = $languageCode;
         return $this;
     }
@@ -320,6 +338,7 @@ class Registrant
     */
     public function setCompanyName(string $companyName): self
     {
+        $this->initialized['companyName'] = true;
         $this->companyName = $companyName;
         return $this;
     }
@@ -343,6 +362,7 @@ class Registrant
     */
     public function setEnterpriseNumber(string $enterpriseNumber): self
     {
+        $this->initialized['enterpriseNumber'] = true;
         $this->enterpriseNumber = $enterpriseNumber;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AntiSpam
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Types of anti-spam scanning
      *
      * @var string
@@ -13,7 +21,7 @@ class AntiSpam
     /**
      * Allowed types of anti-spam scanning for this mail zone
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $allowedTypes;
     /**
@@ -34,13 +42,14 @@ class AntiSpam
      */
     public function setType(string $type): self
     {
+        $this->initialized['type'] = true;
         $this->type = $type;
         return $this;
     }
     /**
      * Allowed types of anti-spam scanning for this mail zone
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getAllowedTypes(): array
     {
@@ -49,12 +58,13 @@ class AntiSpam
     /**
      * Allowed types of anti-spam scanning for this mail zone
      *
-     * @param string[] $allowedTypes
+     * @param list<string> $allowedTypes
      *
      * @return self
      */
     public function setAllowedTypes(array $allowedTypes): self
     {
+        $this->initialized['allowedTypes'] = true;
         $this->allowedTypes = $allowedTypes;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateMySqlDatabase
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The name for the database. This will be prefixed during provisioning.
     The provided name during creation will be different from the provisioned database name.
     *
@@ -44,6 +52,7 @@ class CreateMySqlDatabase
     */
     public function setDatabaseName(string $databaseName): self
     {
+        $this->initialized['databaseName'] = true;
         $this->databaseName = $databaseName;
         return $this;
     }
@@ -65,6 +74,7 @@ class CreateMySqlDatabase
      */
     public function setAccountId(int $accountId): self
     {
+        $this->initialized['accountId'] = true;
         $this->accountId = $accountId;
         return $this;
     }
@@ -88,6 +98,7 @@ class CreateMySqlDatabase
     */
     public function setPassword(string $password): self
     {
+        $this->initialized['password'] = true;
         $this->password = $password;
         return $this;
     }

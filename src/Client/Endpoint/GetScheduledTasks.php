@@ -4,7 +4,6 @@ namespace Combell\Client\Endpoint;
 
 class GetScheduledTasks extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     /**
      * Manage scheduled tasks which are also manageable via the control panel.
@@ -15,21 +14,22 @@ class GetScheduledTasks extends \Combell\Client\Runtime\Client\BaseEndpoint impl
     {
         $this->domain_name = $domainName;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'GET';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}'), array($this->domain_name), '/linuxhostings/{domainName}/scheduledtasks');
+        return str_replace(['{domain_name}'], [$this->domain_name], '/linuxhostings/{domainName}/scheduledtasks');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     public function getExtraHeaders(): array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
     /**
      * {@inheritdoc}
@@ -37,14 +37,16 @@ class GetScheduledTasks extends \Combell\Client\Runtime\Client\BaseEndpoint impl
      *
      * @return null|\Combell\Client\Model\ScheduledTask[]
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Combell\\Client\\Model\\ScheduledTask[]', 'json');
+            return $serializer->deserialize($body, 'Combell\Client\Model\ScheduledTask[]', 'json');
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

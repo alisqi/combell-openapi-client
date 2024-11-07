@@ -2,8 +2,9 @@
 
 namespace Combell\Client\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
+use Jane\Component\JsonSchemaRuntime\Reference;
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -11,55 +12,125 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class CreateMailboxRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class CreateMailboxRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return $type === 'Combell\\Client\\Model\\CreateMailboxRequest';
-    }
-    public function supportsNormalization($data, $format = null)
-    {
-        return is_object($data) && get_class($data) === 'Combell\\Client\\Model\\CreateMailboxRequest';
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        if (isset($data['$ref'])) {
-            return new Reference($data['$ref'], $context['document-origin']);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\CreateMailboxRequest::class;
         }
-        if (isset($data['$recursiveRef'])) {
-            return new Reference($data['$recursiveRef'], $context['document-origin']);
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\CreateMailboxRequest::class;
         }
-        $object = new \Combell\Client\Model\CreateMailboxRequest();
-        if (null === $data || false === \is_array($data)) {
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\CreateMailboxRequest();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('email_address', $data)) {
+                $object->setEmailAddress($data['email_address']);
+            }
+            if (\array_key_exists('account_id', $data)) {
+                $object->setAccountId($data['account_id']);
+            }
+            if (\array_key_exists('password', $data)) {
+                $object->setPassword($data['password']);
+            }
             return $object;
         }
-        if (\array_key_exists('email_address', $data)) {
-            $object->setEmailAddress($data['email_address']);
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $data = [];
+            if ($object->isInitialized('emailAddress') && null !== $object->getEmailAddress()) {
+                $data['email_address'] = $object->getEmailAddress();
+            }
+            if ($object->isInitialized('accountId') && null !== $object->getAccountId()) {
+                $data['account_id'] = $object->getAccountId();
+            }
+            if ($object->isInitialized('password') && null !== $object->getPassword()) {
+                $data['password'] = $object->getPassword();
+            }
+            return $data;
         }
-        if (\array_key_exists('account_id', $data)) {
-            $object->setAccountId($data['account_id']);
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\CreateMailboxRequest::class => false];
         }
-        if (\array_key_exists('password', $data)) {
-            $object->setPassword($data['password']);
-        }
-        return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+} else {
+    class CreateMailboxRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        $data = array();
-        if (null !== $object->getEmailAddress()) {
-            $data['email_address'] = $object->getEmailAddress();
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization($data, $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\CreateMailboxRequest::class;
         }
-        if (null !== $object->getAccountId()) {
-            $data['account_id'] = $object->getAccountId();
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\CreateMailboxRequest::class;
         }
-        if (null !== $object->getPassword()) {
-            $data['password'] = $object->getPassword();
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\CreateMailboxRequest();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('email_address', $data)) {
+                $object->setEmailAddress($data['email_address']);
+            }
+            if (\array_key_exists('account_id', $data)) {
+                $object->setAccountId($data['account_id']);
+            }
+            if (\array_key_exists('password', $data)) {
+                $object->setPassword($data['password']);
+            }
+            return $object;
         }
-        return $data;
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $data = [];
+            if ($object->isInitialized('emailAddress') && null !== $object->getEmailAddress()) {
+                $data['email_address'] = $object->getEmailAddress();
+            }
+            if ($object->isInitialized('accountId') && null !== $object->getAccountId()) {
+                $data['account_id'] = $object->getAccountId();
+            }
+            if ($object->isInitialized('password') && null !== $object->getPassword()) {
+                $data['password'] = $object->getPassword();
+            }
+            return $data;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\CreateMailboxRequest::class => false];
+        }
     }
 }

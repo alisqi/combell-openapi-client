@@ -3,50 +3,582 @@
 namespace Combell\Client\Normalizer;
 
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    protected $normalizers = array('Combell\\Client\\Model\\Account' => 'Combell\\Client\\Normalizer\\AccountNormalizer', 'Combell\\Client\\Model\\CreateAccount' => 'Combell\\Client\\Normalizer\\CreateAccountNormalizer', 'Combell\\Client\\Model\\ValidationErrorMessage' => 'Combell\\Client\\Normalizer\\ValidationErrorMessageNormalizer', 'Combell\\Client\\Model\\BadRequestResponse' => 'Combell\\Client\\Normalizer\\BadRequestResponseNormalizer', 'Combell\\Client\\Model\\Servicepack' => 'Combell\\Client\\Normalizer\\ServicepackNormalizer', 'Combell\\Client\\Model\\Addon' => 'Combell\\Client\\Normalizer\\AddonNormalizer', 'Combell\\Client\\Model\\AccountDetail' => 'Combell\\Client\\Normalizer\\AccountDetailNormalizer', 'Combell\\Client\\Model\\DnsRecord' => 'Combell\\Client\\Normalizer\\DnsRecordNormalizer', 'Combell\\Client\\Model\\Domain' => 'Combell\\Client\\Normalizer\\DomainNormalizer', 'Combell\\Client\\Model\\NameServer' => 'Combell\\Client\\Normalizer\\NameServerNormalizer', 'Combell\\Client\\Model\\Registrant' => 'Combell\\Client\\Normalizer\\RegistrantNormalizer', 'Combell\\Client\\Model\\DomainDetail' => 'Combell\\Client\\Normalizer\\DomainDetailNormalizer', 'Combell\\Client\\Model\\ExtraField' => 'Combell\\Client\\Normalizer\\ExtraFieldNormalizer', 'Combell\\Client\\Model\\RegistrantInput' => 'Combell\\Client\\Normalizer\\RegistrantInputNormalizer', 'Combell\\Client\\Model\\RegisterDomain' => 'Combell\\Client\\Normalizer\\RegisterDomainNormalizer', 'Combell\\Client\\Model\\EditNameServers' => 'Combell\\Client\\Normalizer\\EditNameServersNormalizer', 'Combell\\Client\\Model\\EditDomainWillRenewRequest' => 'Combell\\Client\\Normalizer\\EditDomainWillRenewRequestNormalizer', 'Combell\\Client\\Model\\LinuxHosting' => 'Combell\\Client\\Normalizer\\LinuxHostingNormalizer', 'Combell\\Client\\Model\\HostHeader' => 'Combell\\Client\\Normalizer\\HostHeaderNormalizer', 'Combell\\Client\\Model\\LinuxSite' => 'Combell\\Client\\Normalizer\\LinuxSiteNormalizer', 'Combell\\Client\\Model\\LinuxHostingDetail' => 'Combell\\Client\\Normalizer\\LinuxHostingDetailNormalizer', 'Combell\\Client\\Model\\PhpVersion' => 'Combell\\Client\\Normalizer\\PhpVersionNormalizer', 'Combell\\Client\\Model\\GzipConfig' => 'Combell\\Client\\Normalizer\\GzipConfigNormalizer', 'Combell\\Client\\Model\\AddSubsiteRequest' => 'Combell\\Client\\Normalizer\\AddSubsiteRequestNormalizer', 'Combell\\Client\\Model\\AddHostHeaderRequest' => 'Combell\\Client\\Normalizer\\AddHostHeaderRequestNormalizer', 'Combell\\Client\\Model\\Http2Configuration' => 'Combell\\Client\\Normalizer\\Http2ConfigurationNormalizer', 'Combell\\Client\\Model\\FtpConfiguration' => 'Combell\\Client\\Normalizer\\FtpConfigurationNormalizer', 'Combell\\Client\\Model\\LetsEncryptConfig' => 'Combell\\Client\\Normalizer\\LetsEncryptConfigNormalizer', 'Combell\\Client\\Model\\AutoRedirectConfig' => 'Combell\\Client\\Normalizer\\AutoRedirectConfigNormalizer', 'Combell\\Client\\Model\\UpdatePhpMemoryLimitRequest' => 'Combell\\Client\\Normalizer\\UpdatePhpMemoryLimitRequestNormalizer', 'Combell\\Client\\Model\\UpdatePhpAPcuRequest' => 'Combell\\Client\\Normalizer\\UpdatePhpAPcuRequestNormalizer', 'Combell\\Client\\Model\\ScheduledTask' => 'Combell\\Client\\Normalizer\\ScheduledTaskNormalizer', 'Combell\\Client\\Model\\SshKey' => 'Combell\\Client\\Normalizer\\SshKeyNormalizer', 'Combell\\Client\\Model\\AddSshKeyRequest' => 'Combell\\Client\\Normalizer\\AddSshKeyRequestNormalizer', 'Combell\\Client\\Model\\SshConfiguration' => 'Combell\\Client\\Normalizer\\SshConfigurationNormalizer', 'Combell\\Client\\Model\\Mailbox' => 'Combell\\Client\\Normalizer\\MailboxNormalizer', 'Combell\\Client\\Model\\CreateMailboxRequest' => 'Combell\\Client\\Normalizer\\CreateMailboxRequestNormalizer', 'Combell\\Client\\Model\\AutoReply' => 'Combell\\Client\\Normalizer\\AutoReplyNormalizer', 'Combell\\Client\\Model\\AutoForward' => 'Combell\\Client\\Normalizer\\AutoForwardNormalizer', 'Combell\\Client\\Model\\MailboxDetail' => 'Combell\\Client\\Normalizer\\MailboxDetailNormalizer', 'Combell\\Client\\Model\\UpdateMailboxPasswordRequest' => 'Combell\\Client\\Normalizer\\UpdateMailboxPasswordRequestNormalizer', 'Combell\\Client\\Model\\MailZoneAccount' => 'Combell\\Client\\Normalizer\\MailZoneAccountNormalizer', 'Combell\\Client\\Model\\Alias' => 'Combell\\Client\\Normalizer\\AliasNormalizer', 'Combell\\Client\\Model\\AntiSpam' => 'Combell\\Client\\Normalizer\\AntiSpamNormalizer', 'Combell\\Client\\Model\\CatchAll' => 'Combell\\Client\\Normalizer\\CatchAllNormalizer', 'Combell\\Client\\Model\\SmtpDomain' => 'Combell\\Client\\Normalizer\\SmtpDomainNormalizer', 'Combell\\Client\\Model\\MailZone' => 'Combell\\Client\\Normalizer\\MailZoneNormalizer', 'Combell\\Client\\Model\\CreateCatchAllRequest' => 'Combell\\Client\\Normalizer\\CreateCatchAllRequestNormalizer', 'Combell\\Client\\Model\\UpdateAntiSpamRequest' => 'Combell\\Client\\Normalizer\\UpdateAntiSpamRequestNormalizer', 'Combell\\Client\\Model\\CreateAliasRequest' => 'Combell\\Client\\Normalizer\\CreateAliasRequestNormalizer', 'Combell\\Client\\Model\\UpdateAliasRequest' => 'Combell\\Client\\Normalizer\\UpdateAliasRequestNormalizer', 'Combell\\Client\\Model\\CreateSmtpDomainRequest' => 'Combell\\Client\\Normalizer\\CreateSmtpDomainRequestNormalizer', 'Combell\\Client\\Model\\UpdateSmtpDomainRequest' => 'Combell\\Client\\Normalizer\\UpdateSmtpDomainRequestNormalizer', 'Combell\\Client\\Model\\MySqlDatabase' => 'Combell\\Client\\Normalizer\\MySqlDatabaseNormalizer', 'Combell\\Client\\Model\\CreateMySqlDatabase' => 'Combell\\Client\\Normalizer\\CreateMySqlDatabaseNormalizer', 'Combell\\Client\\Model\\MySqlUser' => 'Combell\\Client\\Normalizer\\MySqlUserNormalizer', 'Combell\\Client\\Model\\CreateMySqlUser' => 'Combell\\Client\\Normalizer\\CreateMySqlUserNormalizer', 'Combell\\Client\\Model\\UpdateUserStatusRequest' => 'Combell\\Client\\Normalizer\\UpdateUserStatusRequestNormalizer', 'Combell\\Client\\Model\\UpdateUserPasswordRequest' => 'Combell\\Client\\Normalizer\\UpdateUserPasswordRequestNormalizer', 'Combell\\Client\\Model\\CompletionEstimation' => 'Combell\\Client\\Normalizer\\CompletionEstimationNormalizer', 'Combell\\Client\\Model\\ProvisioningJobInfo' => 'Combell\\Client\\Normalizer\\ProvisioningJobInfoNormalizer', 'Combell\\Client\\Model\\ProvisioningJobCompletion' => 'Combell\\Client\\Normalizer\\ProvisioningJobCompletionNormalizer', 'Combell\\Client\\Model\\SshKeyDetail' => 'Combell\\Client\\Normalizer\\SshKeyDetailNormalizer', 'Combell\\Client\\Model\\SslCertificateRequest' => 'Combell\\Client\\Normalizer\\SslCertificateRequestNormalizer', 'Combell\\Client\\Model\\AdditionalValidationAttribute' => 'Combell\\Client\\Normalizer\\AdditionalValidationAttributeNormalizer', 'Combell\\Client\\Model\\CreateSslCertificateRequest' => 'Combell\\Client\\Normalizer\\CreateSslCertificateRequestNormalizer', 'Combell\\Client\\Model\\SslSubjectAltName' => 'Combell\\Client\\Normalizer\\SslSubjectAltNameNormalizer', 'Combell\\Client\\Model\\SslCertificateRequestValidation' => 'Combell\\Client\\Normalizer\\SslCertificateRequestValidationNormalizer', 'Combell\\Client\\Model\\SslCertificateRequestDetail' => 'Combell\\Client\\Normalizer\\SslCertificateRequestDetailNormalizer', 'Combell\\Client\\Model\\SslCertificate' => 'Combell\\Client\\Normalizer\\SslCertificateNormalizer', 'Combell\\Client\\Model\\SslCertificateDetail' => 'Combell\\Client\\Normalizer\\SslCertificateDetailNormalizer', 'Combell\\Client\\Model\\WindowsHosting' => 'Combell\\Client\\Normalizer\\WindowsHostingNormalizer', 'Combell\\Client\\Model\\ApplicationPool' => 'Combell\\Client\\Normalizer\\ApplicationPoolNormalizer', 'Combell\\Client\\Model\\SiteBinding' => 'Combell\\Client\\Normalizer\\SiteBindingNormalizer', 'Combell\\Client\\Model\\WindowsSite' => 'Combell\\Client\\Normalizer\\WindowsSiteNormalizer', 'Combell\\Client\\Model\\WindowsHostingDetail' => 'Combell\\Client\\Normalizer\\WindowsHostingDetailNormalizer', '\\Jane\\JsonSchemaRuntime\\Reference' => '\\Combell\\Client\\Runtime\\Normalizer\\ReferenceNormalizer');
-    protected $normalizersCache = array();
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return array_key_exists($type, $this->normalizers);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        protected $normalizers = [
+            
+            \Combell\Client\Model\Account::class => \Combell\Client\Normalizer\AccountNormalizer::class,
+            
+            \Combell\Client\Model\CreateAccount::class => \Combell\Client\Normalizer\CreateAccountNormalizer::class,
+            
+            \Combell\Client\Model\ValidationErrorMessage::class => \Combell\Client\Normalizer\ValidationErrorMessageNormalizer::class,
+            
+            \Combell\Client\Model\BadRequestResponse::class => \Combell\Client\Normalizer\BadRequestResponseNormalizer::class,
+            
+            \Combell\Client\Model\Servicepack::class => \Combell\Client\Normalizer\ServicepackNormalizer::class,
+            
+            \Combell\Client\Model\Addon::class => \Combell\Client\Normalizer\AddonNormalizer::class,
+            
+            \Combell\Client\Model\AccountDetail::class => \Combell\Client\Normalizer\AccountDetailNormalizer::class,
+            
+            \Combell\Client\Model\DnsRecord::class => \Combell\Client\Normalizer\DnsRecordNormalizer::class,
+            
+            \Combell\Client\Model\Domain::class => \Combell\Client\Normalizer\DomainNormalizer::class,
+            
+            \Combell\Client\Model\NameServer::class => \Combell\Client\Normalizer\NameServerNormalizer::class,
+            
+            \Combell\Client\Model\Registrant::class => \Combell\Client\Normalizer\RegistrantNormalizer::class,
+            
+            \Combell\Client\Model\DomainDetail::class => \Combell\Client\Normalizer\DomainDetailNormalizer::class,
+            
+            \Combell\Client\Model\ExtraField::class => \Combell\Client\Normalizer\ExtraFieldNormalizer::class,
+            
+            \Combell\Client\Model\RegistrantInput::class => \Combell\Client\Normalizer\RegistrantInputNormalizer::class,
+            
+            \Combell\Client\Model\RegisterDomain::class => \Combell\Client\Normalizer\RegisterDomainNormalizer::class,
+            
+            \Combell\Client\Model\TransferDomain::class => \Combell\Client\Normalizer\TransferDomainNormalizer::class,
+            
+            \Combell\Client\Model\EditNameServers::class => \Combell\Client\Normalizer\EditNameServersNormalizer::class,
+            
+            \Combell\Client\Model\EditDomainWillRenewRequest::class => \Combell\Client\Normalizer\EditDomainWillRenewRequestNormalizer::class,
+            
+            \Combell\Client\Model\LinuxHosting::class => \Combell\Client\Normalizer\LinuxHostingNormalizer::class,
+            
+            \Combell\Client\Model\HostHeader::class => \Combell\Client\Normalizer\HostHeaderNormalizer::class,
+            
+            \Combell\Client\Model\LinuxSite::class => \Combell\Client\Normalizer\LinuxSiteNormalizer::class,
+            
+            \Combell\Client\Model\LinuxHostingDetail::class => \Combell\Client\Normalizer\LinuxHostingDetailNormalizer::class,
+            
+            \Combell\Client\Model\PhpVersion::class => \Combell\Client\Normalizer\PhpVersionNormalizer::class,
+            
+            \Combell\Client\Model\GzipConfig::class => \Combell\Client\Normalizer\GzipConfigNormalizer::class,
+            
+            \Combell\Client\Model\AddSubsiteRequest::class => \Combell\Client\Normalizer\AddSubsiteRequestNormalizer::class,
+            
+            \Combell\Client\Model\AddHostHeaderRequest::class => \Combell\Client\Normalizer\AddHostHeaderRequestNormalizer::class,
+            
+            \Combell\Client\Model\Http2Configuration::class => \Combell\Client\Normalizer\Http2ConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\FtpConfiguration::class => \Combell\Client\Normalizer\FtpConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\LetsEncryptConfig::class => \Combell\Client\Normalizer\LetsEncryptConfigNormalizer::class,
+            
+            \Combell\Client\Model\AutoRedirectConfig::class => \Combell\Client\Normalizer\AutoRedirectConfigNormalizer::class,
+            
+            \Combell\Client\Model\UpdatePhpMemoryLimitRequest::class => \Combell\Client\Normalizer\UpdatePhpMemoryLimitRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdatePhpAPcuRequest::class => \Combell\Client\Normalizer\UpdatePhpAPcuRequestNormalizer::class,
+            
+            \Combell\Client\Model\ScheduledTask::class => \Combell\Client\Normalizer\ScheduledTaskNormalizer::class,
+            
+            \Combell\Client\Model\SshKey::class => \Combell\Client\Normalizer\SshKeyNormalizer::class,
+            
+            \Combell\Client\Model\AddSshKeyRequest::class => \Combell\Client\Normalizer\AddSshKeyRequestNormalizer::class,
+            
+            \Combell\Client\Model\SshConfiguration::class => \Combell\Client\Normalizer\SshConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\Mailbox::class => \Combell\Client\Normalizer\MailboxNormalizer::class,
+            
+            \Combell\Client\Model\CreateMailboxRequest::class => \Combell\Client\Normalizer\CreateMailboxRequestNormalizer::class,
+            
+            \Combell\Client\Model\AutoReply::class => \Combell\Client\Normalizer\AutoReplyNormalizer::class,
+            
+            \Combell\Client\Model\AutoForward::class => \Combell\Client\Normalizer\AutoForwardNormalizer::class,
+            
+            \Combell\Client\Model\MailboxDetail::class => \Combell\Client\Normalizer\MailboxDetailNormalizer::class,
+            
+            \Combell\Client\Model\UpdateMailboxPasswordRequest::class => \Combell\Client\Normalizer\UpdateMailboxPasswordRequestNormalizer::class,
+            
+            \Combell\Client\Model\MailZoneAccount::class => \Combell\Client\Normalizer\MailZoneAccountNormalizer::class,
+            
+            \Combell\Client\Model\Alias::class => \Combell\Client\Normalizer\AliasNormalizer::class,
+            
+            \Combell\Client\Model\AntiSpam::class => \Combell\Client\Normalizer\AntiSpamNormalizer::class,
+            
+            \Combell\Client\Model\CatchAll::class => \Combell\Client\Normalizer\CatchAllNormalizer::class,
+            
+            \Combell\Client\Model\SmtpDomain::class => \Combell\Client\Normalizer\SmtpDomainNormalizer::class,
+            
+            \Combell\Client\Model\MailZone::class => \Combell\Client\Normalizer\MailZoneNormalizer::class,
+            
+            \Combell\Client\Model\CreateCatchAllRequest::class => \Combell\Client\Normalizer\CreateCatchAllRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateAntiSpamRequest::class => \Combell\Client\Normalizer\UpdateAntiSpamRequestNormalizer::class,
+            
+            \Combell\Client\Model\CreateAliasRequest::class => \Combell\Client\Normalizer\CreateAliasRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateAliasRequest::class => \Combell\Client\Normalizer\UpdateAliasRequestNormalizer::class,
+            
+            \Combell\Client\Model\CreateSmtpDomainRequest::class => \Combell\Client\Normalizer\CreateSmtpDomainRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateSmtpDomainRequest::class => \Combell\Client\Normalizer\UpdateSmtpDomainRequestNormalizer::class,
+            
+            \Combell\Client\Model\MySqlDatabase::class => \Combell\Client\Normalizer\MySqlDatabaseNormalizer::class,
+            
+            \Combell\Client\Model\CreateMySqlDatabase::class => \Combell\Client\Normalizer\CreateMySqlDatabaseNormalizer::class,
+            
+            \Combell\Client\Model\MySqlUser::class => \Combell\Client\Normalizer\MySqlUserNormalizer::class,
+            
+            \Combell\Client\Model\CreateMySqlUser::class => \Combell\Client\Normalizer\CreateMySqlUserNormalizer::class,
+            
+            \Combell\Client\Model\UpdateUserStatusRequest::class => \Combell\Client\Normalizer\UpdateUserStatusRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateUserPasswordRequest::class => \Combell\Client\Normalizer\UpdateUserPasswordRequestNormalizer::class,
+            
+            \Combell\Client\Model\CompletionEstimation::class => \Combell\Client\Normalizer\CompletionEstimationNormalizer::class,
+            
+            \Combell\Client\Model\ProvisioningJobInfo::class => \Combell\Client\Normalizer\ProvisioningJobInfoNormalizer::class,
+            
+            \Combell\Client\Model\ProvisioningJobCompletion::class => \Combell\Client\Normalizer\ProvisioningJobCompletionNormalizer::class,
+            
+            \Combell\Client\Model\SshKeyDetail::class => \Combell\Client\Normalizer\SshKeyDetailNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequest::class => \Combell\Client\Normalizer\SslCertificateRequestNormalizer::class,
+            
+            \Combell\Client\Model\AdditionalValidationAttribute::class => \Combell\Client\Normalizer\AdditionalValidationAttributeNormalizer::class,
+            
+            \Combell\Client\Model\CreateSslCertificateRequest::class => \Combell\Client\Normalizer\CreateSslCertificateRequestNormalizer::class,
+            
+            \Combell\Client\Model\SslSubjectAltName::class => \Combell\Client\Normalizer\SslSubjectAltNameNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequestValidation::class => \Combell\Client\Normalizer\SslCertificateRequestValidationNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequestDetail::class => \Combell\Client\Normalizer\SslCertificateRequestDetailNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificate::class => \Combell\Client\Normalizer\SslCertificateNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateDetail::class => \Combell\Client\Normalizer\SslCertificateDetailNormalizer::class,
+            
+            \Combell\Client\Model\WindowsHosting::class => \Combell\Client\Normalizer\WindowsHostingNormalizer::class,
+            
+            \Combell\Client\Model\ApplicationPool::class => \Combell\Client\Normalizer\ApplicationPoolNormalizer::class,
+            
+            \Combell\Client\Model\SiteBinding::class => \Combell\Client\Normalizer\SiteBindingNormalizer::class,
+            
+            \Combell\Client\Model\WindowsSite::class => \Combell\Client\Normalizer\WindowsSiteNormalizer::class,
+            
+            \Combell\Client\Model\WindowsHostingDetail::class => \Combell\Client\Normalizer\WindowsHostingDetailNormalizer::class,
+            
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \Combell\Client\Runtime\Normalizer\ReferenceNormalizer::class,
+        ], $normalizersCache = [];
+        public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+        {
+            return array_key_exists($type, $this->normalizers);
+        }
+        public function supportsNormalization($data, $format = null, array $context = []): bool
+        {
+            return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
+        }
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $normalizerClass = $this->normalizers[get_class($object)];
+            $normalizer = $this->getNormalizer($normalizerClass);
+            return $normalizer->normalize($object, $format, $context);
+        }
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            $denormalizerClass = $this->normalizers[$type];
+            $denormalizer = $this->getNormalizer($denormalizerClass);
+            return $denormalizer->denormalize($data, $type, $format, $context);
+        }
+        private function getNormalizer(string $normalizerClass)
+        {
+            return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
+        }
+        private function initNormalizer(string $normalizerClass)
+        {
+            $normalizer = new $normalizerClass();
+            $normalizer->setNormalizer($this->normalizer);
+            $normalizer->setDenormalizer($this->denormalizer);
+            $this->normalizersCache[$normalizerClass] = $normalizer;
+            return $normalizer;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [
+                
+                \Combell\Client\Model\Account::class => false,
+                \Combell\Client\Model\CreateAccount::class => false,
+                \Combell\Client\Model\ValidationErrorMessage::class => false,
+                \Combell\Client\Model\BadRequestResponse::class => false,
+                \Combell\Client\Model\Servicepack::class => false,
+                \Combell\Client\Model\Addon::class => false,
+                \Combell\Client\Model\AccountDetail::class => false,
+                \Combell\Client\Model\DnsRecord::class => false,
+                \Combell\Client\Model\Domain::class => false,
+                \Combell\Client\Model\NameServer::class => false,
+                \Combell\Client\Model\Registrant::class => false,
+                \Combell\Client\Model\DomainDetail::class => false,
+                \Combell\Client\Model\ExtraField::class => false,
+                \Combell\Client\Model\RegistrantInput::class => false,
+                \Combell\Client\Model\RegisterDomain::class => false,
+                \Combell\Client\Model\TransferDomain::class => false,
+                \Combell\Client\Model\EditNameServers::class => false,
+                \Combell\Client\Model\EditDomainWillRenewRequest::class => false,
+                \Combell\Client\Model\LinuxHosting::class => false,
+                \Combell\Client\Model\HostHeader::class => false,
+                \Combell\Client\Model\LinuxSite::class => false,
+                \Combell\Client\Model\LinuxHostingDetail::class => false,
+                \Combell\Client\Model\PhpVersion::class => false,
+                \Combell\Client\Model\GzipConfig::class => false,
+                \Combell\Client\Model\AddSubsiteRequest::class => false,
+                \Combell\Client\Model\AddHostHeaderRequest::class => false,
+                \Combell\Client\Model\Http2Configuration::class => false,
+                \Combell\Client\Model\FtpConfiguration::class => false,
+                \Combell\Client\Model\LetsEncryptConfig::class => false,
+                \Combell\Client\Model\AutoRedirectConfig::class => false,
+                \Combell\Client\Model\UpdatePhpMemoryLimitRequest::class => false,
+                \Combell\Client\Model\UpdatePhpAPcuRequest::class => false,
+                \Combell\Client\Model\ScheduledTask::class => false,
+                \Combell\Client\Model\SshKey::class => false,
+                \Combell\Client\Model\AddSshKeyRequest::class => false,
+                \Combell\Client\Model\SshConfiguration::class => false,
+                \Combell\Client\Model\Mailbox::class => false,
+                \Combell\Client\Model\CreateMailboxRequest::class => false,
+                \Combell\Client\Model\AutoReply::class => false,
+                \Combell\Client\Model\AutoForward::class => false,
+                \Combell\Client\Model\MailboxDetail::class => false,
+                \Combell\Client\Model\UpdateMailboxPasswordRequest::class => false,
+                \Combell\Client\Model\MailZoneAccount::class => false,
+                \Combell\Client\Model\Alias::class => false,
+                \Combell\Client\Model\AntiSpam::class => false,
+                \Combell\Client\Model\CatchAll::class => false,
+                \Combell\Client\Model\SmtpDomain::class => false,
+                \Combell\Client\Model\MailZone::class => false,
+                \Combell\Client\Model\CreateCatchAllRequest::class => false,
+                \Combell\Client\Model\UpdateAntiSpamRequest::class => false,
+                \Combell\Client\Model\CreateAliasRequest::class => false,
+                \Combell\Client\Model\UpdateAliasRequest::class => false,
+                \Combell\Client\Model\CreateSmtpDomainRequest::class => false,
+                \Combell\Client\Model\UpdateSmtpDomainRequest::class => false,
+                \Combell\Client\Model\MySqlDatabase::class => false,
+                \Combell\Client\Model\CreateMySqlDatabase::class => false,
+                \Combell\Client\Model\MySqlUser::class => false,
+                \Combell\Client\Model\CreateMySqlUser::class => false,
+                \Combell\Client\Model\UpdateUserStatusRequest::class => false,
+                \Combell\Client\Model\UpdateUserPasswordRequest::class => false,
+                \Combell\Client\Model\CompletionEstimation::class => false,
+                \Combell\Client\Model\ProvisioningJobInfo::class => false,
+                \Combell\Client\Model\ProvisioningJobCompletion::class => false,
+                \Combell\Client\Model\SshKeyDetail::class => false,
+                \Combell\Client\Model\SslCertificateRequest::class => false,
+                \Combell\Client\Model\AdditionalValidationAttribute::class => false,
+                \Combell\Client\Model\CreateSslCertificateRequest::class => false,
+                \Combell\Client\Model\SslSubjectAltName::class => false,
+                \Combell\Client\Model\SslCertificateRequestValidation::class => false,
+                \Combell\Client\Model\SslCertificateRequestDetail::class => false,
+                \Combell\Client\Model\SslCertificate::class => false,
+                \Combell\Client\Model\SslCertificateDetail::class => false,
+                \Combell\Client\Model\WindowsHosting::class => false,
+                \Combell\Client\Model\ApplicationPool::class => false,
+                \Combell\Client\Model\SiteBinding::class => false,
+                \Combell\Client\Model\WindowsSite::class => false,
+                \Combell\Client\Model\WindowsHostingDetail::class => false,
+                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
+            ];
+        }
     }
-    public function supportsNormalization($data, $format = null)
+} else {
+    class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
-    }
-    public function normalize($object, $format = null, array $context = array())
-    {
-        $normalizerClass = $this->normalizers[get_class($object)];
-        $normalizer = $this->getNormalizer($normalizerClass);
-        return $normalizer->normalize($object, $format, $context);
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        $denormalizerClass = $this->normalizers[$class];
-        $denormalizer = $this->getNormalizer($denormalizerClass);
-        return $denormalizer->denormalize($data, $class, $format, $context);
-    }
-    private function getNormalizer(string $normalizerClass)
-    {
-        return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
-    }
-    private function initNormalizer(string $normalizerClass)
-    {
-        $normalizer = new $normalizerClass();
-        $normalizer->setNormalizer($this->normalizer);
-        $normalizer->setDenormalizer($this->denormalizer);
-        $this->normalizersCache[$normalizerClass] = $normalizer;
-        return $normalizer;
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        protected $normalizers = [
+            
+            \Combell\Client\Model\Account::class => \Combell\Client\Normalizer\AccountNormalizer::class,
+            
+            \Combell\Client\Model\CreateAccount::class => \Combell\Client\Normalizer\CreateAccountNormalizer::class,
+            
+            \Combell\Client\Model\ValidationErrorMessage::class => \Combell\Client\Normalizer\ValidationErrorMessageNormalizer::class,
+            
+            \Combell\Client\Model\BadRequestResponse::class => \Combell\Client\Normalizer\BadRequestResponseNormalizer::class,
+            
+            \Combell\Client\Model\Servicepack::class => \Combell\Client\Normalizer\ServicepackNormalizer::class,
+            
+            \Combell\Client\Model\Addon::class => \Combell\Client\Normalizer\AddonNormalizer::class,
+            
+            \Combell\Client\Model\AccountDetail::class => \Combell\Client\Normalizer\AccountDetailNormalizer::class,
+            
+            \Combell\Client\Model\DnsRecord::class => \Combell\Client\Normalizer\DnsRecordNormalizer::class,
+            
+            \Combell\Client\Model\Domain::class => \Combell\Client\Normalizer\DomainNormalizer::class,
+            
+            \Combell\Client\Model\NameServer::class => \Combell\Client\Normalizer\NameServerNormalizer::class,
+            
+            \Combell\Client\Model\Registrant::class => \Combell\Client\Normalizer\RegistrantNormalizer::class,
+            
+            \Combell\Client\Model\DomainDetail::class => \Combell\Client\Normalizer\DomainDetailNormalizer::class,
+            
+            \Combell\Client\Model\ExtraField::class => \Combell\Client\Normalizer\ExtraFieldNormalizer::class,
+            
+            \Combell\Client\Model\RegistrantInput::class => \Combell\Client\Normalizer\RegistrantInputNormalizer::class,
+            
+            \Combell\Client\Model\RegisterDomain::class => \Combell\Client\Normalizer\RegisterDomainNormalizer::class,
+            
+            \Combell\Client\Model\TransferDomain::class => \Combell\Client\Normalizer\TransferDomainNormalizer::class,
+            
+            \Combell\Client\Model\EditNameServers::class => \Combell\Client\Normalizer\EditNameServersNormalizer::class,
+            
+            \Combell\Client\Model\EditDomainWillRenewRequest::class => \Combell\Client\Normalizer\EditDomainWillRenewRequestNormalizer::class,
+            
+            \Combell\Client\Model\LinuxHosting::class => \Combell\Client\Normalizer\LinuxHostingNormalizer::class,
+            
+            \Combell\Client\Model\HostHeader::class => \Combell\Client\Normalizer\HostHeaderNormalizer::class,
+            
+            \Combell\Client\Model\LinuxSite::class => \Combell\Client\Normalizer\LinuxSiteNormalizer::class,
+            
+            \Combell\Client\Model\LinuxHostingDetail::class => \Combell\Client\Normalizer\LinuxHostingDetailNormalizer::class,
+            
+            \Combell\Client\Model\PhpVersion::class => \Combell\Client\Normalizer\PhpVersionNormalizer::class,
+            
+            \Combell\Client\Model\GzipConfig::class => \Combell\Client\Normalizer\GzipConfigNormalizer::class,
+            
+            \Combell\Client\Model\AddSubsiteRequest::class => \Combell\Client\Normalizer\AddSubsiteRequestNormalizer::class,
+            
+            \Combell\Client\Model\AddHostHeaderRequest::class => \Combell\Client\Normalizer\AddHostHeaderRequestNormalizer::class,
+            
+            \Combell\Client\Model\Http2Configuration::class => \Combell\Client\Normalizer\Http2ConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\FtpConfiguration::class => \Combell\Client\Normalizer\FtpConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\LetsEncryptConfig::class => \Combell\Client\Normalizer\LetsEncryptConfigNormalizer::class,
+            
+            \Combell\Client\Model\AutoRedirectConfig::class => \Combell\Client\Normalizer\AutoRedirectConfigNormalizer::class,
+            
+            \Combell\Client\Model\UpdatePhpMemoryLimitRequest::class => \Combell\Client\Normalizer\UpdatePhpMemoryLimitRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdatePhpAPcuRequest::class => \Combell\Client\Normalizer\UpdatePhpAPcuRequestNormalizer::class,
+            
+            \Combell\Client\Model\ScheduledTask::class => \Combell\Client\Normalizer\ScheduledTaskNormalizer::class,
+            
+            \Combell\Client\Model\SshKey::class => \Combell\Client\Normalizer\SshKeyNormalizer::class,
+            
+            \Combell\Client\Model\AddSshKeyRequest::class => \Combell\Client\Normalizer\AddSshKeyRequestNormalizer::class,
+            
+            \Combell\Client\Model\SshConfiguration::class => \Combell\Client\Normalizer\SshConfigurationNormalizer::class,
+            
+            \Combell\Client\Model\Mailbox::class => \Combell\Client\Normalizer\MailboxNormalizer::class,
+            
+            \Combell\Client\Model\CreateMailboxRequest::class => \Combell\Client\Normalizer\CreateMailboxRequestNormalizer::class,
+            
+            \Combell\Client\Model\AutoReply::class => \Combell\Client\Normalizer\AutoReplyNormalizer::class,
+            
+            \Combell\Client\Model\AutoForward::class => \Combell\Client\Normalizer\AutoForwardNormalizer::class,
+            
+            \Combell\Client\Model\MailboxDetail::class => \Combell\Client\Normalizer\MailboxDetailNormalizer::class,
+            
+            \Combell\Client\Model\UpdateMailboxPasswordRequest::class => \Combell\Client\Normalizer\UpdateMailboxPasswordRequestNormalizer::class,
+            
+            \Combell\Client\Model\MailZoneAccount::class => \Combell\Client\Normalizer\MailZoneAccountNormalizer::class,
+            
+            \Combell\Client\Model\Alias::class => \Combell\Client\Normalizer\AliasNormalizer::class,
+            
+            \Combell\Client\Model\AntiSpam::class => \Combell\Client\Normalizer\AntiSpamNormalizer::class,
+            
+            \Combell\Client\Model\CatchAll::class => \Combell\Client\Normalizer\CatchAllNormalizer::class,
+            
+            \Combell\Client\Model\SmtpDomain::class => \Combell\Client\Normalizer\SmtpDomainNormalizer::class,
+            
+            \Combell\Client\Model\MailZone::class => \Combell\Client\Normalizer\MailZoneNormalizer::class,
+            
+            \Combell\Client\Model\CreateCatchAllRequest::class => \Combell\Client\Normalizer\CreateCatchAllRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateAntiSpamRequest::class => \Combell\Client\Normalizer\UpdateAntiSpamRequestNormalizer::class,
+            
+            \Combell\Client\Model\CreateAliasRequest::class => \Combell\Client\Normalizer\CreateAliasRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateAliasRequest::class => \Combell\Client\Normalizer\UpdateAliasRequestNormalizer::class,
+            
+            \Combell\Client\Model\CreateSmtpDomainRequest::class => \Combell\Client\Normalizer\CreateSmtpDomainRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateSmtpDomainRequest::class => \Combell\Client\Normalizer\UpdateSmtpDomainRequestNormalizer::class,
+            
+            \Combell\Client\Model\MySqlDatabase::class => \Combell\Client\Normalizer\MySqlDatabaseNormalizer::class,
+            
+            \Combell\Client\Model\CreateMySqlDatabase::class => \Combell\Client\Normalizer\CreateMySqlDatabaseNormalizer::class,
+            
+            \Combell\Client\Model\MySqlUser::class => \Combell\Client\Normalizer\MySqlUserNormalizer::class,
+            
+            \Combell\Client\Model\CreateMySqlUser::class => \Combell\Client\Normalizer\CreateMySqlUserNormalizer::class,
+            
+            \Combell\Client\Model\UpdateUserStatusRequest::class => \Combell\Client\Normalizer\UpdateUserStatusRequestNormalizer::class,
+            
+            \Combell\Client\Model\UpdateUserPasswordRequest::class => \Combell\Client\Normalizer\UpdateUserPasswordRequestNormalizer::class,
+            
+            \Combell\Client\Model\CompletionEstimation::class => \Combell\Client\Normalizer\CompletionEstimationNormalizer::class,
+            
+            \Combell\Client\Model\ProvisioningJobInfo::class => \Combell\Client\Normalizer\ProvisioningJobInfoNormalizer::class,
+            
+            \Combell\Client\Model\ProvisioningJobCompletion::class => \Combell\Client\Normalizer\ProvisioningJobCompletionNormalizer::class,
+            
+            \Combell\Client\Model\SshKeyDetail::class => \Combell\Client\Normalizer\SshKeyDetailNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequest::class => \Combell\Client\Normalizer\SslCertificateRequestNormalizer::class,
+            
+            \Combell\Client\Model\AdditionalValidationAttribute::class => \Combell\Client\Normalizer\AdditionalValidationAttributeNormalizer::class,
+            
+            \Combell\Client\Model\CreateSslCertificateRequest::class => \Combell\Client\Normalizer\CreateSslCertificateRequestNormalizer::class,
+            
+            \Combell\Client\Model\SslSubjectAltName::class => \Combell\Client\Normalizer\SslSubjectAltNameNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequestValidation::class => \Combell\Client\Normalizer\SslCertificateRequestValidationNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateRequestDetail::class => \Combell\Client\Normalizer\SslCertificateRequestDetailNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificate::class => \Combell\Client\Normalizer\SslCertificateNormalizer::class,
+            
+            \Combell\Client\Model\SslCertificateDetail::class => \Combell\Client\Normalizer\SslCertificateDetailNormalizer::class,
+            
+            \Combell\Client\Model\WindowsHosting::class => \Combell\Client\Normalizer\WindowsHostingNormalizer::class,
+            
+            \Combell\Client\Model\ApplicationPool::class => \Combell\Client\Normalizer\ApplicationPoolNormalizer::class,
+            
+            \Combell\Client\Model\SiteBinding::class => \Combell\Client\Normalizer\SiteBindingNormalizer::class,
+            
+            \Combell\Client\Model\WindowsSite::class => \Combell\Client\Normalizer\WindowsSiteNormalizer::class,
+            
+            \Combell\Client\Model\WindowsHostingDetail::class => \Combell\Client\Normalizer\WindowsHostingDetailNormalizer::class,
+            
+            \Jane\Component\JsonSchemaRuntime\Reference::class => \Combell\Client\Runtime\Normalizer\ReferenceNormalizer::class,
+        ], $normalizersCache = [];
+        public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+        {
+            return array_key_exists($type, $this->normalizers);
+        }
+        public function supportsNormalization($data, $format = null, array $context = []): bool
+        {
+            return is_object($data) && array_key_exists(get_class($data), $this->normalizers);
+        }
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $normalizerClass = $this->normalizers[get_class($object)];
+            $normalizer = $this->getNormalizer($normalizerClass);
+            return $normalizer->normalize($object, $format, $context);
+        }
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            $denormalizerClass = $this->normalizers[$type];
+            $denormalizer = $this->getNormalizer($denormalizerClass);
+            return $denormalizer->denormalize($data, $type, $format, $context);
+        }
+        private function getNormalizer(string $normalizerClass)
+        {
+            return $this->normalizersCache[$normalizerClass] ?? $this->initNormalizer($normalizerClass);
+        }
+        private function initNormalizer(string $normalizerClass)
+        {
+            $normalizer = new $normalizerClass();
+            $normalizer->setNormalizer($this->normalizer);
+            $normalizer->setDenormalizer($this->denormalizer);
+            $this->normalizersCache[$normalizerClass] = $normalizer;
+            return $normalizer;
+        }
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [
+                
+                \Combell\Client\Model\Account::class => false,
+                \Combell\Client\Model\CreateAccount::class => false,
+                \Combell\Client\Model\ValidationErrorMessage::class => false,
+                \Combell\Client\Model\BadRequestResponse::class => false,
+                \Combell\Client\Model\Servicepack::class => false,
+                \Combell\Client\Model\Addon::class => false,
+                \Combell\Client\Model\AccountDetail::class => false,
+                \Combell\Client\Model\DnsRecord::class => false,
+                \Combell\Client\Model\Domain::class => false,
+                \Combell\Client\Model\NameServer::class => false,
+                \Combell\Client\Model\Registrant::class => false,
+                \Combell\Client\Model\DomainDetail::class => false,
+                \Combell\Client\Model\ExtraField::class => false,
+                \Combell\Client\Model\RegistrantInput::class => false,
+                \Combell\Client\Model\RegisterDomain::class => false,
+                \Combell\Client\Model\TransferDomain::class => false,
+                \Combell\Client\Model\EditNameServers::class => false,
+                \Combell\Client\Model\EditDomainWillRenewRequest::class => false,
+                \Combell\Client\Model\LinuxHosting::class => false,
+                \Combell\Client\Model\HostHeader::class => false,
+                \Combell\Client\Model\LinuxSite::class => false,
+                \Combell\Client\Model\LinuxHostingDetail::class => false,
+                \Combell\Client\Model\PhpVersion::class => false,
+                \Combell\Client\Model\GzipConfig::class => false,
+                \Combell\Client\Model\AddSubsiteRequest::class => false,
+                \Combell\Client\Model\AddHostHeaderRequest::class => false,
+                \Combell\Client\Model\Http2Configuration::class => false,
+                \Combell\Client\Model\FtpConfiguration::class => false,
+                \Combell\Client\Model\LetsEncryptConfig::class => false,
+                \Combell\Client\Model\AutoRedirectConfig::class => false,
+                \Combell\Client\Model\UpdatePhpMemoryLimitRequest::class => false,
+                \Combell\Client\Model\UpdatePhpAPcuRequest::class => false,
+                \Combell\Client\Model\ScheduledTask::class => false,
+                \Combell\Client\Model\SshKey::class => false,
+                \Combell\Client\Model\AddSshKeyRequest::class => false,
+                \Combell\Client\Model\SshConfiguration::class => false,
+                \Combell\Client\Model\Mailbox::class => false,
+                \Combell\Client\Model\CreateMailboxRequest::class => false,
+                \Combell\Client\Model\AutoReply::class => false,
+                \Combell\Client\Model\AutoForward::class => false,
+                \Combell\Client\Model\MailboxDetail::class => false,
+                \Combell\Client\Model\UpdateMailboxPasswordRequest::class => false,
+                \Combell\Client\Model\MailZoneAccount::class => false,
+                \Combell\Client\Model\Alias::class => false,
+                \Combell\Client\Model\AntiSpam::class => false,
+                \Combell\Client\Model\CatchAll::class => false,
+                \Combell\Client\Model\SmtpDomain::class => false,
+                \Combell\Client\Model\MailZone::class => false,
+                \Combell\Client\Model\CreateCatchAllRequest::class => false,
+                \Combell\Client\Model\UpdateAntiSpamRequest::class => false,
+                \Combell\Client\Model\CreateAliasRequest::class => false,
+                \Combell\Client\Model\UpdateAliasRequest::class => false,
+                \Combell\Client\Model\CreateSmtpDomainRequest::class => false,
+                \Combell\Client\Model\UpdateSmtpDomainRequest::class => false,
+                \Combell\Client\Model\MySqlDatabase::class => false,
+                \Combell\Client\Model\CreateMySqlDatabase::class => false,
+                \Combell\Client\Model\MySqlUser::class => false,
+                \Combell\Client\Model\CreateMySqlUser::class => false,
+                \Combell\Client\Model\UpdateUserStatusRequest::class => false,
+                \Combell\Client\Model\UpdateUserPasswordRequest::class => false,
+                \Combell\Client\Model\CompletionEstimation::class => false,
+                \Combell\Client\Model\ProvisioningJobInfo::class => false,
+                \Combell\Client\Model\ProvisioningJobCompletion::class => false,
+                \Combell\Client\Model\SshKeyDetail::class => false,
+                \Combell\Client\Model\SslCertificateRequest::class => false,
+                \Combell\Client\Model\AdditionalValidationAttribute::class => false,
+                \Combell\Client\Model\CreateSslCertificateRequest::class => false,
+                \Combell\Client\Model\SslSubjectAltName::class => false,
+                \Combell\Client\Model\SslCertificateRequestValidation::class => false,
+                \Combell\Client\Model\SslCertificateRequestDetail::class => false,
+                \Combell\Client\Model\SslCertificate::class => false,
+                \Combell\Client\Model\SslCertificateDetail::class => false,
+                \Combell\Client\Model\WindowsHosting::class => false,
+                \Combell\Client\Model\ApplicationPool::class => false,
+                \Combell\Client\Model\SiteBinding::class => false,
+                \Combell\Client\Model\WindowsSite::class => false,
+                \Combell\Client\Model\WindowsHostingDetail::class => false,
+                \Jane\Component\JsonSchemaRuntime\Reference::class => false,
+            ];
+        }
     }
 }

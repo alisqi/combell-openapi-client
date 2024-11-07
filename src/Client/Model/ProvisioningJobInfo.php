@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class ProvisioningJobInfo
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The id of the job.
      *
      * @var string
@@ -17,7 +25,7 @@ class ProvisioningJobInfo
      */
     protected $status;
     /**
-     *
+     * 
      *
      * @var CompletionEstimation
      */
@@ -40,6 +48,7 @@ class ProvisioningJobInfo
      */
     public function setId(string $id): self
     {
+        $this->initialized['id'] = true;
         $this->id = $id;
         return $this;
     }
@@ -61,11 +70,12 @@ class ProvisioningJobInfo
      */
     public function setStatus(string $status): self
     {
+        $this->initialized['status'] = true;
         $this->status = $status;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return CompletionEstimation
      */
@@ -74,7 +84,7 @@ class ProvisioningJobInfo
         return $this->completion;
     }
     /**
-     *
+     * 
      *
      * @param CompletionEstimation $completion
      *
@@ -82,6 +92,7 @@ class ProvisioningJobInfo
      */
     public function setCompletion(CompletionEstimation $completion): self
     {
+        $this->initialized['completion'] = true;
         $this->completion = $completion;
         return $this;
     }

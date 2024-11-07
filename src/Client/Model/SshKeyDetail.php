@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SshKeyDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The fingerprint of the public key.<br />
     This value is ignored for creation of new SSH keys.
     *
@@ -20,7 +28,7 @@ class SshKeyDetail
     /**
      * List of Linux hostings where SSH key is attached
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $linuxHostings;
     /**
@@ -43,6 +51,7 @@ class SshKeyDetail
     */
     public function setFingerprint(string $fingerprint): self
     {
+        $this->initialized['fingerprint'] = true;
         $this->fingerprint = $fingerprint;
         return $this;
     }
@@ -64,13 +73,14 @@ class SshKeyDetail
      */
     public function setPublicKey(string $publicKey): self
     {
+        $this->initialized['publicKey'] = true;
         $this->publicKey = $publicKey;
         return $this;
     }
     /**
      * List of Linux hostings where SSH key is attached
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getLinuxHostings(): array
     {
@@ -79,12 +89,13 @@ class SshKeyDetail
     /**
      * List of Linux hostings where SSH key is attached
      *
-     * @param string[] $linuxHostings
+     * @param list<string> $linuxHostings
      *
      * @return self
      */
     public function setLinuxHostings(array $linuxHostings): self
     {
+        $this->initialized['linuxHostings'] = true;
         $this->linuxHostings = $linuxHostings;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class WindowsHosting
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Domain name for the Windows hosting account.
      *
      * @var string
@@ -34,6 +42,7 @@ class WindowsHosting
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -55,6 +64,7 @@ class WindowsHosting
      */
     public function setServicepackId(int $servicepackId): self
     {
+        $this->initialized['servicepackId'] = true;
         $this->servicepackId = $servicepackId;
         return $this;
     }

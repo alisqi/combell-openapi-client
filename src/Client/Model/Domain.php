@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class Domain
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The domain name
      *
      * @var string
@@ -41,6 +49,7 @@ class Domain
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -62,6 +71,7 @@ class Domain
      */
     public function setExpirationDate(\DateTime $expirationDate): self
     {
+        $this->initialized['expirationDate'] = true;
         $this->expirationDate = $expirationDate;
         return $this;
     }
@@ -85,6 +95,7 @@ class Domain
     */
     public function setWillRenew(bool $willRenew): self
     {
+        $this->initialized['willRenew'] = true;
         $this->willRenew = $willRenew;
         return $this;
     }

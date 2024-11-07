@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SiteBinding
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The protocol of the site binding.
      *
      * @var string
@@ -58,6 +66,7 @@ class SiteBinding
      */
     public function setProtocol(string $protocol): self
     {
+        $this->initialized['protocol'] = true;
         $this->protocol = $protocol;
         return $this;
     }
@@ -79,6 +88,7 @@ class SiteBinding
      */
     public function setHostName(string $hostName): self
     {
+        $this->initialized['hostName'] = true;
         $this->hostName = $hostName;
         return $this;
     }
@@ -100,6 +110,7 @@ class SiteBinding
      */
     public function setIpAddress(string $ipAddress): self
     {
+        $this->initialized['ipAddress'] = true;
         $this->ipAddress = $ipAddress;
         return $this;
     }
@@ -121,6 +132,7 @@ class SiteBinding
      */
     public function setPort(int $port): self
     {
+        $this->initialized['port'] = true;
         $this->port = $port;
         return $this;
     }
@@ -142,6 +154,7 @@ class SiteBinding
      */
     public function setCertThumbprint(string $certThumbprint): self
     {
+        $this->initialized['certThumbprint'] = true;
         $this->certThumbprint = $certThumbprint;
         return $this;
     }
@@ -163,6 +176,7 @@ class SiteBinding
      */
     public function setSslEnabled(bool $sslEnabled): self
     {
+        $this->initialized['sslEnabled'] = true;
         $this->sslEnabled = $sslEnabled;
         return $this;
     }

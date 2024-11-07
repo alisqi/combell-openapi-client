@@ -5,7 +5,15 @@ namespace Combell\Client\Model;
 class MailZone
 {
     /**
-     *
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
+     * 
      *
      * @var string
      */
@@ -19,24 +27,24 @@ class MailZone
     /**
      * List of mail zone accounts with their mailbox size.
      *
-     * @var MailZoneAccount[]
+     * @var list<MailZoneAccount>
      */
     protected $availableAccounts;
     /**
     * List of aliases on the mail zone<br />
     An alias is an e-mail address (alias) that automatically forwards received e-mails to another e-mail address (destination).
     *
-    * @var Alias[]
+    * @var list<Alias>
     */
     protected $aliases;
     /**
-     *
+     * 
      *
      * @var AntiSpam
      */
     protected $antiSpam;
     /**
-     *
+     * 
      *
      * @var CatchAll
      */
@@ -46,11 +54,11 @@ class MailZone
     SMTP domain names allow you to link multiple domain names to a single e-mail address.<br />
     E-mails sent to an SMTP domain will be caught by the respective e-mail address on the main domain name.
     *
-    * @var SmtpDomain[]
+    * @var list<SmtpDomain>
     */
     protected $smtpDomains;
     /**
-     *
+     * 
      *
      * @return string
      */
@@ -59,7 +67,7 @@ class MailZone
         return $this->name;
     }
     /**
-     *
+     * 
      *
      * @param string $name
      *
@@ -67,6 +75,7 @@ class MailZone
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -88,13 +97,14 @@ class MailZone
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }
     /**
      * List of mail zone accounts with their mailbox size.
      *
-     * @return MailZoneAccount[]
+     * @return list<MailZoneAccount>
      */
     public function getAvailableAccounts(): array
     {
@@ -103,12 +113,13 @@ class MailZone
     /**
      * List of mail zone accounts with their mailbox size.
      *
-     * @param MailZoneAccount[] $availableAccounts
+     * @param list<MailZoneAccount> $availableAccounts
      *
      * @return self
      */
     public function setAvailableAccounts(array $availableAccounts): self
     {
+        $this->initialized['availableAccounts'] = true;
         $this->availableAccounts = $availableAccounts;
         return $this;
     }
@@ -116,7 +127,7 @@ class MailZone
     * List of aliases on the mail zone<br />
     An alias is an e-mail address (alias) that automatically forwards received e-mails to another e-mail address (destination).
     *
-    * @return Alias[]
+    * @return list<Alias>
     */
     public function getAliases(): array
     {
@@ -126,17 +137,18 @@ class MailZone
     * List of aliases on the mail zone<br />
     An alias is an e-mail address (alias) that automatically forwards received e-mails to another e-mail address (destination).
     *
-    * @param Alias[] $aliases
+    * @param list<Alias> $aliases
     *
     * @return self
     */
     public function setAliases(array $aliases): self
     {
+        $this->initialized['aliases'] = true;
         $this->aliases = $aliases;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return AntiSpam
      */
@@ -145,7 +157,7 @@ class MailZone
         return $this->antiSpam;
     }
     /**
-     *
+     * 
      *
      * @param AntiSpam $antiSpam
      *
@@ -153,11 +165,12 @@ class MailZone
      */
     public function setAntiSpam(AntiSpam $antiSpam): self
     {
+        $this->initialized['antiSpam'] = true;
         $this->antiSpam = $antiSpam;
         return $this;
     }
     /**
-     *
+     * 
      *
      * @return CatchAll
      */
@@ -166,7 +179,7 @@ class MailZone
         return $this->catchAll;
     }
     /**
-     *
+     * 
      *
      * @param CatchAll $catchAll
      *
@@ -174,6 +187,7 @@ class MailZone
      */
     public function setCatchAll(CatchAll $catchAll): self
     {
+        $this->initialized['catchAll'] = true;
         $this->catchAll = $catchAll;
         return $this;
     }
@@ -182,7 +196,7 @@ class MailZone
     SMTP domain names allow you to link multiple domain names to a single e-mail address.<br />
     E-mails sent to an SMTP domain will be caught by the respective e-mail address on the main domain name.
     *
-    * @return SmtpDomain[]
+    * @return list<SmtpDomain>
     */
     public function getSmtpDomains(): array
     {
@@ -193,12 +207,13 @@ class MailZone
     SMTP domain names allow you to link multiple domain names to a single e-mail address.<br />
     E-mails sent to an SMTP domain will be caught by the respective e-mail address on the main domain name.
     *
-    * @param SmtpDomain[] $smtpDomains
+    * @param list<SmtpDomain> $smtpDomains
     *
     * @return self
     */
     public function setSmtpDomains(array $smtpDomains): self
     {
+        $this->initialized['smtpDomains'] = true;
         $this->smtpDomains = $smtpDomains;
         return $this;
     }

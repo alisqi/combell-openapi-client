@@ -2,17 +2,16 @@
 
 namespace Combell\Client\Endpoint;
 
-class PutDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
+class EditRecord extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $record_id;
     /**
-     *
+     * 
      *
      * @param string $domainName The domain name.
      * @param string $recordId The id of the record.
-     * @param null|\Combell\Client\Model\DnsRecord $requestBody
+     * @param null|\Combell\Client\Model\DnsRecord $requestBody 
      */
     public function __construct(string $domainName, string $recordId, ?\Combell\Client\Model\DnsRecord $requestBody = null)
     {
@@ -20,20 +19,21 @@ class PutDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\
         $this->record_id = $recordId;
         $this->body = $requestBody;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'PUT';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}', '{record_id}'), array($this->domain_name, $this->record_id), '/dns/{domainName}/records/{recordId}');
+        return str_replace(['{domain_name}', '{record_id}'], [$this->domain_name, $this->record_id], '/dns/{domainName}/records/{recordId}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\DnsRecord) {
-            return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
+            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -41,14 +41,16 @@ class PutDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (200 === $status) {
             return null;
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

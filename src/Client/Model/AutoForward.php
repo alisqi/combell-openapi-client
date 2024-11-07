@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AutoForward
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Enabled
      *
      * @var bool
@@ -13,7 +21,7 @@ class AutoForward
     /**
      * E-mail addresses to which e-mails are forwarded
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $emailAddresses;
     /**
@@ -40,13 +48,14 @@ class AutoForward
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }
     /**
      * E-mail addresses to which e-mails are forwarded
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getEmailAddresses(): array
     {
@@ -55,12 +64,13 @@ class AutoForward
     /**
      * E-mail addresses to which e-mails are forwarded
      *
-     * @param string[] $emailAddresses
+     * @param list<string> $emailAddresses
      *
      * @return self
      */
     public function setEmailAddresses(array $emailAddresses): self
     {
+        $this->initialized['emailAddresses'] = true;
         $this->emailAddresses = $emailAddresses;
         return $this;
     }
@@ -82,6 +92,7 @@ class AutoForward
      */
     public function setCopyToMyself(bool $copyToMyself): self
     {
+        $this->initialized['copyToMyself'] = true;
         $this->copyToMyself = $copyToMyself;
         return $this;
     }

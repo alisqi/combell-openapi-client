@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateAliasRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The alias e-mail
      *
      * @var string
@@ -13,7 +21,7 @@ class CreateAliasRequest
     /**
      * The alias destination e-mail addresses
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $destinations;
     /**
@@ -34,13 +42,14 @@ class CreateAliasRequest
      */
     public function setEmailAddress(string $emailAddress): self
     {
+        $this->initialized['emailAddress'] = true;
         $this->emailAddress = $emailAddress;
         return $this;
     }
     /**
      * The alias destination e-mail addresses
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getDestinations(): array
     {
@@ -49,12 +58,13 @@ class CreateAliasRequest
     /**
      * The alias destination e-mail addresses
      *
-     * @param string[] $destinations
+     * @param list<string> $destinations
      *
      * @return self
      */
     public function setDestinations(array $destinations): self
     {
+        $this->initialized['destinations'] = true;
         $this->destinations = $destinations;
         return $this;
     }

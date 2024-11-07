@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateMailboxRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * E-mail address
      *
      * @var string
@@ -41,6 +49,7 @@ class CreateMailboxRequest
      */
     public function setEmailAddress(string $emailAddress): self
     {
+        $this->initialized['emailAddress'] = true;
         $this->emailAddress = $emailAddress;
         return $this;
     }
@@ -62,6 +71,7 @@ class CreateMailboxRequest
      */
     public function setAccountId(int $accountId): self
     {
+        $this->initialized['accountId'] = true;
         $this->accountId = $accountId;
         return $this;
     }
@@ -85,6 +95,7 @@ class CreateMailboxRequest
     */
     public function setPassword(string $password): self
     {
+        $this->initialized['password'] = true;
         $this->password = $password;
         return $this;
     }

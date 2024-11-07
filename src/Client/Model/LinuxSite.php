@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class LinuxSite
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The name of the website.
      *
      * @var string
@@ -19,7 +27,7 @@ class LinuxSite
     /**
      * Host headers for the website.
      *
-     * @var HostHeader[]
+     * @var list<HostHeader>
      */
     protected $hostHeaders;
     /**
@@ -58,6 +66,7 @@ class LinuxSite
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -79,13 +88,14 @@ class LinuxSite
      */
     public function setPath(string $path): self
     {
+        $this->initialized['path'] = true;
         $this->path = $path;
         return $this;
     }
     /**
      * Host headers for the website.
      *
-     * @return HostHeader[]
+     * @return list<HostHeader>
      */
     public function getHostHeaders(): array
     {
@@ -94,12 +104,13 @@ class LinuxSite
     /**
      * Host headers for the website.
      *
-     * @param HostHeader[] $hostHeaders
+     * @param list<HostHeader> $hostHeaders
      *
      * @return self
      */
     public function setHostHeaders(array $hostHeaders): self
     {
+        $this->initialized['hostHeaders'] = true;
         $this->hostHeaders = $hostHeaders;
         return $this;
     }
@@ -121,6 +132,7 @@ class LinuxSite
      */
     public function setSslEnabled(bool $sslEnabled): self
     {
+        $this->initialized['sslEnabled'] = true;
         $this->sslEnabled = $sslEnabled;
         return $this;
     }
@@ -142,6 +154,7 @@ class LinuxSite
      */
     public function setHttpsRedirectEnabled(bool $httpsRedirectEnabled): self
     {
+        $this->initialized['httpsRedirectEnabled'] = true;
         $this->httpsRedirectEnabled = $httpsRedirectEnabled;
         return $this;
     }
@@ -163,6 +176,7 @@ class LinuxSite
      */
     public function setHttp2Enabled(bool $http2Enabled): self
     {
+        $this->initialized['http2Enabled'] = true;
         $this->http2Enabled = $http2Enabled;
         return $this;
     }

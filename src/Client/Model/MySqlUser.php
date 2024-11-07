@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class MySqlUser
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * User name
      *
      * @var string
@@ -40,6 +48,7 @@ class MySqlUser
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -61,6 +70,7 @@ class MySqlUser
      */
     public function setRights(string $rights): self
     {
+        $this->initialized['rights'] = true;
         $this->rights = $rights;
         return $this;
     }
@@ -82,6 +92,7 @@ class MySqlUser
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }

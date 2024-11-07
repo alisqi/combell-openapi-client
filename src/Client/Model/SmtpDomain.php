@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class SmtpDomain
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The smtp domain name
      *
      * @var string
@@ -34,6 +42,7 @@ class SmtpDomain
      */
     public function setHostname(string $hostname): self
     {
+        $this->initialized['hostname'] = true;
         $this->hostname = $hostname;
         return $this;
     }
@@ -55,6 +64,7 @@ class SmtpDomain
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }

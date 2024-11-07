@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class WindowsHostingDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Domain name for the Windows hosting account.
      *
      * @var string
@@ -55,13 +63,13 @@ class WindowsHostingDetail
     /**
      * A list of websites on the hosting account.
      *
-     * @var WindowsSite[]
+     * @var list<WindowsSite>
      */
     protected $sites;
     /**
      * A list of mssql databases linked to the hosting account.<br />
      *
-     * @var string[]
+     * @var list<string>
      */
     protected $mssqlDatabaseNames;
     /**
@@ -82,6 +90,7 @@ class WindowsHostingDetail
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -103,6 +112,7 @@ class WindowsHostingDetail
      */
     public function setServicepackId(int $servicepackId): self
     {
+        $this->initialized['servicepackId'] = true;
         $this->servicepackId = $servicepackId;
         return $this;
     }
@@ -124,6 +134,7 @@ class WindowsHostingDetail
      */
     public function setMaxSize(int $maxSize): self
     {
+        $this->initialized['maxSize'] = true;
         $this->maxSize = $maxSize;
         return $this;
     }
@@ -145,6 +156,7 @@ class WindowsHostingDetail
      */
     public function setActualSize(int $actualSize): self
     {
+        $this->initialized['actualSize'] = true;
         $this->actualSize = $actualSize;
         return $this;
     }
@@ -166,6 +178,7 @@ class WindowsHostingDetail
      */
     public function setIp(string $ip): self
     {
+        $this->initialized['ip'] = true;
         $this->ip = $ip;
         return $this;
     }
@@ -187,6 +200,7 @@ class WindowsHostingDetail
      */
     public function setIpType(string $ipType): self
     {
+        $this->initialized['ipType'] = true;
         $this->ipType = $ipType;
         return $this;
     }
@@ -208,6 +222,7 @@ class WindowsHostingDetail
      */
     public function setFtpUsername(string $ftpUsername): self
     {
+        $this->initialized['ftpUsername'] = true;
         $this->ftpUsername = $ftpUsername;
         return $this;
     }
@@ -229,13 +244,14 @@ class WindowsHostingDetail
      */
     public function setApplicationPool(ApplicationPool $applicationPool): self
     {
+        $this->initialized['applicationPool'] = true;
         $this->applicationPool = $applicationPool;
         return $this;
     }
     /**
      * A list of websites on the hosting account.
      *
-     * @return WindowsSite[]
+     * @return list<WindowsSite>
      */
     public function getSites(): array
     {
@@ -244,19 +260,20 @@ class WindowsHostingDetail
     /**
      * A list of websites on the hosting account.
      *
-     * @param WindowsSite[] $sites
+     * @param list<WindowsSite> $sites
      *
      * @return self
      */
     public function setSites(array $sites): self
     {
+        $this->initialized['sites'] = true;
         $this->sites = $sites;
         return $this;
     }
     /**
      * A list of mssql databases linked to the hosting account.<br />
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getMssqlDatabaseNames(): array
     {
@@ -265,12 +282,13 @@ class WindowsHostingDetail
     /**
      * A list of mssql databases linked to the hosting account.<br />
      *
-     * @param string[] $mssqlDatabaseNames
+     * @param list<string> $mssqlDatabaseNames
      *
      * @return self
      */
     public function setMssqlDatabaseNames(array $mssqlDatabaseNames): self
     {
+        $this->initialized['mssqlDatabaseNames'] = true;
         $this->mssqlDatabaseNames = $mssqlDatabaseNames;
         return $this;
     }

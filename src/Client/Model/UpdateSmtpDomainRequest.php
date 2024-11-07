@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class UpdateSmtpDomainRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Enabled
      *
      * @var bool
@@ -28,6 +36,7 @@ class UpdateSmtpDomainRequest
      */
     public function setEnabled(bool $enabled): self
     {
+        $this->initialized['enabled'] = true;
         $this->enabled = $enabled;
         return $this;
     }

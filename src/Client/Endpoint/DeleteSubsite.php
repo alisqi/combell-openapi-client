@@ -4,11 +4,10 @@ namespace Combell\Client\Endpoint;
 
 class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $site_name;
     /**
-     *
+     * 
      *
      * @param string $domainName Linux hosting domain name.
      * @param string $siteName Name of the site on the linux hosting.
@@ -18,17 +17,18 @@ class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
         $this->domain_name = $domainName;
         $this->site_name = $siteName;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'DELETE';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}', '{site_name}'), array($this->domain_name, $this->site_name), '/linuxhostings/{domainName}/subsites/{siteName}');
+        return str_replace(['{domain_name}', '{site_name}'], [$this->domain_name, $this->site_name], '/linuxhostings/{domainName}/subsites/{siteName}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -37,17 +37,19 @@ class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (204 === $status) {
             return null;
         }
         if (400 === $status) {
-            throw new \Combell\Client\Exception\DeleteSubsiteBadRequestException();
+            throw new \Combell\Client\Exception\DeleteSubsiteBadRequestException($response);
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

@@ -2,8 +2,9 @@
 
 namespace Combell\Client\Normalizer;
 
-use Jane\JsonSchemaRuntime\Reference;
+use Jane\Component\JsonSchemaRuntime\Reference;
 use Combell\Client\Runtime\Normalizer\CheckArray;
+use Combell\Client\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -11,63 +12,141 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-class AutoForwardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
-{
-    use DenormalizerAwareTrait;
-    use NormalizerAwareTrait;
-    use CheckArray;
-    public function supportsDenormalization($data, $type, $format = null)
+use Symfony\Component\HttpKernel\Kernel;
+if (!class_exists(Kernel::class) or (Kernel::MAJOR_VERSION >= 7 or Kernel::MAJOR_VERSION === 6 and Kernel::MINOR_VERSION === 4)) {
+    class AutoForwardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        return $type === 'Combell\\Client\\Model\\AutoForward';
-    }
-    public function supportsNormalization($data, $format = null)
-    {
-        return is_object($data) && get_class($data) === 'Combell\\Client\\Model\\AutoForward';
-    }
-    public function denormalize($data, $class, $format = null, array $context = array())
-    {
-        if (isset($data['$ref'])) {
-            return new Reference($data['$ref'], $context['document-origin']);
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\AutoForward::class;
         }
-        if (isset($data['$recursiveRef'])) {
-            return new Reference($data['$recursiveRef'], $context['document-origin']);
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\AutoForward::class;
         }
-        $object = new \Combell\Client\Model\AutoForward();
-        if (null === $data || false === \is_array($data)) {
+        public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
+            }
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\AutoForward();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('enabled', $data)) {
+                $object->setEnabled($data['enabled']);
+            }
+            if (\array_key_exists('email_addresses', $data)) {
+                $values = [];
+                foreach ($data['email_addresses'] as $value) {
+                    $values[] = $value;
+                }
+                $object->setEmailAddresses($values);
+            }
+            if (\array_key_exists('copy_to_myself', $data)) {
+                $object->setCopyToMyself($data['copy_to_myself']);
+            }
             return $object;
         }
-        if (\array_key_exists('enabled', $data)) {
-            $object->setEnabled($data['enabled']);
-        }
-        if (\array_key_exists('email_addresses', $data)) {
-            $values = array();
-            foreach ($data['email_addresses'] as $value) {
-                $values[] = $value;
+        public function normalize(mixed $object, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+        {
+            $data = [];
+            if ($object->isInitialized('enabled') && null !== $object->getEnabled()) {
+                $data['enabled'] = $object->getEnabled();
             }
-            $object->setEmailAddresses($values);
+            if ($object->isInitialized('emailAddresses') && null !== $object->getEmailAddresses()) {
+                $values = [];
+                foreach ($object->getEmailAddresses() as $value) {
+                    $values[] = $value;
+                }
+                $data['email_addresses'] = $values;
+            }
+            if ($object->isInitialized('copyToMyself') && null !== $object->getCopyToMyself()) {
+                $data['copy_to_myself'] = $object->getCopyToMyself();
+            }
+            return $data;
         }
-        if (\array_key_exists('copy_to_myself', $data)) {
-            $object->setCopyToMyself($data['copy_to_myself']);
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\AutoForward::class => false];
         }
-        return $object;
     }
-    public function normalize($object, $format = null, array $context = array())
+} else {
+    class AutoForwardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
     {
-        $data = array();
-        if (null !== $object->getEnabled()) {
-            $data['enabled'] = $object->getEnabled();
+        use DenormalizerAwareTrait;
+        use NormalizerAwareTrait;
+        use CheckArray;
+        use ValidatorTrait;
+        public function supportsDenormalization($data, $type, string $format = null, array $context = []): bool
+        {
+            return $type === \Combell\Client\Model\AutoForward::class;
         }
-        if (null !== $object->getEmailAddresses()) {
-            $values = array();
-            foreach ($object->getEmailAddresses() as $value) {
-                $values[] = $value;
+        public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+        {
+            return is_object($data) && get_class($data) === \Combell\Client\Model\AutoForward::class;
+        }
+        /**
+         * @return mixed
+         */
+        public function denormalize($data, $type, $format = null, array $context = [])
+        {
+            if (isset($data['$ref'])) {
+                return new Reference($data['$ref'], $context['document-origin']);
             }
-            $data['email_addresses'] = $values;
+            if (isset($data['$recursiveRef'])) {
+                return new Reference($data['$recursiveRef'], $context['document-origin']);
+            }
+            $object = new \Combell\Client\Model\AutoForward();
+            if (null === $data || false === \is_array($data)) {
+                return $object;
+            }
+            if (\array_key_exists('enabled', $data)) {
+                $object->setEnabled($data['enabled']);
+            }
+            if (\array_key_exists('email_addresses', $data)) {
+                $values = [];
+                foreach ($data['email_addresses'] as $value) {
+                    $values[] = $value;
+                }
+                $object->setEmailAddresses($values);
+            }
+            if (\array_key_exists('copy_to_myself', $data)) {
+                $object->setCopyToMyself($data['copy_to_myself']);
+            }
+            return $object;
         }
-        if (null !== $object->getCopyToMyself()) {
-            $data['copy_to_myself'] = $object->getCopyToMyself();
+        /**
+         * @return array|string|int|float|bool|\ArrayObject|null
+         */
+        public function normalize($object, $format = null, array $context = [])
+        {
+            $data = [];
+            if ($object->isInitialized('enabled') && null !== $object->getEnabled()) {
+                $data['enabled'] = $object->getEnabled();
+            }
+            if ($object->isInitialized('emailAddresses') && null !== $object->getEmailAddresses()) {
+                $values = [];
+                foreach ($object->getEmailAddresses() as $value) {
+                    $values[] = $value;
+                }
+                $data['email_addresses'] = $values;
+            }
+            if ($object->isInitialized('copyToMyself') && null !== $object->getCopyToMyself()) {
+                $data['copy_to_myself'] = $object->getCopyToMyself();
+            }
+            return $data;
         }
-        return $data;
+        public function getSupportedTypes(?string $format = null): array
+        {
+            return [\Combell\Client\Model\AutoForward::class => false];
+        }
     }
 }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class WindowsSite
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The name of the website.
      *
      * @var string
@@ -19,7 +27,7 @@ class WindowsSite
     /**
      * The bindings for the website.
      *
-     * @var SiteBinding[]
+     * @var list<SiteBinding>
      */
     protected $bindings;
     /**
@@ -40,6 +48,7 @@ class WindowsSite
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -61,13 +70,14 @@ class WindowsSite
      */
     public function setPath(string $path): self
     {
+        $this->initialized['path'] = true;
         $this->path = $path;
         return $this;
     }
     /**
      * The bindings for the website.
      *
-     * @return SiteBinding[]
+     * @return list<SiteBinding>
      */
     public function getBindings(): array
     {
@@ -76,12 +86,13 @@ class WindowsSite
     /**
      * The bindings for the website.
      *
-     * @param SiteBinding[] $bindings
+     * @param list<SiteBinding> $bindings
      *
      * @return self
      */
     public function setBindings(array $bindings): self
     {
+        $this->initialized['bindings'] = true;
         $this->bindings = $bindings;
         return $this;
     }

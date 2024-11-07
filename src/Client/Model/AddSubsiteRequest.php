@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AddSubsiteRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Subsite domain name (e.g. alias.be or subsite.site.be).
      *
      * @var string
@@ -35,6 +43,7 @@ class AddSubsiteRequest
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -58,6 +67,7 @@ class AddSubsiteRequest
     */
     public function setPath(string $path): self
     {
+        $this->initialized['path'] = true;
         $this->path = $path;
         return $this;
     }

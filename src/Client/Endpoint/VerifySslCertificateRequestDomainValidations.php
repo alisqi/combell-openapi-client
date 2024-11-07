@@ -4,10 +4,9 @@ namespace Combell\Client\Endpoint;
 
 class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $id;
     /**
-     *
+     * 
      *
      * @param int $id The id of the certificate request.
      */
@@ -15,17 +14,18 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
     {
         $this->id = $id;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'PUT';
     }
     public function getUri(): string
     {
-        return str_replace(array('{id}'), array($this->id), '/sslcertificaterequests/{id}');
+        return str_replace(['{id}'], [$this->id], '/sslcertificaterequests/{id}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -34,8 +34,10 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (202 === $status) {
             return null;
         }
@@ -43,11 +45,11 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
             return null;
         }
         if (410 === $status) {
-            throw new \Combell\Client\Exception\VerifySslCertificateRequestDomainValidationsGoneException();
+            throw new \Combell\Client\Exception\VerifySslCertificateRequestDomainValidationsGoneException($response);
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

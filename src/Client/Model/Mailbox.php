@@ -5,7 +5,15 @@ namespace Combell\Client\Model;
 class Mailbox
 {
     /**
-     *
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
+     * 
      *
      * @var string
      */
@@ -23,7 +31,7 @@ class Mailbox
      */
     protected $actualSize;
     /**
-     *
+     * 
      *
      * @return string
      */
@@ -32,7 +40,7 @@ class Mailbox
         return $this->name;
     }
     /**
-     *
+     * 
      *
      * @param string $name
      *
@@ -40,6 +48,7 @@ class Mailbox
      */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -61,6 +70,7 @@ class Mailbox
      */
     public function setMaxSize(int $maxSize): self
     {
+        $this->initialized['maxSize'] = true;
         $this->maxSize = $maxSize;
         return $this;
     }
@@ -82,6 +92,7 @@ class Mailbox
      */
     public function setActualSize(int $actualSize): self
     {
+        $this->initialized['actualSize'] = true;
         $this->actualSize = $actualSize;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CompletionEstimation
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * The estimated time when the job should be finished.<br />
     Unexpected delays can always occur.<br />
     The value is subject to change during the provisioning.
@@ -34,6 +42,7 @@ class CompletionEstimation
     */
     public function setEstimate(\DateTime $estimate): self
     {
+        $this->initialized['estimate'] = true;
         $this->estimate = $estimate;
         return $this;
     }

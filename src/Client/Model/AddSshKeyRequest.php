@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class AddSshKeyRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Public key
      *
      * @var string
@@ -28,6 +36,7 @@ class AddSshKeyRequest
      */
     public function setPublicKey(string $publicKey): self
     {
+        $this->initialized['publicKey'] = true;
         $this->publicKey = $publicKey;
         return $this;
     }

@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class LinuxHostingDetail
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * Domain name for the Linux hosting account.
      *
      * @var string
@@ -91,14 +99,14 @@ class LinuxHostingDetail
     /**
      * A list of websites on the hosting account.
      *
-     * @var LinuxSite[]
+     * @var list<LinuxSite>
      */
     protected $sites;
     /**
     * A list of mysql databases linked to the hosting account.<br />
     Details of the database can be read using the mysql database detail.
     *
-    * @var string[]
+    * @var list<string>
     */
     protected $mysqlDatabaseNames;
     /**
@@ -119,6 +127,7 @@ class LinuxHostingDetail
      */
     public function setDomainName(string $domainName): self
     {
+        $this->initialized['domainName'] = true;
         $this->domainName = $domainName;
         return $this;
     }
@@ -140,6 +149,7 @@ class LinuxHostingDetail
      */
     public function setServicepackId(int $servicepackId): self
     {
+        $this->initialized['servicepackId'] = true;
         $this->servicepackId = $servicepackId;
         return $this;
     }
@@ -167,6 +177,7 @@ class LinuxHostingDetail
     */
     public function setMaxWebspaceSize(int $maxWebspaceSize): self
     {
+        $this->initialized['maxWebspaceSize'] = true;
         $this->maxWebspaceSize = $maxWebspaceSize;
         return $this;
     }
@@ -188,6 +199,7 @@ class LinuxHostingDetail
      */
     public function setMaxSize(int $maxSize): self
     {
+        $this->initialized['maxSize'] = true;
         $this->maxSize = $maxSize;
         return $this;
     }
@@ -215,6 +227,7 @@ class LinuxHostingDetail
     */
     public function setWebspaceUsage(int $webspaceUsage): self
     {
+        $this->initialized['webspaceUsage'] = true;
         $this->webspaceUsage = $webspaceUsage;
         return $this;
     }
@@ -236,6 +249,7 @@ class LinuxHostingDetail
      */
     public function setActualSize(int $actualSize): self
     {
+        $this->initialized['actualSize'] = true;
         $this->actualSize = $actualSize;
         return $this;
     }
@@ -257,6 +271,7 @@ class LinuxHostingDetail
      */
     public function setIp(string $ip): self
     {
+        $this->initialized['ip'] = true;
         $this->ip = $ip;
         return $this;
     }
@@ -278,6 +293,7 @@ class LinuxHostingDetail
      */
     public function setIpType(string $ipType): self
     {
+        $this->initialized['ipType'] = true;
         $this->ipType = $ipType;
         return $this;
     }
@@ -299,6 +315,7 @@ class LinuxHostingDetail
      */
     public function setFtpEnabled(bool $ftpEnabled): self
     {
+        $this->initialized['ftpEnabled'] = true;
         $this->ftpEnabled = $ftpEnabled;
         return $this;
     }
@@ -320,6 +337,7 @@ class LinuxHostingDetail
      */
     public function setFtpUsername(string $ftpUsername): self
     {
+        $this->initialized['ftpUsername'] = true;
         $this->ftpUsername = $ftpUsername;
         return $this;
     }
@@ -341,6 +359,7 @@ class LinuxHostingDetail
      */
     public function setSshHost(string $sshHost): self
     {
+        $this->initialized['sshHost'] = true;
         $this->sshHost = $sshHost;
         return $this;
     }
@@ -362,6 +381,7 @@ class LinuxHostingDetail
      */
     public function setSshUsername(string $sshUsername): self
     {
+        $this->initialized['sshUsername'] = true;
         $this->sshUsername = $sshUsername;
         return $this;
     }
@@ -383,13 +403,14 @@ class LinuxHostingDetail
      */
     public function setPhpVersion(string $phpVersion): self
     {
+        $this->initialized['phpVersion'] = true;
         $this->phpVersion = $phpVersion;
         return $this;
     }
     /**
      * A list of websites on the hosting account.
      *
-     * @return LinuxSite[]
+     * @return list<LinuxSite>
      */
     public function getSites(): array
     {
@@ -398,12 +419,13 @@ class LinuxHostingDetail
     /**
      * A list of websites on the hosting account.
      *
-     * @param LinuxSite[] $sites
+     * @param list<LinuxSite> $sites
      *
      * @return self
      */
     public function setSites(array $sites): self
     {
+        $this->initialized['sites'] = true;
         $this->sites = $sites;
         return $this;
     }
@@ -411,7 +433,7 @@ class LinuxHostingDetail
     * A list of mysql databases linked to the hosting account.<br />
     Details of the database can be read using the mysql database detail.
     *
-    * @return string[]
+    * @return list<string>
     */
     public function getMysqlDatabaseNames(): array
     {
@@ -421,12 +443,13 @@ class LinuxHostingDetail
     * A list of mysql databases linked to the hosting account.<br />
     Details of the database can be read using the mysql database detail.
     *
-    * @param string[] $mysqlDatabaseNames
+    * @param list<string> $mysqlDatabaseNames
     *
     * @return self
     */
     public function setMysqlDatabaseNames(array $mysqlDatabaseNames): self
     {
+        $this->initialized['mysqlDatabaseNames'] = true;
         $this->mysqlDatabaseNames = $mysqlDatabaseNames;
         return $this;
     }

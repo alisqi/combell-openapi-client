@@ -4,11 +4,10 @@ namespace Combell\Client\Endpoint;
 
 class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $hostname;
     /**
-     *
+     * 
      *
      * @param string $domainName Mail zone domain name.
      * @param string $hostname Smtp domain name.
@@ -18,17 +17,18 @@ class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
         $this->domain_name = $domainName;
         $this->hostname = $hostname;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'DELETE';
     }
     public function getUri(): string
     {
-        return str_replace(array('{domain_name}', '{hostname}'), array($this->domain_name, $this->hostname), '/mailzones/{domainName}/smtpdomains/{hostname}');
+        return str_replace(['{domain_name}', '{hostname}'], [$this->domain_name, $this->hostname], '/mailzones/{domainName}/smtpdomains/{hostname}');
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     /**
      * {@inheritdoc}
@@ -37,17 +37,19 @@ class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
      *
      * @return null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (204 === $status) {
             return null;
         }
         if (400 === $status) {
-            throw new \Combell\Client\Exception\DeleteSmtpDomainBadRequestException();
+            throw new \Combell\Client\Exception\DeleteSmtpDomainBadRequestException($response);
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

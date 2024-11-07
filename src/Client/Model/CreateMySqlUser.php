@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateMySqlUser
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
     * User name<br />
     User names have to adhere to following rules:<br /><ul><li>Between 2-14 characters.</li><li>Must be a mix of letters and/or digits.</li><li>Must be lower cased.</li><li>Cannot contain spaces.</li></ul>
     *
@@ -38,6 +46,7 @@ class CreateMySqlUser
     */
     public function setName(string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
         return $this;
     }
@@ -61,6 +70,7 @@ class CreateMySqlUser
     */
     public function setPassword(string $password): self
     {
+        $this->initialized['password'] = true;
         $this->password = $password;
         return $this;
     }

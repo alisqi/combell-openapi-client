@@ -4,9 +4,8 @@ namespace Combell\Client\Endpoint;
 
 class GetAccounts extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
-    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
-     *
+     * 
      *
      * @param array $queryParameters {
      *     @var int $skip The number of items to skip in the resultset.
@@ -15,10 +14,11 @@ class GetAccounts extends \Combell\Client\Runtime\Client\BaseEndpoint implements
      *     @var string $identifier Return only accounts, matching the specified identifier.
      * }
      */
-    public function __construct(array $queryParameters = array())
+    public function __construct(array $queryParameters = [])
     {
         $this->queryParameters = $queryParameters;
     }
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     public function getMethod(): string
     {
         return 'GET';
@@ -29,22 +29,22 @@ class GetAccounts extends \Combell\Client\Runtime\Client\BaseEndpoint implements
     }
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return array(array(), null);
+        return [[], null];
     }
     public function getExtraHeaders(): array
     {
-        return array('Accept' => array('application/json'));
+        return ['Accept' => ['application/json']];
     }
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(array('skip', 'take', 'asset_type', 'identifier'));
-        $optionsResolver->setRequired(array());
-        $optionsResolver->setDefaults(array());
-        $optionsResolver->setAllowedTypes('skip', array('int'));
-        $optionsResolver->setAllowedTypes('take', array('int'));
-        $optionsResolver->setAllowedTypes('asset_type', array('string'));
-        $optionsResolver->setAllowedTypes('identifier', array('string', 'null'));
+        $optionsResolver->setDefined(['skip', 'take', 'asset_type', 'identifier']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->addAllowedTypes('skip', ['int']);
+        $optionsResolver->addAllowedTypes('take', ['int']);
+        $optionsResolver->addAllowedTypes('asset_type', ['string']);
+        $optionsResolver->addAllowedTypes('identifier', ['string', 'null']);
         return $optionsResolver;
     }
     /**
@@ -53,14 +53,16 @@ class GetAccounts extends \Combell\Client\Runtime\Client\BaseEndpoint implements
      *
      * @return null|\Combell\Client\Model\Account[]
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if (is_null($contentType) === false && (200 === $status && mb_strpos($contentType, 'application/json') !== false)) {
-            return $serializer->deserialize($body, 'Combell\\Client\\Model\\Account[]', 'json');
+            return $serializer->deserialize($body, 'Combell\Client\Model\Account[]', 'json');
         }
     }
     public function getAuthenticationScopes(): array
     {
-        return array();
+        return [];
     }
 }

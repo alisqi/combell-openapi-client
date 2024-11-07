@@ -5,6 +5,14 @@ namespace Combell\Client\Model;
 class CreateSmtpDomainRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+    public function isInitialized($property): bool
+    {
+        return array_key_exists($property, $this->initialized);
+    }
+    /**
      * The smtp domain name
      *
      * @var string
@@ -28,6 +36,7 @@ class CreateSmtpDomainRequest
      */
     public function setHostname(string $hostname): self
     {
+        $this->initialized['hostname'] = true;
         $this->hostname = $hostname;
         return $this;
     }
