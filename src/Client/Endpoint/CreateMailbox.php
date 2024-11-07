@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
      *
      *
@@ -13,16 +14,15 @@ class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
     {
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'POST';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return '/mailboxes';
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\CreateMailboxRequest) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -41,7 +41,7 @@ class CreateMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

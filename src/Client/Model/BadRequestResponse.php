@@ -15,7 +15,7 @@ class BadRequestResponse
      *
      * @return ValidationErrorMessage[]
      */
-    public function getValidationErrors() : array
+    public function getValidationErrors(): array
     {
         return $this->validationErrors;
     }
@@ -26,7 +26,7 @@ class BadRequestResponse
      *
      * @return self
      */
-    public function setValidationErrors(array $validationErrors) : self
+    public function setValidationErrors(array $validationErrors): self
     {
         $this->validationErrors = $validationErrors;
         return $this;

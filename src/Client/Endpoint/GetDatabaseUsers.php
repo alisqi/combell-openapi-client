@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetDatabaseUsers extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $database_name;
     /**
      *
@@ -14,20 +15,19 @@ class GetDatabaseUsers extends \Combell\Client\Runtime\Client\BaseEndpoint imple
     {
         $this->database_name = $databaseName;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{database_name}'), array($this->database_name), '/mysqldatabases/{databaseName}/users');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -43,7 +43,7 @@ class GetDatabaseUsers extends \Combell\Client\Runtime\Client\BaseEndpoint imple
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\MySqlUser[]', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

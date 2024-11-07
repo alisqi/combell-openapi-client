@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class CreateSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     /**
      *
@@ -16,16 +17,15 @@ class CreateSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
         $this->domain_name = $domainName;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'POST';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}'), array($this->domain_name), '/linuxhostings/{domainName}/subsites');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\AddSubsiteRequest) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -44,7 +44,7 @@ class CreateSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class AddSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
     * Executing this method causes the purchase of a paying product.<br />
     Log on to our website to see your current (renewal) prices or contact our Sales department.<br />
@@ -15,16 +16,15 @@ class AddSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
     {
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'POST';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return '/sslcertificaterequests';
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\CreateSslCertificateRequest) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -43,7 +43,7 @@ class AddSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

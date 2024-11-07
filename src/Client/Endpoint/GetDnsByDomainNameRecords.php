@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetDnsByDomainNameRecords extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     /**
      *
@@ -22,24 +23,23 @@ class GetDnsByDomainNameRecords extends \Combell\Client\Runtime\Client\BaseEndpo
         $this->domain_name = $domainName;
         $this->queryParameters = $queryParameters;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}'), array($this->domain_name), '/dns/{domainName}/records');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
-    protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
         $optionsResolver->setDefined(array('skip', 'take', 'type', 'record_name', 'service'));
@@ -64,7 +64,7 @@ class GetDnsByDomainNameRecords extends \Combell\Client\Runtime\Client\BaseEndpo
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\DnsRecord[]', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

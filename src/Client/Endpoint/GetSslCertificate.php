@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $sha1_fingerprint;
     /**
      *
@@ -14,20 +15,19 @@ class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint impl
     {
         $this->sha1_fingerprint = $sha1Fingerprint;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{sha1_fingerprint}'), array($this->sha1_fingerprint), '/sslcertificates/{sha1Fingerprint}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -43,7 +43,7 @@ class GetSslCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint impl
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\SslCertificateDetail', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

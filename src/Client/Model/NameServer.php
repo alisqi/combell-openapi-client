@@ -21,7 +21,7 @@ class NameServer
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -32,7 +32,7 @@ class NameServer
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -42,7 +42,7 @@ class NameServer
      *
      * @return string
      */
-    public function getIp() : string
+    public function getIp(): string
     {
         return $this->ip;
     }
@@ -53,7 +53,7 @@ class NameServer
      *
      * @return self
      */
-    public function setIp(string $ip) : self
+    public function setIp(string $ip): self
     {
         $this->ip = $ip;
         return $this;

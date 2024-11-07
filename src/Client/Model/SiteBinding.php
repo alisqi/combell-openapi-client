@@ -45,7 +45,7 @@ class SiteBinding
      *
      * @return string
      */
-    public function getProtocol() : string
+    public function getProtocol(): string
     {
         return $this->protocol;
     }
@@ -56,7 +56,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setProtocol(string $protocol) : self
+    public function setProtocol(string $protocol): self
     {
         $this->protocol = $protocol;
         return $this;
@@ -66,7 +66,7 @@ class SiteBinding
      *
      * @return string
      */
-    public function getHostName() : string
+    public function getHostName(): string
     {
         return $this->hostName;
     }
@@ -77,7 +77,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setHostName(string $hostName) : self
+    public function setHostName(string $hostName): self
     {
         $this->hostName = $hostName;
         return $this;
@@ -87,7 +87,7 @@ class SiteBinding
      *
      * @return string
      */
-    public function getIpAddress() : string
+    public function getIpAddress(): string
     {
         return $this->ipAddress;
     }
@@ -98,7 +98,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setIpAddress(string $ipAddress) : self
+    public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
         return $this;
@@ -108,7 +108,7 @@ class SiteBinding
      *
      * @return int
      */
-    public function getPort() : int
+    public function getPort(): int
     {
         return $this->port;
     }
@@ -119,7 +119,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setPort(int $port) : self
+    public function setPort(int $port): self
     {
         $this->port = $port;
         return $this;
@@ -129,7 +129,7 @@ class SiteBinding
      *
      * @return string
      */
-    public function getCertThumbprint() : string
+    public function getCertThumbprint(): string
     {
         return $this->certThumbprint;
     }
@@ -140,7 +140,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setCertThumbprint(string $certThumbprint) : self
+    public function setCertThumbprint(string $certThumbprint): self
     {
         $this->certThumbprint = $certThumbprint;
         return $this;
@@ -150,7 +150,7 @@ class SiteBinding
      *
      * @return bool
      */
-    public function getSslEnabled() : bool
+    public function getSslEnabled(): bool
     {
         return $this->sslEnabled;
     }
@@ -161,7 +161,7 @@ class SiteBinding
      *
      * @return self
      */
-    public function setSslEnabled(bool $sslEnabled) : self
+    public function setSslEnabled(bool $sslEnabled): self
     {
         $this->sslEnabled = $sslEnabled;
         return $this;

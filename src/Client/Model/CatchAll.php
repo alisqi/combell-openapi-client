@@ -15,7 +15,7 @@ class CatchAll
      *
      * @return string[]
      */
-    public function getEmailAddresses() : array
+    public function getEmailAddresses(): array
     {
         return $this->emailAddresses;
     }
@@ -26,7 +26,7 @@ class CatchAll
      *
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses) : self
+    public function setEmailAddresses(array $emailAddresses): self
     {
         $this->emailAddresses = $emailAddresses;
         return $this;

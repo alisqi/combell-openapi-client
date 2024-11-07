@@ -15,7 +15,7 @@ class EditDomainWillRenewRequest
      *
      * @return bool
      */
-    public function getWillRenew() : bool
+    public function getWillRenew(): bool
     {
         return $this->willRenew;
     }
@@ -26,7 +26,7 @@ class EditDomainWillRenewRequest
      *
      * @return self
      */
-    public function setWillRenew(bool $willRenew) : self
+    public function setWillRenew(bool $willRenew): self
     {
         $this->willRenew = $willRenew;
         return $this;

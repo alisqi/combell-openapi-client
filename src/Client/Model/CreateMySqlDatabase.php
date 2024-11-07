@@ -30,7 +30,7 @@ class CreateMySqlDatabase
     *
     * @return string
     */
-    public function getDatabaseName() : string
+    public function getDatabaseName(): string
     {
         return $this->databaseName;
     }
@@ -42,7 +42,7 @@ class CreateMySqlDatabase
     *
     * @return self
     */
-    public function setDatabaseName(string $databaseName) : self
+    public function setDatabaseName(string $databaseName): self
     {
         $this->databaseName = $databaseName;
         return $this;
@@ -52,7 +52,7 @@ class CreateMySqlDatabase
      *
      * @return int
      */
-    public function getAccountId() : int
+    public function getAccountId(): int
     {
         return $this->accountId;
     }
@@ -63,7 +63,7 @@ class CreateMySqlDatabase
      *
      * @return self
      */
-    public function setAccountId(int $accountId) : self
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
         return $this;
@@ -74,7 +74,7 @@ class CreateMySqlDatabase
     *
     * @return string
     */
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -86,7 +86,7 @@ class CreateMySqlDatabase
     *
     * @return self
     */
-    public function setPassword(string $password) : self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

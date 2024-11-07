@@ -47,7 +47,7 @@ class SslCertificateRequest
      *
      * @return int
      */
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -58,7 +58,7 @@ class SslCertificateRequest
      *
      * @return self
      */
-    public function setId(int $id) : self
+    public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
@@ -69,7 +69,7 @@ class SslCertificateRequest
     *
     * @return string
     */
-    public function getCertificateType() : string
+    public function getCertificateType(): string
     {
         return $this->certificateType;
     }
@@ -81,7 +81,7 @@ class SslCertificateRequest
     *
     * @return self
     */
-    public function setCertificateType(string $certificateType) : self
+    public function setCertificateType(string $certificateType): self
     {
         $this->certificateType = $certificateType;
         return $this;
@@ -92,7 +92,7 @@ class SslCertificateRequest
     *
     * @return string
     */
-    public function getValidationLevel() : string
+    public function getValidationLevel(): string
     {
         return $this->validationLevel;
     }
@@ -104,7 +104,7 @@ class SslCertificateRequest
     *
     * @return self
     */
-    public function setValidationLevel(string $validationLevel) : self
+    public function setValidationLevel(string $validationLevel): self
     {
         $this->validationLevel = $validationLevel;
         return $this;
@@ -114,7 +114,7 @@ class SslCertificateRequest
      *
      * @return string
      */
-    public function getVendor() : string
+    public function getVendor(): string
     {
         return $this->vendor;
     }
@@ -125,7 +125,7 @@ class SslCertificateRequest
      *
      * @return self
      */
-    public function setVendor(string $vendor) : self
+    public function setVendor(string $vendor): self
     {
         $this->vendor = $vendor;
         return $this;
@@ -135,7 +135,7 @@ class SslCertificateRequest
      *
      * @return string
      */
-    public function getCommonName() : string
+    public function getCommonName(): string
     {
         return $this->commonName;
     }
@@ -146,7 +146,7 @@ class SslCertificateRequest
      *
      * @return self
      */
-    public function setCommonName(string $commonName) : self
+    public function setCommonName(string $commonName): self
     {
         $this->commonName = $commonName;
         return $this;
@@ -156,7 +156,7 @@ class SslCertificateRequest
      *
      * @return string
      */
-    public function getOrderCode() : string
+    public function getOrderCode(): string
     {
         return $this->orderCode;
     }
@@ -167,7 +167,7 @@ class SslCertificateRequest
      *
      * @return self
      */
-    public function setOrderCode(string $orderCode) : self
+    public function setOrderCode(string $orderCode): self
     {
         $this->orderCode = $orderCode;
         return $this;

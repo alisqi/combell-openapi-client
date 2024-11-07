@@ -15,7 +15,7 @@ class CreateCatchAllRequest
      *
      * @return string
      */
-    public function getEmailAddress() : string
+    public function getEmailAddress(): string
     {
         return $this->emailAddress;
     }
@@ -26,7 +26,7 @@ class CreateCatchAllRequest
      *
      * @return self
      */
-    public function setEmailAddress(string $emailAddress) : self
+    public function setEmailAddress(string $emailAddress): self
     {
         $this->emailAddress = $emailAddress;
         return $this;

@@ -45,7 +45,7 @@ class MySqlDatabase
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -56,7 +56,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -66,7 +66,7 @@ class MySqlDatabase
      *
      * @return string
      */
-    public function getHostname() : string
+    public function getHostname(): string
     {
         return $this->hostname;
     }
@@ -77,7 +77,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setHostname(string $hostname) : self
+    public function setHostname(string $hostname): self
     {
         $this->hostname = $hostname;
         return $this;
@@ -87,7 +87,7 @@ class MySqlDatabase
      *
      * @return int
      */
-    public function getUserCount() : int
+    public function getUserCount(): int
     {
         return $this->userCount;
     }
@@ -98,7 +98,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setUserCount(int $userCount) : self
+    public function setUserCount(int $userCount): self
     {
         $this->userCount = $userCount;
         return $this;
@@ -108,7 +108,7 @@ class MySqlDatabase
      *
      * @return int
      */
-    public function getMaxSize() : int
+    public function getMaxSize(): int
     {
         return $this->maxSize;
     }
@@ -119,7 +119,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setMaxSize(int $maxSize) : self
+    public function setMaxSize(int $maxSize): self
     {
         $this->maxSize = $maxSize;
         return $this;
@@ -129,7 +129,7 @@ class MySqlDatabase
      *
      * @return int
      */
-    public function getActualSize() : int
+    public function getActualSize(): int
     {
         return $this->actualSize;
     }
@@ -140,7 +140,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setActualSize(int $actualSize) : self
+    public function setActualSize(int $actualSize): self
     {
         $this->actualSize = $actualSize;
         return $this;
@@ -150,7 +150,7 @@ class MySqlDatabase
      *
      * @return int
      */
-    public function getAccountId() : int
+    public function getAccountId(): int
     {
         return $this->accountId;
     }
@@ -161,7 +161,7 @@ class MySqlDatabase
      *
      * @return self
      */
-    public function setAccountId(int $accountId) : self
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
         return $this;

@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class ChangeDatabaseUserPassword extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $database_name;
     protected $user_name;
     /**
@@ -19,16 +20,15 @@ class ChangeDatabaseUserPassword extends \Combell\Client\Runtime\Client\BaseEndp
         $this->user_name = $userName;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{database_name}', '{user_name}'), array($this->database_name, $this->user_name), '/mysqldatabases/{databaseName}/users/{userName}/password');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\UpdateUserPasswordRequest) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -47,7 +47,7 @@ class ChangeDatabaseUserPassword extends \Combell\Client\Runtime\Client\BaseEndp
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

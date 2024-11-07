@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $id;
     /**
      *
@@ -14,16 +15,15 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
     {
         $this->id = $id;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{id}'), array($this->id), '/sslcertificaterequests/{id}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class VerifySslCertificateRequestDomainValidations extends \Combell\Client\Runti
             throw new \Combell\Client\Exception\VerifySslCertificateRequestDomainValidationsGoneException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

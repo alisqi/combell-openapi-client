@@ -27,7 +27,7 @@ class Account
      *
      * @return int
      */
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -38,7 +38,7 @@ class Account
      *
      * @return self
      */
-    public function setId(int $id) : self
+    public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
@@ -48,7 +48,7 @@ class Account
      *
      * @return string
      */
-    public function getIdentifier() : string
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -59,7 +59,7 @@ class Account
      *
      * @return self
      */
-    public function setIdentifier(string $identifier) : self
+    public function setIdentifier(string $identifier): self
     {
         $this->identifier = $identifier;
         return $this;
@@ -69,7 +69,7 @@ class Account
      *
      * @return int
      */
-    public function getServicepackId() : int
+    public function getServicepackId(): int
     {
         return $this->servicepackId;
     }
@@ -80,7 +80,7 @@ class Account
      *
      * @return self
      */
-    public function setServicepackId(int $servicepackId) : self
+    public function setServicepackId(int $servicepackId): self
     {
         $this->servicepackId = $servicepackId;
         return $this;

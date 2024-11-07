@@ -27,7 +27,7 @@ class AutoReply
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -38,7 +38,7 @@ class AutoReply
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;
@@ -48,7 +48,7 @@ class AutoReply
      *
      * @return string
      */
-    public function getSubject() : string
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -59,7 +59,7 @@ class AutoReply
      *
      * @return self
      */
-    public function setSubject(string $subject) : self
+    public function setSubject(string $subject): self
     {
         $this->subject = $subject;
         return $this;
@@ -69,7 +69,7 @@ class AutoReply
      *
      * @return string
      */
-    public function getMessage() : string
+    public function getMessage(): string
     {
         return $this->message;
     }
@@ -80,7 +80,7 @@ class AutoReply
      *
      * @return self
      */
-    public function setMessage(string $message) : self
+    public function setMessage(string $message): self
     {
         $this->message = $message;
         return $this;

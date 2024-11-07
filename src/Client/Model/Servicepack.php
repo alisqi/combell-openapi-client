@@ -21,7 +21,7 @@ class Servicepack
      *
      * @return int
      */
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -32,7 +32,7 @@ class Servicepack
      *
      * @return self
      */
-    public function setId(int $id) : self
+    public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
@@ -42,7 +42,7 @@ class Servicepack
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -53,7 +53,7 @@ class Servicepack
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;

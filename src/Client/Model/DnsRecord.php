@@ -94,7 +94,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -106,7 +106,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setId(string $id) : self
+    public function setId(string $id): self
     {
         $this->id = $id;
         return $this;
@@ -116,7 +116,7 @@ class DnsRecord
      *
      * @return string
      */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -127,7 +127,7 @@ class DnsRecord
      *
      * @return self
      */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
@@ -142,7 +142,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getRecordName() : string
+    public function getRecordName(): string
     {
         return $this->recordName;
     }
@@ -158,7 +158,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setRecordName(string $recordName) : self
+    public function setRecordName(string $recordName): self
     {
         $this->recordName = $recordName;
         return $this;
@@ -170,7 +170,7 @@ class DnsRecord
     *
     * @return int
     */
-    public function getTtl() : int
+    public function getTtl(): int
     {
         return $this->ttl;
     }
@@ -183,7 +183,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setTtl(int $ttl) : self
+    public function setTtl(int $ttl): self
     {
         $this->ttl = $ttl;
         return $this;
@@ -195,7 +195,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getContent() : string
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -208,7 +208,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setContent(string $content) : self
+    public function setContent(string $content): self
     {
         $this->content = $content;
         return $this;
@@ -220,7 +220,7 @@ class DnsRecord
     *
     * @return int
     */
-    public function getPriority() : int
+    public function getPriority(): int
     {
         return $this->priority;
     }
@@ -233,7 +233,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setPriority(int $priority) : self
+    public function setPriority(int $priority): self
     {
         $this->priority = $priority;
         return $this;
@@ -244,7 +244,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getService() : string
+    public function getService(): string
     {
         return $this->service;
     }
@@ -256,7 +256,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setService(string $service) : self
+    public function setService(string $service): self
     {
         $this->service = $service;
         return $this;
@@ -267,7 +267,7 @@ class DnsRecord
     *
     * @return int
     */
-    public function getWeight() : int
+    public function getWeight(): int
     {
         return $this->weight;
     }
@@ -279,7 +279,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setWeight(int $weight) : self
+    public function setWeight(int $weight): self
     {
         $this->weight = $weight;
         return $this;
@@ -290,7 +290,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getTarget() : string
+    public function getTarget(): string
     {
         return $this->target;
     }
@@ -302,7 +302,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setTarget(string $target) : self
+    public function setTarget(string $target): self
     {
         $this->target = $target;
         return $this;
@@ -313,7 +313,7 @@ class DnsRecord
     *
     * @return string
     */
-    public function getProtocol() : string
+    public function getProtocol(): string
     {
         return $this->protocol;
     }
@@ -325,7 +325,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setProtocol(string $protocol) : self
+    public function setProtocol(string $protocol): self
     {
         $this->protocol = $protocol;
         return $this;
@@ -337,7 +337,7 @@ class DnsRecord
     *
     * @return int
     */
-    public function getPort() : int
+    public function getPort(): int
     {
         return $this->port;
     }
@@ -350,7 +350,7 @@ class DnsRecord
     *
     * @return self
     */
-    public function setPort(int $port) : self
+    public function setPort(int $port): self
     {
         $this->port = $port;
         return $this;

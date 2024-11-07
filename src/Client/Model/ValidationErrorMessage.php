@@ -21,7 +21,7 @@ class ValidationErrorMessage
      *
      * @return string
      */
-    public function getErrorCode() : string
+    public function getErrorCode(): string
     {
         return $this->errorCode;
     }
@@ -32,7 +32,7 @@ class ValidationErrorMessage
      *
      * @return self
      */
-    public function setErrorCode(string $errorCode) : self
+    public function setErrorCode(string $errorCode): self
     {
         $this->errorCode = $errorCode;
         return $this;
@@ -42,7 +42,7 @@ class ValidationErrorMessage
      *
      * @return string
      */
-    public function getErrorText() : string
+    public function getErrorText(): string
     {
         return $this->errorText;
     }
@@ -53,7 +53,7 @@ class ValidationErrorMessage
      *
      * @return self
      */
-    public function setErrorText(string $errorText) : self
+    public function setErrorText(string $errorText): self
     {
         $this->errorText = $errorText;
         return $this;

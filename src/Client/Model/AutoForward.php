@@ -27,7 +27,7 @@ class AutoForward
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -38,7 +38,7 @@ class AutoForward
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;
@@ -48,7 +48,7 @@ class AutoForward
      *
      * @return string[]
      */
-    public function getEmailAddresses() : array
+    public function getEmailAddresses(): array
     {
         return $this->emailAddresses;
     }
@@ -59,7 +59,7 @@ class AutoForward
      *
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses) : self
+    public function setEmailAddresses(array $emailAddresses): self
     {
         $this->emailAddresses = $emailAddresses;
         return $this;
@@ -69,7 +69,7 @@ class AutoForward
      *
      * @return bool
      */
-    public function getCopyToMyself() : bool
+    public function getCopyToMyself(): bool
     {
         return $this->copyToMyself;
     }
@@ -80,7 +80,7 @@ class AutoForward
      *
      * @return self
      */
-    public function setCopyToMyself(bool $copyToMyself) : self
+    public function setCopyToMyself(bool $copyToMyself): self
     {
         $this->copyToMyself = $copyToMyself;
         return $this;

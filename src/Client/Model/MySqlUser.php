@@ -27,7 +27,7 @@ class MySqlUser
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -38,7 +38,7 @@ class MySqlUser
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -48,7 +48,7 @@ class MySqlUser
      *
      * @return string
      */
-    public function getRights() : string
+    public function getRights(): string
     {
         return $this->rights;
     }
@@ -59,7 +59,7 @@ class MySqlUser
      *
      * @return self
      */
-    public function setRights(string $rights) : self
+    public function setRights(string $rights): self
     {
         $this->rights = $rights;
         return $this;
@@ -69,7 +69,7 @@ class MySqlUser
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -80,7 +80,7 @@ class MySqlUser
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;

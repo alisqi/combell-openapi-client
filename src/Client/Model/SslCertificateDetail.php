@@ -49,7 +49,7 @@ class SslCertificateDetail
     *
     * @return string
     */
-    public function getSha1Fingerprint() : string
+    public function getSha1Fingerprint(): string
     {
         return $this->sha1Fingerprint;
     }
@@ -61,7 +61,7 @@ class SslCertificateDetail
     *
     * @return self
     */
-    public function setSha1Fingerprint(string $sha1Fingerprint) : self
+    public function setSha1Fingerprint(string $sha1Fingerprint): self
     {
         $this->sha1Fingerprint = $sha1Fingerprint;
         return $this;
@@ -71,7 +71,7 @@ class SslCertificateDetail
      *
      * @return string
      */
-    public function getCommonName() : string
+    public function getCommonName(): string
     {
         return $this->commonName;
     }
@@ -82,7 +82,7 @@ class SslCertificateDetail
      *
      * @return self
      */
-    public function setCommonName(string $commonName) : self
+    public function setCommonName(string $commonName): self
     {
         $this->commonName = $commonName;
         return $this;
@@ -92,7 +92,7 @@ class SslCertificateDetail
      *
      * @return \DateTime
      */
-    public function getExpiresAfter() : \DateTime
+    public function getExpiresAfter(): \DateTime
     {
         return $this->expiresAfter;
     }
@@ -103,7 +103,7 @@ class SslCertificateDetail
      *
      * @return self
      */
-    public function setExpiresAfter(\DateTime $expiresAfter) : self
+    public function setExpiresAfter(\DateTime $expiresAfter): self
     {
         $this->expiresAfter = $expiresAfter;
         return $this;
@@ -114,7 +114,7 @@ class SslCertificateDetail
     *
     * @return string
     */
-    public function getValidationLevel() : string
+    public function getValidationLevel(): string
     {
         return $this->validationLevel;
     }
@@ -126,7 +126,7 @@ class SslCertificateDetail
     *
     * @return self
     */
-    public function setValidationLevel(string $validationLevel) : self
+    public function setValidationLevel(string $validationLevel): self
     {
         $this->validationLevel = $validationLevel;
         return $this;
@@ -137,7 +137,7 @@ class SslCertificateDetail
     *
     * @return string
     */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -149,7 +149,7 @@ class SslCertificateDetail
     *
     * @return self
     */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
@@ -159,7 +159,7 @@ class SslCertificateDetail
      *
      * @return SslSubjectAltName[]
      */
-    public function getSubjectAltNames() : array
+    public function getSubjectAltNames(): array
     {
         return $this->subjectAltNames;
     }
@@ -170,7 +170,7 @@ class SslCertificateDetail
      *
      * @return self
      */
-    public function setSubjectAltNames(array $subjectAltNames) : self
+    public function setSubjectAltNames(array $subjectAltNames): self
     {
         $this->subjectAltNames = $subjectAltNames;
         return $this;

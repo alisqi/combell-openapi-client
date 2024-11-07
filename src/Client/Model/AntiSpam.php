@@ -21,7 +21,7 @@ class AntiSpam
      *
      * @return string
      */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -32,7 +32,7 @@ class AntiSpam
      *
      * @return self
      */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
@@ -42,7 +42,7 @@ class AntiSpam
      *
      * @return string[]
      */
-    public function getAllowedTypes() : array
+    public function getAllowedTypes(): array
     {
         return $this->allowedTypes;
     }
@@ -53,7 +53,7 @@ class AntiSpam
      *
      * @return self
      */
-    public function setAllowedTypes(array $allowedTypes) : self
+    public function setAllowedTypes(array $allowedTypes): self
     {
         $this->allowedTypes = $allowedTypes;
         return $this;

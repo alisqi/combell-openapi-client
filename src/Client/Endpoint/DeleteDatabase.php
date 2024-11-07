@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $database_name;
     /**
      *
@@ -14,16 +15,15 @@ class DeleteDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
     {
         $this->database_name = $databaseName;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{database_name}'), array($this->database_name), '/mysqldatabases/{databaseName}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -43,7 +43,7 @@ class DeleteDatabase extends \Combell\Client\Runtime\Client\BaseEndpoint impleme
             throw new \Combell\Client\Exception\DeleteDatabaseBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

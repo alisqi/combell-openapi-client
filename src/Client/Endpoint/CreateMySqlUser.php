@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class CreateMySqlUser extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $database_name;
     /**
      * The creation of a new mysql user will result in a user with read_only rights.
@@ -16,23 +17,22 @@ class CreateMySqlUser extends \Combell\Client\Runtime\Client\BaseEndpoint implem
         $this->database_name = $databaseName;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'POST';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{database_name}'), array($this->database_name), '/mysqldatabases/{databaseName}/users');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\CreateMySqlUser) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
         }
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -52,7 +52,7 @@ class CreateMySqlUser extends \Combell\Client\Runtime\Client\BaseEndpoint implem
             throw new \Combell\Client\Exception\CreateMySqlUserBadRequestException($serializer->deserialize($body, 'Combell\\Client\\Model\\BadRequestResponse', 'json'));
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

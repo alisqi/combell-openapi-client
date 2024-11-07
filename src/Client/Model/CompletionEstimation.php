@@ -19,7 +19,7 @@ class CompletionEstimation
     *
     * @return \DateTime
     */
-    public function getEstimate() : \DateTime
+    public function getEstimate(): \DateTime
     {
         return $this->estimate;
     }
@@ -32,7 +32,7 @@ class CompletionEstimation
     *
     * @return self
     */
-    public function setEstimate(\DateTime $estimate) : self
+    public function setEstimate(\DateTime $estimate): self
     {
         $this->estimate = $estimate;
         return $this;

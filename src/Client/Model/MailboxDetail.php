@@ -45,7 +45,7 @@ class MailboxDetail
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -56,7 +56,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -66,7 +66,7 @@ class MailboxDetail
      *
      * @return string
      */
-    public function getLogin() : string
+    public function getLogin(): string
     {
         return $this->login;
     }
@@ -77,7 +77,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setLogin(string $login) : self
+    public function setLogin(string $login): self
     {
         $this->login = $login;
         return $this;
@@ -87,7 +87,7 @@ class MailboxDetail
      *
      * @return int
      */
-    public function getMaxSize() : int
+    public function getMaxSize(): int
     {
         return $this->maxSize;
     }
@@ -98,7 +98,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setMaxSize(int $maxSize) : self
+    public function setMaxSize(int $maxSize): self
     {
         $this->maxSize = $maxSize;
         return $this;
@@ -108,7 +108,7 @@ class MailboxDetail
      *
      * @return int
      */
-    public function getActualSize() : int
+    public function getActualSize(): int
     {
         return $this->actualSize;
     }
@@ -119,7 +119,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setActualSize(int $actualSize) : self
+    public function setActualSize(int $actualSize): self
     {
         $this->actualSize = $actualSize;
         return $this;
@@ -129,7 +129,7 @@ class MailboxDetail
      *
      * @return AutoReply
      */
-    public function getAutoReply() : AutoReply
+    public function getAutoReply(): AutoReply
     {
         return $this->autoReply;
     }
@@ -140,7 +140,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setAutoReply(AutoReply $autoReply) : self
+    public function setAutoReply(AutoReply $autoReply): self
     {
         $this->autoReply = $autoReply;
         return $this;
@@ -150,7 +150,7 @@ class MailboxDetail
      *
      * @return AutoForward
      */
-    public function getAutoForward() : AutoForward
+    public function getAutoForward(): AutoForward
     {
         return $this->autoForward;
     }
@@ -161,7 +161,7 @@ class MailboxDetail
      *
      * @return self
      */
-    public function setAutoForward(AutoForward $autoForward) : self
+    public function setAutoForward(AutoForward $autoForward): self
     {
         $this->autoForward = $autoForward;
         return $this;

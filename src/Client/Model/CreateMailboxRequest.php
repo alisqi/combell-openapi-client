@@ -28,7 +28,7 @@ class CreateMailboxRequest
      *
      * @return string
      */
-    public function getEmailAddress() : string
+    public function getEmailAddress(): string
     {
         return $this->emailAddress;
     }
@@ -39,7 +39,7 @@ class CreateMailboxRequest
      *
      * @return self
      */
-    public function setEmailAddress(string $emailAddress) : self
+    public function setEmailAddress(string $emailAddress): self
     {
         $this->emailAddress = $emailAddress;
         return $this;
@@ -49,7 +49,7 @@ class CreateMailboxRequest
      *
      * @return int
      */
-    public function getAccountId() : int
+    public function getAccountId(): int
     {
         return $this->accountId;
     }
@@ -60,7 +60,7 @@ class CreateMailboxRequest
      *
      * @return self
      */
-    public function setAccountId(int $accountId) : self
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
         return $this;
@@ -71,7 +71,7 @@ class CreateMailboxRequest
     *
     * @return string
     */
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -83,7 +83,7 @@ class CreateMailboxRequest
     *
     * @return self
     */
-    public function setPassword(string $password) : self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

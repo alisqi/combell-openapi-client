@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class ConfigureMailboxAutoReply extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $mailbox_name;
     /**
      *
@@ -16,16 +17,15 @@ class ConfigureMailboxAutoReply extends \Combell\Client\Runtime\Client\BaseEndpo
         $this->mailbox_name = $mailboxName;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{mailbox_name}'), array($this->mailbox_name), '/mailboxes/{mailboxName}/autoreply');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\AutoReply) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -44,7 +44,7 @@ class ConfigureMailboxAutoReply extends \Combell\Client\Runtime\Client\BaseEndpo
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

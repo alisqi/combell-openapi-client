@@ -106,7 +106,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -117,7 +117,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -127,7 +127,7 @@ class LinuxHostingDetail
      *
      * @return int
      */
-    public function getServicepackId() : int
+    public function getServicepackId(): int
     {
         return $this->servicepackId;
     }
@@ -138,7 +138,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setServicepackId(int $servicepackId) : self
+    public function setServicepackId(int $servicepackId): self
     {
         $this->servicepackId = $servicepackId;
         return $this;
@@ -151,7 +151,7 @@ class LinuxHostingDetail
     *
     * @return int
     */
-    public function getMaxWebspaceSize() : int
+    public function getMaxWebspaceSize(): int
     {
         return $this->maxWebspaceSize;
     }
@@ -165,7 +165,7 @@ class LinuxHostingDetail
     *
     * @return self
     */
-    public function setMaxWebspaceSize(int $maxWebspaceSize) : self
+    public function setMaxWebspaceSize(int $maxWebspaceSize): self
     {
         $this->maxWebspaceSize = $maxWebspaceSize;
         return $this;
@@ -175,7 +175,7 @@ class LinuxHostingDetail
      *
      * @return int
      */
-    public function getMaxSize() : int
+    public function getMaxSize(): int
     {
         return $this->maxSize;
     }
@@ -186,7 +186,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setMaxSize(int $maxSize) : self
+    public function setMaxSize(int $maxSize): self
     {
         $this->maxSize = $maxSize;
         return $this;
@@ -199,7 +199,7 @@ class LinuxHostingDetail
     *
     * @return int
     */
-    public function getWebspaceUsage() : int
+    public function getWebspaceUsage(): int
     {
         return $this->webspaceUsage;
     }
@@ -213,7 +213,7 @@ class LinuxHostingDetail
     *
     * @return self
     */
-    public function setWebspaceUsage(int $webspaceUsage) : self
+    public function setWebspaceUsage(int $webspaceUsage): self
     {
         $this->webspaceUsage = $webspaceUsage;
         return $this;
@@ -223,7 +223,7 @@ class LinuxHostingDetail
      *
      * @return int
      */
-    public function getActualSize() : int
+    public function getActualSize(): int
     {
         return $this->actualSize;
     }
@@ -234,7 +234,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setActualSize(int $actualSize) : self
+    public function setActualSize(int $actualSize): self
     {
         $this->actualSize = $actualSize;
         return $this;
@@ -244,7 +244,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getIp() : string
+    public function getIp(): string
     {
         return $this->ip;
     }
@@ -255,7 +255,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setIp(string $ip) : self
+    public function setIp(string $ip): self
     {
         $this->ip = $ip;
         return $this;
@@ -265,7 +265,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getIpType() : string
+    public function getIpType(): string
     {
         return $this->ipType;
     }
@@ -276,7 +276,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setIpType(string $ipType) : self
+    public function setIpType(string $ipType): self
     {
         $this->ipType = $ipType;
         return $this;
@@ -286,7 +286,7 @@ class LinuxHostingDetail
      *
      * @return bool
      */
-    public function getFtpEnabled() : bool
+    public function getFtpEnabled(): bool
     {
         return $this->ftpEnabled;
     }
@@ -297,7 +297,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setFtpEnabled(bool $ftpEnabled) : self
+    public function setFtpEnabled(bool $ftpEnabled): self
     {
         $this->ftpEnabled = $ftpEnabled;
         return $this;
@@ -307,7 +307,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getFtpUsername() : string
+    public function getFtpUsername(): string
     {
         return $this->ftpUsername;
     }
@@ -318,7 +318,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setFtpUsername(string $ftpUsername) : self
+    public function setFtpUsername(string $ftpUsername): self
     {
         $this->ftpUsername = $ftpUsername;
         return $this;
@@ -328,7 +328,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getSshHost() : string
+    public function getSshHost(): string
     {
         return $this->sshHost;
     }
@@ -339,7 +339,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setSshHost(string $sshHost) : self
+    public function setSshHost(string $sshHost): self
     {
         $this->sshHost = $sshHost;
         return $this;
@@ -349,7 +349,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getSshUsername() : string
+    public function getSshUsername(): string
     {
         return $this->sshUsername;
     }
@@ -360,7 +360,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setSshUsername(string $sshUsername) : self
+    public function setSshUsername(string $sshUsername): self
     {
         $this->sshUsername = $sshUsername;
         return $this;
@@ -370,7 +370,7 @@ class LinuxHostingDetail
      *
      * @return string
      */
-    public function getPhpVersion() : string
+    public function getPhpVersion(): string
     {
         return $this->phpVersion;
     }
@@ -381,7 +381,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setPhpVersion(string $phpVersion) : self
+    public function setPhpVersion(string $phpVersion): self
     {
         $this->phpVersion = $phpVersion;
         return $this;
@@ -391,7 +391,7 @@ class LinuxHostingDetail
      *
      * @return LinuxSite[]
      */
-    public function getSites() : array
+    public function getSites(): array
     {
         return $this->sites;
     }
@@ -402,7 +402,7 @@ class LinuxHostingDetail
      *
      * @return self
      */
-    public function setSites(array $sites) : self
+    public function setSites(array $sites): self
     {
         $this->sites = $sites;
         return $this;
@@ -413,7 +413,7 @@ class LinuxHostingDetail
     *
     * @return string[]
     */
-    public function getMysqlDatabaseNames() : array
+    public function getMysqlDatabaseNames(): array
     {
         return $this->mysqlDatabaseNames;
     }
@@ -425,7 +425,7 @@ class LinuxHostingDetail
     *
     * @return self
     */
-    public function setMysqlDatabaseNames(array $mysqlDatabaseNames) : self
+    public function setMysqlDatabaseNames(array $mysqlDatabaseNames): self
     {
         $this->mysqlDatabaseNames = $mysqlDatabaseNames;
         return $this;

@@ -15,7 +15,7 @@ class AddSshKeyRequest
      *
      * @return string
      */
-    public function getPublicKey() : string
+    public function getPublicKey(): string
     {
         return $this->publicKey;
     }
@@ -26,7 +26,7 @@ class AddSshKeyRequest
      *
      * @return self
      */
-    public function setPublicKey(string $publicKey) : self
+    public function setPublicKey(string $publicKey): self
     {
         $this->publicKey = $publicKey;
         return $this;

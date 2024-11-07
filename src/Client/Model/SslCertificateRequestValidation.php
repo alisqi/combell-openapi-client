@@ -63,7 +63,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getDnsName() : string
+    public function getDnsName(): string
     {
         return $this->dnsName;
     }
@@ -74,7 +74,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setDnsName(string $dnsName) : self
+    public function setDnsName(string $dnsName): self
     {
         $this->dnsName = $dnsName;
         return $this;
@@ -84,7 +84,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -95,7 +95,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
@@ -105,7 +105,7 @@ class SslCertificateRequestValidation
      *
      * @return bool
      */
-    public function getAutoValidated() : bool
+    public function getAutoValidated(): bool
     {
         return $this->autoValidated;
     }
@@ -116,7 +116,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setAutoValidated(bool $autoValidated) : self
+    public function setAutoValidated(bool $autoValidated): self
     {
         $this->autoValidated = $autoValidated;
         return $this;
@@ -126,7 +126,7 @@ class SslCertificateRequestValidation
      *
      * @return string[]
      */
-    public function getEmailAddresses() : array
+    public function getEmailAddresses(): array
     {
         return $this->emailAddresses;
     }
@@ -137,7 +137,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses) : self
+    public function setEmailAddresses(array $emailAddresses): self
     {
         $this->emailAddresses = $emailAddresses;
         return $this;
@@ -147,7 +147,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getCnameValidationName() : string
+    public function getCnameValidationName(): string
     {
         return $this->cnameValidationName;
     }
@@ -158,7 +158,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setCnameValidationName(string $cnameValidationName) : self
+    public function setCnameValidationName(string $cnameValidationName): self
     {
         $this->cnameValidationName = $cnameValidationName;
         return $this;
@@ -168,7 +168,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getCnameValidationContent() : string
+    public function getCnameValidationContent(): string
     {
         return $this->cnameValidationContent;
     }
@@ -179,7 +179,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setCnameValidationContent(string $cnameValidationContent) : self
+    public function setCnameValidationContent(string $cnameValidationContent): self
     {
         $this->cnameValidationContent = $cnameValidationContent;
         return $this;
@@ -189,7 +189,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getFileValidationUrlHttp() : string
+    public function getFileValidationUrlHttp(): string
     {
         return $this->fileValidationUrlHttp;
     }
@@ -200,7 +200,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setFileValidationUrlHttp(string $fileValidationUrlHttp) : self
+    public function setFileValidationUrlHttp(string $fileValidationUrlHttp): self
     {
         $this->fileValidationUrlHttp = $fileValidationUrlHttp;
         return $this;
@@ -210,7 +210,7 @@ class SslCertificateRequestValidation
      *
      * @return string
      */
-    public function getFileValidationUrlHttps() : string
+    public function getFileValidationUrlHttps(): string
     {
         return $this->fileValidationUrlHttps;
     }
@@ -221,7 +221,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setFileValidationUrlHttps(string $fileValidationUrlHttps) : self
+    public function setFileValidationUrlHttps(string $fileValidationUrlHttps): self
     {
         $this->fileValidationUrlHttps = $fileValidationUrlHttps;
         return $this;
@@ -231,7 +231,7 @@ class SslCertificateRequestValidation
      *
      * @return string[]
      */
-    public function getFileValidationContent() : array
+    public function getFileValidationContent(): array
     {
         return $this->fileValidationContent;
     }
@@ -242,7 +242,7 @@ class SslCertificateRequestValidation
      *
      * @return self
      */
-    public function setFileValidationContent(array $fileValidationContent) : self
+    public function setFileValidationContent(array $fileValidationContent): self
     {
         $this->fileValidationContent = $fileValidationContent;
         return $this;

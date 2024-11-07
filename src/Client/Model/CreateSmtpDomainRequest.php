@@ -15,7 +15,7 @@ class CreateSmtpDomainRequest
      *
      * @return string
      */
-    public function getHostname() : string
+    public function getHostname(): string
     {
         return $this->hostname;
     }
@@ -26,7 +26,7 @@ class CreateSmtpDomainRequest
      *
      * @return self
      */
-    public function setHostname(string $hostname) : self
+    public function setHostname(string $hostname): self
     {
         $this->hostname = $hostname;
         return $this;

@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $record_id;
     /**
@@ -17,20 +18,19 @@ class GetDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\
         $this->domain_name = $domainName;
         $this->record_id = $recordId;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{record_id}'), array($this->domain_name, $this->record_id), '/dns/{domainName}/records/{recordId}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -46,7 +46,7 @@ class GetDnsByDomainNameRecordByRecordId extends \Combell\Client\Runtime\Client\
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\DnsRecord', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

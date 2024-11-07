@@ -15,7 +15,7 @@ class UpdateAliasRequest
      *
      * @return string[]
      */
-    public function getDestinations() : array
+    public function getDestinations(): array
     {
         return $this->destinations;
     }
@@ -26,7 +26,7 @@ class UpdateAliasRequest
      *
      * @return self
      */
-    public function setDestinations(array $destinations) : self
+    public function setDestinations(array $destinations): self
     {
         $this->destinations = $destinations;
         return $this;

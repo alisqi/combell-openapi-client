@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetSslCertificateRequests extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     /**
      *
      *
@@ -16,24 +17,23 @@ class GetSslCertificateRequests extends \Combell\Client\Runtime\Client\BaseEndpo
     {
         $this->queryParameters = $queryParameters;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return '/sslcertificaterequests';
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
-    protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
         $optionsResolver->setDefined(array('skip', 'take'));
@@ -55,7 +55,7 @@ class GetSslCertificateRequests extends \Combell\Client\Runtime\Client\BaseEndpo
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\SslCertificateRequest[]', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

@@ -23,7 +23,7 @@ class SshKey
     *
     * @return string
     */
-    public function getFingerprint() : string
+    public function getFingerprint(): string
     {
         return $this->fingerprint;
     }
@@ -35,7 +35,7 @@ class SshKey
     *
     * @return self
     */
-    public function setFingerprint(string $fingerprint) : self
+    public function setFingerprint(string $fingerprint): self
     {
         $this->fingerprint = $fingerprint;
         return $this;
@@ -45,7 +45,7 @@ class SshKey
      *
      * @return string
      */
-    public function getPublicKey() : string
+    public function getPublicKey(): string
     {
         return $this->publicKey;
     }
@@ -56,7 +56,7 @@ class SshKey
      *
      * @return self
      */
-    public function setPublicKey(string $publicKey) : self
+    public function setPublicKey(string $publicKey): self
     {
         $this->publicKey = $publicKey;
         return $this;

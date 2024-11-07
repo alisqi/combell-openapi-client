@@ -27,7 +27,7 @@ class WindowsSite
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -38,7 +38,7 @@ class WindowsSite
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -48,7 +48,7 @@ class WindowsSite
      *
      * @return string
      */
-    public function getPath() : string
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -59,7 +59,7 @@ class WindowsSite
      *
      * @return self
      */
-    public function setPath(string $path) : self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
@@ -69,7 +69,7 @@ class WindowsSite
      *
      * @return SiteBinding[]
      */
-    public function getBindings() : array
+    public function getBindings(): array
     {
         return $this->bindings;
     }
@@ -80,7 +80,7 @@ class WindowsSite
      *
      * @return self
      */
-    public function setBindings(array $bindings) : self
+    public function setBindings(array $bindings): self
     {
         $this->bindings = $bindings;
         return $this;

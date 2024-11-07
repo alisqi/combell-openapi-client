@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $site_name;
     /**
@@ -17,16 +18,15 @@ class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
         $this->domain_name = $domainName;
         $this->site_name = $siteName;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{site_name}'), array($this->domain_name, $this->site_name), '/linuxhostings/{domainName}/subsites/{siteName}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class DeleteSubsite extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
             throw new \Combell\Client\Exception\DeleteSubsiteBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

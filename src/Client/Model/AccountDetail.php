@@ -33,7 +33,7 @@ class AccountDetail
      *
      * @return int
      */
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -44,7 +44,7 @@ class AccountDetail
      *
      * @return self
      */
-    public function setId(int $id) : self
+    public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
@@ -54,7 +54,7 @@ class AccountDetail
      *
      * @return string
      */
-    public function getIdentifier() : string
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -65,7 +65,7 @@ class AccountDetail
      *
      * @return self
      */
-    public function setIdentifier(string $identifier) : self
+    public function setIdentifier(string $identifier): self
     {
         $this->identifier = $identifier;
         return $this;
@@ -75,7 +75,7 @@ class AccountDetail
      *
      * @return Servicepack
      */
-    public function getServicepack() : Servicepack
+    public function getServicepack(): Servicepack
     {
         return $this->servicepack;
     }
@@ -86,7 +86,7 @@ class AccountDetail
      *
      * @return self
      */
-    public function setServicepack(Servicepack $servicepack) : self
+    public function setServicepack(Servicepack $servicepack): self
     {
         $this->servicepack = $servicepack;
         return $this;
@@ -96,7 +96,7 @@ class AccountDetail
      *
      * @return Addon[]
      */
-    public function getAddons() : array
+    public function getAddons(): array
     {
         return $this->addons;
     }
@@ -107,7 +107,7 @@ class AccountDetail
      *
      * @return self
      */
-    public function setAddons(array $addons) : self
+    public function setAddons(array $addons): self
     {
         $this->addons = $addons;
         return $this;

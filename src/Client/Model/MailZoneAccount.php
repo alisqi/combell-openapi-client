@@ -21,7 +21,7 @@ class MailZoneAccount
      *
      * @return int
      */
-    public function getAccountId() : int
+    public function getAccountId(): int
     {
         return $this->accountId;
     }
@@ -32,7 +32,7 @@ class MailZoneAccount
      *
      * @return self
      */
-    public function setAccountId(int $accountId) : self
+    public function setAccountId(int $accountId): self
     {
         $this->accountId = $accountId;
         return $this;
@@ -42,7 +42,7 @@ class MailZoneAccount
      *
      * @return int
      */
-    public function getSize() : int
+    public function getSize(): int
     {
         return $this->size;
     }
@@ -53,7 +53,7 @@ class MailZoneAccount
      *
      * @return self
      */
-    public function setSize(int $size) : self
+    public function setSize(int $size): self
     {
         $this->size = $size;
         return $this;

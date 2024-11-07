@@ -21,7 +21,7 @@ class SmtpDomain
      *
      * @return string
      */
-    public function getHostname() : string
+    public function getHostname(): string
     {
         return $this->hostname;
     }
@@ -32,7 +32,7 @@ class SmtpDomain
      *
      * @return self
      */
-    public function setHostname(string $hostname) : self
+    public function setHostname(string $hostname): self
     {
         $this->hostname = $hostname;
         return $this;
@@ -42,7 +42,7 @@ class SmtpDomain
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -53,7 +53,7 @@ class SmtpDomain
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;

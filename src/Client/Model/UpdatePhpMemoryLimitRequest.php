@@ -15,7 +15,7 @@ class UpdatePhpMemoryLimitRequest
      *
      * @return int
      */
-    public function getMemoryLimit() : int
+    public function getMemoryLimit(): int
     {
         return $this->memoryLimit;
     }
@@ -26,7 +26,7 @@ class UpdatePhpMemoryLimitRequest
      *
      * @return self
      */
-    public function setMemoryLimit(int $memoryLimit) : self
+    public function setMemoryLimit(int $memoryLimit): self
     {
         $this->memoryLimit = $memoryLimit;
         return $this;

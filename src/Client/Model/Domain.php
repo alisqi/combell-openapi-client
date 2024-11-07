@@ -28,7 +28,7 @@ class Domain
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -39,7 +39,7 @@ class Domain
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -49,7 +49,7 @@ class Domain
      *
      * @return \DateTime
      */
-    public function getExpirationDate() : \DateTime
+    public function getExpirationDate(): \DateTime
     {
         return $this->expirationDate;
     }
@@ -60,7 +60,7 @@ class Domain
      *
      * @return self
      */
-    public function setExpirationDate(\DateTime $expirationDate) : self
+    public function setExpirationDate(\DateTime $expirationDate): self
     {
         $this->expirationDate = $expirationDate;
         return $this;
@@ -71,7 +71,7 @@ class Domain
     *
     * @return bool
     */
-    public function getWillRenew() : bool
+    public function getWillRenew(): bool
     {
         return $this->willRenew;
     }
@@ -83,7 +83,7 @@ class Domain
     *
     * @return self
     */
-    public function setWillRenew(bool $willRenew) : self
+    public function setWillRenew(bool $willRenew): self
     {
         $this->willRenew = $willRenew;
         return $this;

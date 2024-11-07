@@ -40,7 +40,7 @@ class CreateSslCertificateRequest
     *
     * @return string
     */
-    public function getCsr() : string
+    public function getCsr(): string
     {
         return $this->csr;
     }
@@ -53,7 +53,7 @@ class CreateSslCertificateRequest
     *
     * @return self
     */
-    public function setCsr(string $csr) : self
+    public function setCsr(string $csr): self
     {
         $this->csr = $csr;
         return $this;
@@ -64,7 +64,7 @@ class CreateSslCertificateRequest
     *
     * @return string
     */
-    public function getCertificateType() : string
+    public function getCertificateType(): string
     {
         return $this->certificateType;
     }
@@ -76,7 +76,7 @@ class CreateSslCertificateRequest
     *
     * @return self
     */
-    public function setCertificateType(string $certificateType) : self
+    public function setCertificateType(string $certificateType): self
     {
         $this->certificateType = $certificateType;
         return $this;
@@ -87,7 +87,7 @@ class CreateSslCertificateRequest
     *
     * @return string
     */
-    public function getValidationLevel() : string
+    public function getValidationLevel(): string
     {
         return $this->validationLevel;
     }
@@ -99,7 +99,7 @@ class CreateSslCertificateRequest
     *
     * @return self
     */
-    public function setValidationLevel(string $validationLevel) : self
+    public function setValidationLevel(string $validationLevel): self
     {
         $this->validationLevel = $validationLevel;
         return $this;
@@ -110,7 +110,7 @@ class CreateSslCertificateRequest
     *
     * @return AdditionalValidationAttribute[]
     */
-    public function getAdditionalValidationAttributes() : array
+    public function getAdditionalValidationAttributes(): array
     {
         return $this->additionalValidationAttributes;
     }
@@ -122,7 +122,7 @@ class CreateSslCertificateRequest
     *
     * @return self
     */
-    public function setAdditionalValidationAttributes(array $additionalValidationAttributes) : self
+    public function setAdditionalValidationAttributes(array $additionalValidationAttributes): self
     {
         $this->additionalValidationAttributes = $additionalValidationAttributes;
         return $this;

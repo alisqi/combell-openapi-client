@@ -46,7 +46,7 @@ class DomainDetail
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -57,7 +57,7 @@ class DomainDetail
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -67,7 +67,7 @@ class DomainDetail
      *
      * @return \DateTime
      */
-    public function getExpirationDate() : \DateTime
+    public function getExpirationDate(): \DateTime
     {
         return $this->expirationDate;
     }
@@ -78,7 +78,7 @@ class DomainDetail
      *
      * @return self
      */
-    public function setExpirationDate(\DateTime $expirationDate) : self
+    public function setExpirationDate(\DateTime $expirationDate): self
     {
         $this->expirationDate = $expirationDate;
         return $this;
@@ -89,7 +89,7 @@ class DomainDetail
     *
     * @return bool
     */
-    public function getWillRenew() : bool
+    public function getWillRenew(): bool
     {
         return $this->willRenew;
     }
@@ -101,7 +101,7 @@ class DomainDetail
     *
     * @return self
     */
-    public function setWillRenew(bool $willRenew) : self
+    public function setWillRenew(bool $willRenew): self
     {
         $this->willRenew = $willRenew;
         return $this;
@@ -111,7 +111,7 @@ class DomainDetail
      *
      * @return NameServer[]
      */
-    public function getNameServers() : array
+    public function getNameServers(): array
     {
         return $this->nameServers;
     }
@@ -122,7 +122,7 @@ class DomainDetail
      *
      * @return self
      */
-    public function setNameServers(array $nameServers) : self
+    public function setNameServers(array $nameServers): self
     {
         $this->nameServers = $nameServers;
         return $this;
@@ -132,7 +132,7 @@ class DomainDetail
      *
      * @return Registrant
      */
-    public function getRegistrant() : Registrant
+    public function getRegistrant(): Registrant
     {
         return $this->registrant;
     }
@@ -143,7 +143,7 @@ class DomainDetail
      *
      * @return self
      */
-    public function setRegistrant(Registrant $registrant) : self
+    public function setRegistrant(Registrant $registrant): self
     {
         $this->registrant = $registrant;
         return $this;
@@ -153,7 +153,7 @@ class DomainDetail
      *
      * @return bool
      */
-    public function getCanToggleRenew() : bool
+    public function getCanToggleRenew(): bool
     {
         return $this->canToggleRenew;
     }
@@ -164,7 +164,7 @@ class DomainDetail
      *
      * @return self
      */
-    public function setCanToggleRenew(bool $canToggleRenew) : self
+    public function setCanToggleRenew(bool $canToggleRenew): self
     {
         $this->canToggleRenew = $canToggleRenew;
         return $this;

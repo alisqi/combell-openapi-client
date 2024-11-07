@@ -29,7 +29,7 @@ class SshKeyDetail
     *
     * @return string
     */
-    public function getFingerprint() : string
+    public function getFingerprint(): string
     {
         return $this->fingerprint;
     }
@@ -41,7 +41,7 @@ class SshKeyDetail
     *
     * @return self
     */
-    public function setFingerprint(string $fingerprint) : self
+    public function setFingerprint(string $fingerprint): self
     {
         $this->fingerprint = $fingerprint;
         return $this;
@@ -51,7 +51,7 @@ class SshKeyDetail
      *
      * @return string
      */
-    public function getPublicKey() : string
+    public function getPublicKey(): string
     {
         return $this->publicKey;
     }
@@ -62,7 +62,7 @@ class SshKeyDetail
      *
      * @return self
      */
-    public function setPublicKey(string $publicKey) : self
+    public function setPublicKey(string $publicKey): self
     {
         $this->publicKey = $publicKey;
         return $this;
@@ -72,7 +72,7 @@ class SshKeyDetail
      *
      * @return string[]
      */
-    public function getLinuxHostings() : array
+    public function getLinuxHostings(): array
     {
         return $this->linuxHostings;
     }
@@ -83,7 +83,7 @@ class SshKeyDetail
      *
      * @return self
      */
-    public function setLinuxHostings(array $linuxHostings) : self
+    public function setLinuxHostings(array $linuxHostings): self
     {
         $this->linuxHostings = $linuxHostings;
         return $this;

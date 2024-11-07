@@ -17,7 +17,7 @@ class UpdateMailboxPasswordRequest
     *
     * @return string
     */
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -29,7 +29,7 @@ class UpdateMailboxPasswordRequest
     *
     * @return self
     */
-    public function setPassword(string $password) : self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

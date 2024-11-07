@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class ChangeAutoRedirect extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $hostname;
     /**
@@ -19,16 +20,15 @@ class ChangeAutoRedirect extends \Combell\Client\Runtime\Client\BaseEndpoint imp
         $this->hostname = $hostname;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{hostname}'), array($this->domain_name, $this->hostname), '/linuxhostings/{domainName}/sslsettings/{hostname}/autoredirect');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\AutoRedirectConfig) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -47,7 +47,7 @@ class ChangeAutoRedirect extends \Combell\Client\Runtime\Client\BaseEndpoint imp
             return null;
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

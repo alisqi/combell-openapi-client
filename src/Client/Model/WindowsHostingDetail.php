@@ -69,7 +69,7 @@ class WindowsHostingDetail
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -80,7 +80,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -90,7 +90,7 @@ class WindowsHostingDetail
      *
      * @return int
      */
-    public function getServicepackId() : int
+    public function getServicepackId(): int
     {
         return $this->servicepackId;
     }
@@ -101,7 +101,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setServicepackId(int $servicepackId) : self
+    public function setServicepackId(int $servicepackId): self
     {
         $this->servicepackId = $servicepackId;
         return $this;
@@ -111,7 +111,7 @@ class WindowsHostingDetail
      *
      * @return int
      */
-    public function getMaxSize() : int
+    public function getMaxSize(): int
     {
         return $this->maxSize;
     }
@@ -122,7 +122,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setMaxSize(int $maxSize) : self
+    public function setMaxSize(int $maxSize): self
     {
         $this->maxSize = $maxSize;
         return $this;
@@ -132,7 +132,7 @@ class WindowsHostingDetail
      *
      * @return int
      */
-    public function getActualSize() : int
+    public function getActualSize(): int
     {
         return $this->actualSize;
     }
@@ -143,7 +143,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setActualSize(int $actualSize) : self
+    public function setActualSize(int $actualSize): self
     {
         $this->actualSize = $actualSize;
         return $this;
@@ -153,7 +153,7 @@ class WindowsHostingDetail
      *
      * @return string
      */
-    public function getIp() : string
+    public function getIp(): string
     {
         return $this->ip;
     }
@@ -164,7 +164,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setIp(string $ip) : self
+    public function setIp(string $ip): self
     {
         $this->ip = $ip;
         return $this;
@@ -174,7 +174,7 @@ class WindowsHostingDetail
      *
      * @return string
      */
-    public function getIpType() : string
+    public function getIpType(): string
     {
         return $this->ipType;
     }
@@ -185,7 +185,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setIpType(string $ipType) : self
+    public function setIpType(string $ipType): self
     {
         $this->ipType = $ipType;
         return $this;
@@ -195,7 +195,7 @@ class WindowsHostingDetail
      *
      * @return string
      */
-    public function getFtpUsername() : string
+    public function getFtpUsername(): string
     {
         return $this->ftpUsername;
     }
@@ -206,7 +206,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setFtpUsername(string $ftpUsername) : self
+    public function setFtpUsername(string $ftpUsername): self
     {
         $this->ftpUsername = $ftpUsername;
         return $this;
@@ -216,7 +216,7 @@ class WindowsHostingDetail
      *
      * @return ApplicationPool
      */
-    public function getApplicationPool() : ApplicationPool
+    public function getApplicationPool(): ApplicationPool
     {
         return $this->applicationPool;
     }
@@ -227,7 +227,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setApplicationPool(ApplicationPool $applicationPool) : self
+    public function setApplicationPool(ApplicationPool $applicationPool): self
     {
         $this->applicationPool = $applicationPool;
         return $this;
@@ -237,7 +237,7 @@ class WindowsHostingDetail
      *
      * @return WindowsSite[]
      */
-    public function getSites() : array
+    public function getSites(): array
     {
         return $this->sites;
     }
@@ -248,7 +248,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setSites(array $sites) : self
+    public function setSites(array $sites): self
     {
         $this->sites = $sites;
         return $this;
@@ -258,7 +258,7 @@ class WindowsHostingDetail
      *
      * @return string[]
      */
-    public function getMssqlDatabaseNames() : array
+    public function getMssqlDatabaseNames(): array
     {
         return $this->mssqlDatabaseNames;
     }
@@ -269,7 +269,7 @@ class WindowsHostingDetail
      *
      * @return self
      */
-    public function setMssqlDatabaseNames(array $mssqlDatabaseNames) : self
+    public function setMssqlDatabaseNames(array $mssqlDatabaseNames): self
     {
         $this->mssqlDatabaseNames = $mssqlDatabaseNames;
         return $this;

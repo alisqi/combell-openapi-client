@@ -29,7 +29,7 @@ class RegisterDomain
     *
     * @return string
     */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -41,7 +41,7 @@ class RegisterDomain
     *
     * @return self
     */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -51,7 +51,7 @@ class RegisterDomain
      *
      * @return string[]
      */
-    public function getNameServers() : array
+    public function getNameServers(): array
     {
         return $this->nameServers;
     }
@@ -62,7 +62,7 @@ class RegisterDomain
      *
      * @return self
      */
-    public function setNameServers(array $nameServers) : self
+    public function setNameServers(array $nameServers): self
     {
         $this->nameServers = $nameServers;
         return $this;
@@ -72,7 +72,7 @@ class RegisterDomain
      *
      * @return RegistrantInput
      */
-    public function getRegistrant() : RegistrantInput
+    public function getRegistrant(): RegistrantInput
     {
         return $this->registrant;
     }
@@ -83,7 +83,7 @@ class RegisterDomain
      *
      * @return self
      */
-    public function setRegistrant(RegistrantInput $registrant) : self
+    public function setRegistrant(RegistrantInput $registrant): self
     {
         $this->registrant = $registrant;
         return $this;

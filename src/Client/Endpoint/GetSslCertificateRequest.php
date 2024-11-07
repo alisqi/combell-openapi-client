@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $id;
     /**
      *
@@ -14,20 +15,19 @@ class GetSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
     {
         $this->id = $id;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{id}'), array($this->id), '/sslcertificaterequests/{id}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -50,7 +50,7 @@ class GetSslCertificateRequest extends \Combell\Client\Runtime\Client\BaseEndpoi
             throw new \Combell\Client\Exception\GetSslCertificateRequestGoneException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

@@ -15,7 +15,7 @@ class PhpVersion
      *
      * @return string
      */
-    public function getVersion() : string
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -26,7 +26,7 @@ class PhpVersion
      *
      * @return self
      */
-    public function setVersion(string $version) : self
+    public function setVersion(string $version): self
     {
         $this->version = $version;
         return $this;

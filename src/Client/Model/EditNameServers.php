@@ -21,7 +21,7 @@ class EditNameServers
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -32,7 +32,7 @@ class EditNameServers
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -42,7 +42,7 @@ class EditNameServers
      *
      * @return string[]
      */
-    public function getNameServers() : array
+    public function getNameServers(): array
     {
         return $this->nameServers;
     }
@@ -53,7 +53,7 @@ class EditNameServers
      *
      * @return self
      */
-    public function setNameServers(array $nameServers) : self
+    public function setNameServers(array $nameServers): self
     {
         $this->nameServers = $nameServers;
         return $this;

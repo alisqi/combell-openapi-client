@@ -27,7 +27,7 @@ class Mailbox
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -38,7 +38,7 @@ class Mailbox
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -48,7 +48,7 @@ class Mailbox
      *
      * @return int
      */
-    public function getMaxSize() : int
+    public function getMaxSize(): int
     {
         return $this->maxSize;
     }
@@ -59,7 +59,7 @@ class Mailbox
      *
      * @return self
      */
-    public function setMaxSize(int $maxSize) : self
+    public function setMaxSize(int $maxSize): self
     {
         $this->maxSize = $maxSize;
         return $this;
@@ -69,7 +69,7 @@ class Mailbox
      *
      * @return int
      */
-    public function getActualSize() : int
+    public function getActualSize(): int
     {
         return $this->actualSize;
     }
@@ -80,7 +80,7 @@ class Mailbox
      *
      * @return self
      */
-    public function setActualSize(int $actualSize) : self
+    public function setActualSize(int $actualSize): self
     {
         $this->actualSize = $actualSize;
         return $this;

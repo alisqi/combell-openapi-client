@@ -21,7 +21,7 @@ class ProvisioningJobCompletion
      *
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -32,7 +32,7 @@ class ProvisioningJobCompletion
      *
      * @return self
      */
-    public function setId(string $id) : self
+    public function setId(string $id): self
     {
         $this->id = $id;
         return $this;
@@ -42,7 +42,7 @@ class ProvisioningJobCompletion
      *
      * @return string[]
      */
-    public function getResourceLinks() : array
+    public function getResourceLinks(): array
     {
         return $this->resourceLinks;
     }
@@ -53,7 +53,7 @@ class ProvisioningJobCompletion
      *
      * @return self
      */
-    public function setResourceLinks(array $resourceLinks) : self
+    public function setResourceLinks(array $resourceLinks): self
     {
         $this->resourceLinks = $resourceLinks;
         return $this;

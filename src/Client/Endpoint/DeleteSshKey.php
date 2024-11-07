@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteSshKey extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $fingerprint;
     /**
@@ -17,16 +18,15 @@ class DeleteSshKey extends \Combell\Client\Runtime\Client\BaseEndpoint implement
         $this->domain_name = $domainName;
         $this->fingerprint = $fingerprint;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{fingerprint}'), array($this->domain_name, $this->fingerprint), '/linuxhostings/{domainName}/ssh/keys/{fingerprint}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class DeleteSshKey extends \Combell\Client\Runtime\Client\BaseEndpoint implement
             throw new \Combell\Client\Exception\DeleteSshKeyBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

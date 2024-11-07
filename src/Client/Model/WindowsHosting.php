@@ -21,7 +21,7 @@ class WindowsHosting
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -32,7 +32,7 @@ class WindowsHosting
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -42,7 +42,7 @@ class WindowsHosting
      *
      * @return int
      */
-    public function getServicepackId() : int
+    public function getServicepackId(): int
     {
         return $this->servicepackId;
     }
@@ -53,7 +53,7 @@ class WindowsHosting
      *
      * @return self
      */
-    public function setServicepackId(int $servicepackId) : self
+    public function setServicepackId(int $servicepackId): self
     {
         $this->servicepackId = $servicepackId;
         return $this;

@@ -45,7 +45,7 @@ class LinuxSite
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -56,7 +56,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -66,7 +66,7 @@ class LinuxSite
      *
      * @return string
      */
-    public function getPath() : string
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -77,7 +77,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setPath(string $path) : self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
@@ -87,7 +87,7 @@ class LinuxSite
      *
      * @return HostHeader[]
      */
-    public function getHostHeaders() : array
+    public function getHostHeaders(): array
     {
         return $this->hostHeaders;
     }
@@ -98,7 +98,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setHostHeaders(array $hostHeaders) : self
+    public function setHostHeaders(array $hostHeaders): self
     {
         $this->hostHeaders = $hostHeaders;
         return $this;
@@ -108,7 +108,7 @@ class LinuxSite
      *
      * @return bool
      */
-    public function getSslEnabled() : bool
+    public function getSslEnabled(): bool
     {
         return $this->sslEnabled;
     }
@@ -119,7 +119,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setSslEnabled(bool $sslEnabled) : self
+    public function setSslEnabled(bool $sslEnabled): self
     {
         $this->sslEnabled = $sslEnabled;
         return $this;
@@ -129,7 +129,7 @@ class LinuxSite
      *
      * @return bool
      */
-    public function getHttpsRedirectEnabled() : bool
+    public function getHttpsRedirectEnabled(): bool
     {
         return $this->httpsRedirectEnabled;
     }
@@ -140,7 +140,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setHttpsRedirectEnabled(bool $httpsRedirectEnabled) : self
+    public function setHttpsRedirectEnabled(bool $httpsRedirectEnabled): self
     {
         $this->httpsRedirectEnabled = $httpsRedirectEnabled;
         return $this;
@@ -150,7 +150,7 @@ class LinuxSite
      *
      * @return bool
      */
-    public function getHttp2Enabled() : bool
+    public function getHttp2Enabled(): bool
     {
         return $this->http2Enabled;
     }
@@ -161,7 +161,7 @@ class LinuxSite
      *
      * @return self
      */
-    public function setHttp2Enabled(bool $http2Enabled) : self
+    public function setHttp2Enabled(bool $http2Enabled): self
     {
         $this->http2Enabled = $http2Enabled;
         return $this;

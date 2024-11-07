@@ -23,7 +23,7 @@ class SslSubjectAltName
     *
     * @return string
     */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -35,7 +35,7 @@ class SslSubjectAltName
     *
     * @return self
     */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
@@ -45,7 +45,7 @@ class SslSubjectAltName
      *
      * @return string
      */
-    public function getValue() : string
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -56,7 +56,7 @@ class SslSubjectAltName
      *
      * @return self
      */
-    public function setValue(string $value) : self
+    public function setValue(string $value): self
     {
         $this->value = $value;
         return $this;

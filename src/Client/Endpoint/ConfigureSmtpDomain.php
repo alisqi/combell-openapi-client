@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class ConfigureSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $hostname;
     /**
@@ -19,23 +20,22 @@ class ConfigureSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint im
         $this->hostname = $hostname;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{hostname}'), array($this->domain_name, $this->hostname), '/mailzones/{domainName}/smtpdomains/{hostname}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\UpdateSmtpDomainRequest) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
         }
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -55,7 +55,7 @@ class ConfigureSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint im
             throw new \Combell\Client\Exception\ConfigureSmtpDomainBadRequestException($serializer->deserialize($body, 'Combell\\Client\\Model\\BadRequestResponse', 'json'));
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

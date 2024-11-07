@@ -87,7 +87,7 @@ class Registrant
      *
      * @return string
      */
-    public function getFirstName() : string
+    public function getFirstName(): string
     {
         return $this->firstName;
     }
@@ -98,7 +98,7 @@ class Registrant
      *
      * @return self
      */
-    public function setFirstName(string $firstName) : self
+    public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
         return $this;
@@ -108,7 +108,7 @@ class Registrant
      *
      * @return string
      */
-    public function getLastName() : string
+    public function getLastName(): string
     {
         return $this->lastName;
     }
@@ -119,7 +119,7 @@ class Registrant
      *
      * @return self
      */
-    public function setLastName(string $lastName) : self
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
         return $this;
@@ -129,7 +129,7 @@ class Registrant
      *
      * @return string
      */
-    public function getAddress() : string
+    public function getAddress(): string
     {
         return $this->address;
     }
@@ -140,7 +140,7 @@ class Registrant
      *
      * @return self
      */
-    public function setAddress(string $address) : self
+    public function setAddress(string $address): self
     {
         $this->address = $address;
         return $this;
@@ -150,7 +150,7 @@ class Registrant
      *
      * @return string
      */
-    public function getPostalCode() : string
+    public function getPostalCode(): string
     {
         return $this->postalCode;
     }
@@ -161,7 +161,7 @@ class Registrant
      *
      * @return self
      */
-    public function setPostalCode(string $postalCode) : self
+    public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
         return $this;
@@ -171,7 +171,7 @@ class Registrant
      *
      * @return string
      */
-    public function getCity() : string
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -182,7 +182,7 @@ class Registrant
      *
      * @return self
      */
-    public function setCity(string $city) : self
+    public function setCity(string $city): self
     {
         $this->city = $city;
         return $this;
@@ -193,7 +193,7 @@ class Registrant
     *
     * @return string
     */
-    public function getCountryCode() : string
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
@@ -205,7 +205,7 @@ class Registrant
     *
     * @return self
     */
-    public function setCountryCode(string $countryCode) : self
+    public function setCountryCode(string $countryCode): self
     {
         $this->countryCode = $countryCode;
         return $this;
@@ -215,7 +215,7 @@ class Registrant
      *
      * @return string
      */
-    public function getEmail() : string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -226,7 +226,7 @@ class Registrant
      *
      * @return self
      */
-    public function setEmail(string $email) : self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
         return $this;
@@ -237,7 +237,7 @@ class Registrant
     *
     * @return string
     */
-    public function getFax() : string
+    public function getFax(): string
     {
         return $this->fax;
     }
@@ -249,7 +249,7 @@ class Registrant
     *
     * @return self
     */
-    public function setFax(string $fax) : self
+    public function setFax(string $fax): self
     {
         $this->fax = $fax;
         return $this;
@@ -260,7 +260,7 @@ class Registrant
     *
     * @return string
     */
-    public function getPhone() : string
+    public function getPhone(): string
     {
         return $this->phone;
     }
@@ -272,7 +272,7 @@ class Registrant
     *
     * @return self
     */
-    public function setPhone(string $phone) : self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
         return $this;
@@ -283,7 +283,7 @@ class Registrant
     *
     * @return string
     */
-    public function getLanguageCode() : string
+    public function getLanguageCode(): string
     {
         return $this->languageCode;
     }
@@ -295,7 +295,7 @@ class Registrant
     *
     * @return self
     */
-    public function setLanguageCode(string $languageCode) : self
+    public function setLanguageCode(string $languageCode): self
     {
         $this->languageCode = $languageCode;
         return $this;
@@ -306,7 +306,7 @@ class Registrant
     *
     * @return string
     */
-    public function getCompanyName() : string
+    public function getCompanyName(): string
     {
         return $this->companyName;
     }
@@ -318,7 +318,7 @@ class Registrant
     *
     * @return self
     */
-    public function setCompanyName(string $companyName) : self
+    public function setCompanyName(string $companyName): self
     {
         $this->companyName = $companyName;
         return $this;
@@ -329,7 +329,7 @@ class Registrant
     *
     * @return string
     */
-    public function getEnterpriseNumber() : string
+    public function getEnterpriseNumber(): string
     {
         return $this->enterpriseNumber;
     }
@@ -341,7 +341,7 @@ class Registrant
     *
     * @return self
     */
-    public function setEnterpriseNumber(string $enterpriseNumber) : self
+    public function setEnterpriseNumber(string $enterpriseNumber): self
     {
         $this->enterpriseNumber = $enterpriseNumber;
         return $this;

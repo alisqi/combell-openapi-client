@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $mailbox_name;
     /**
      *
@@ -14,16 +15,15 @@ class DeleteMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
     {
         $this->mailbox_name = $mailboxName;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{mailbox_name}'), array($this->mailbox_name), '/mailboxes/{mailboxName}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -43,7 +43,7 @@ class DeleteMailbox extends \Combell\Client\Runtime\Client\BaseEndpoint implemen
             throw new \Combell\Client\Exception\DeleteMailboxBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

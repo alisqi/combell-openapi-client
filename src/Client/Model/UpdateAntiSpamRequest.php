@@ -15,7 +15,7 @@ class UpdateAntiSpamRequest
      *
      * @return string
      */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -26,7 +26,7 @@ class UpdateAntiSpamRequest
      *
      * @return self
      */
-    public function setType(string $type) : self
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;

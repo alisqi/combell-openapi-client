@@ -24,7 +24,7 @@ class CreateMySqlUser
     *
     * @return string
     */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -36,7 +36,7 @@ class CreateMySqlUser
     *
     * @return self
     */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -47,7 +47,7 @@ class CreateMySqlUser
     *
     * @return string
     */
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -59,7 +59,7 @@ class CreateMySqlUser
     *
     * @return self
     */
-    public function setPassword(string $password) : self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

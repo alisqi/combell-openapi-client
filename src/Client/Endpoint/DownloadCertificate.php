@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DownloadCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $sha1_fingerprint;
     /**
     * Returns the certifcate as binary data with the content-type and the filename information in the response headers.
@@ -20,24 +21,23 @@ class DownloadCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint im
         $this->sha1_fingerprint = $sha1Fingerprint;
         $this->queryParameters = $queryParameters;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{sha1_fingerprint}'), array($this->sha1_fingerprint), '/sslcertificates/{sha1Fingerprint}/download');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
-    protected function getQueryOptionsResolver() : \Symfony\Component\OptionsResolver\OptionsResolver
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
         $optionsResolver->setDefined(array('file_format', 'password'));
@@ -63,7 +63,7 @@ class DownloadCertificate extends \Combell\Client\Runtime\Client\BaseEndpoint im
             throw new \Combell\Client\Exception\DownloadCertificateBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

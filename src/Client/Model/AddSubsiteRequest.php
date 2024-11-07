@@ -22,7 +22,7 @@ class AddSubsiteRequest
      *
      * @return string
      */
-    public function getDomainName() : string
+    public function getDomainName(): string
     {
         return $this->domainName;
     }
@@ -33,7 +33,7 @@ class AddSubsiteRequest
      *
      * @return self
      */
-    public function setDomainName(string $domainName) : self
+    public function setDomainName(string $domainName): self
     {
         $this->domainName = $domainName;
         return $this;
@@ -44,7 +44,7 @@ class AddSubsiteRequest
     *
     * @return string
     */
-    public function getPath() : string
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -56,7 +56,7 @@ class AddSubsiteRequest
     *
     * @return self
     */
-    public function setPath(string $path) : self
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;

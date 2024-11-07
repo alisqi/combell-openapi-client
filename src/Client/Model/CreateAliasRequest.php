@@ -21,7 +21,7 @@ class CreateAliasRequest
      *
      * @return string
      */
-    public function getEmailAddress() : string
+    public function getEmailAddress(): string
     {
         return $this->emailAddress;
     }
@@ -32,7 +32,7 @@ class CreateAliasRequest
      *
      * @return self
      */
-    public function setEmailAddress(string $emailAddress) : self
+    public function setEmailAddress(string $emailAddress): self
     {
         $this->emailAddress = $emailAddress;
         return $this;
@@ -42,7 +42,7 @@ class CreateAliasRequest
      *
      * @return string[]
      */
-    public function getDestinations() : array
+    public function getDestinations(): array
     {
         return $this->destinations;
     }
@@ -53,7 +53,7 @@ class CreateAliasRequest
      *
      * @return self
      */
-    public function setDestinations(array $destinations) : self
+    public function setDestinations(array $destinations): self
     {
         $this->destinations = $destinations;
         return $this;

@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteScheduledTask extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $scheduled_task_id;
     /**
@@ -17,16 +18,15 @@ class DeleteScheduledTask extends \Combell\Client\Runtime\Client\BaseEndpoint im
         $this->domain_name = $domainName;
         $this->scheduled_task_id = $scheduledTaskId;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{scheduled_task_id}'), array($this->domain_name, $this->scheduled_task_id), '/linuxhostings/{domainName}/scheduledtasks/{scheduledTaskId}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class DeleteScheduledTask extends \Combell\Client\Runtime\Client\BaseEndpoint im
             throw new \Combell\Client\Exception\DeleteScheduledTaskBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

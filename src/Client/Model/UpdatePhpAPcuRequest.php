@@ -21,7 +21,7 @@ class UpdatePhpAPcuRequest
      *
      * @return int
      */
-    public function getApcuSize() : int
+    public function getApcuSize(): int
     {
         return $this->apcuSize;
     }
@@ -32,7 +32,7 @@ class UpdatePhpAPcuRequest
      *
      * @return self
      */
-    public function setApcuSize(int $apcuSize) : self
+    public function setApcuSize(int $apcuSize): self
     {
         $this->apcuSize = $apcuSize;
         return $this;
@@ -42,7 +42,7 @@ class UpdatePhpAPcuRequest
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -53,7 +53,7 @@ class UpdatePhpAPcuRequest
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;

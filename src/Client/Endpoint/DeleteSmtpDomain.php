@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $hostname;
     /**
@@ -17,16 +18,15 @@ class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
         $this->domain_name = $domainName;
         $this->hostname = $hostname;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{hostname}'), array($this->domain_name, $this->hostname), '/mailzones/{domainName}/smtpdomains/{hostname}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class DeleteSmtpDomain extends \Combell\Client\Runtime\Client\BaseEndpoint imple
             throw new \Combell\Client\Exception\DeleteSmtpDomainBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

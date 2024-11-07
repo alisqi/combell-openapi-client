@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class DeleteAlias extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     protected $email_address;
     /**
@@ -17,16 +18,15 @@ class DeleteAlias extends \Combell\Client\Runtime\Client\BaseEndpoint implements
         $this->domain_name = $domainName;
         $this->email_address = $emailAddress;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'DELETE';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}', '{email_address}'), array($this->domain_name, $this->email_address), '/mailzones/{domainName}/aliases/{emailAddress}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
@@ -46,7 +46,7 @@ class DeleteAlias extends \Combell\Client\Runtime\Client\BaseEndpoint implements
             throw new \Combell\Client\Exception\DeleteAliasBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

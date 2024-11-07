@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetAccount extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $account_id;
     /**
      *
@@ -14,20 +15,19 @@ class GetAccount extends \Combell\Client\Runtime\Client\BaseEndpoint implements 
     {
         $this->account_id = $accountId;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{account_id}'), array($this->account_id), '/accounts/{accountId}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -43,7 +43,7 @@ class GetAccount extends \Combell\Client\Runtime\Client\BaseEndpoint implements 
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\AccountDetail', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

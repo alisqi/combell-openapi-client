@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class ConfigureFtp extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     /**
      *
@@ -16,16 +17,15 @@ class ConfigureFtp extends \Combell\Client\Runtime\Client\BaseEndpoint implement
         $this->domain_name = $domainName;
         $this->body = $requestBody;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'PUT';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}'), array($this->domain_name), '/linuxhostings/{domainName}/ftp/configuration');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Combell\Client\Model\FtpConfiguration) {
             return array(array('Content-Type' => array('application/json')), $serializer->serialize($this->body, 'json'));
@@ -48,7 +48,7 @@ class ConfigureFtp extends \Combell\Client\Runtime\Client\BaseEndpoint implement
             throw new \Combell\Client\Exception\ConfigureFtpBadRequestException();
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

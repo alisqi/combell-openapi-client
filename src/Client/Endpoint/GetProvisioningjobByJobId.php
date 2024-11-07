@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetProvisioningjobByJobId extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $job_id;
     /**
     * Provisioning failures may occur. Contact support in the event of a failure or wait for error resolution.<br />
@@ -15,20 +16,19 @@ class GetProvisioningjobByJobId extends \Combell\Client\Runtime\Client\BaseEndpo
     {
         $this->job_id = $jobId;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{job_id}'), array($this->job_id), '/provisioningjobs/{jobId}');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -47,7 +47,7 @@ class GetProvisioningjobByJobId extends \Combell\Client\Runtime\Client\BaseEndpo
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\ProvisioningJobCompletion', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

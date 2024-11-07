@@ -31,7 +31,7 @@ class CreateAccount
     *
     * @return string
     */
-    public function getIdentifier() : string
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -43,7 +43,7 @@ class CreateAccount
     *
     * @return self
     */
-    public function setIdentifier(string $identifier) : self
+    public function setIdentifier(string $identifier): self
     {
         $this->identifier = $identifier;
         return $this;
@@ -53,7 +53,7 @@ class CreateAccount
      *
      * @return int
      */
-    public function getServicepackId() : int
+    public function getServicepackId(): int
     {
         return $this->servicepackId;
     }
@@ -64,7 +64,7 @@ class CreateAccount
      *
      * @return self
      */
-    public function setServicepackId(int $servicepackId) : self
+    public function setServicepackId(int $servicepackId): self
     {
         $this->servicepackId = $servicepackId;
         return $this;
@@ -76,7 +76,7 @@ class CreateAccount
     *
     * @return string
     */
-    public function getFtpPassword() : string
+    public function getFtpPassword(): string
     {
         return $this->ftpPassword;
     }
@@ -89,7 +89,7 @@ class CreateAccount
     *
     * @return self
     */
-    public function setFtpPassword(string $ftpPassword) : self
+    public function setFtpPassword(string $ftpPassword): self
     {
         $this->ftpPassword = $ftpPassword;
         return $this;

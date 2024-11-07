@@ -27,7 +27,7 @@ class ApplicationPool
      *
      * @return string
      */
-    public function getRuntime() : string
+    public function getRuntime(): string
     {
         return $this->runtime;
     }
@@ -38,7 +38,7 @@ class ApplicationPool
      *
      * @return self
      */
-    public function setRuntime(string $runtime) : self
+    public function setRuntime(string $runtime): self
     {
         $this->runtime = $runtime;
         return $this;
@@ -48,7 +48,7 @@ class ApplicationPool
      *
      * @return string
      */
-    public function getPipelineMode() : string
+    public function getPipelineMode(): string
     {
         return $this->pipelineMode;
     }
@@ -59,7 +59,7 @@ class ApplicationPool
      *
      * @return self
      */
-    public function setPipelineMode(string $pipelineMode) : self
+    public function setPipelineMode(string $pipelineMode): self
     {
         $this->pipelineMode = $pipelineMode;
         return $this;
@@ -69,7 +69,7 @@ class ApplicationPool
      *
      * @return string[]
      */
-    public function getInstalledNetCoreRuntimes() : array
+    public function getInstalledNetCoreRuntimes(): array
     {
         return $this->installedNetCoreRuntimes;
     }
@@ -80,7 +80,7 @@ class ApplicationPool
      *
      * @return self
      */
-    public function setInstalledNetCoreRuntimes(array $installedNetCoreRuntimes) : self
+    public function setInstalledNetCoreRuntimes(array $installedNetCoreRuntimes): self
     {
         $this->installedNetCoreRuntimes = $installedNetCoreRuntimes;
         return $this;

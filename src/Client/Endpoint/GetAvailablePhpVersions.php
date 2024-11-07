@@ -4,6 +4,7 @@ namespace Combell\Client\Endpoint;
 
 class GetAvailablePhpVersions extends \Combell\Client\Runtime\Client\BaseEndpoint implements \Combell\Client\Runtime\Client\Endpoint
 {
+    use \Combell\Client\Runtime\Client\EndpointTrait;
     protected $domain_name;
     /**
      *
@@ -14,20 +15,19 @@ class GetAvailablePhpVersions extends \Combell\Client\Runtime\Client\BaseEndpoin
     {
         $this->domain_name = $domainName;
     }
-    use \Combell\Client\Runtime\Client\EndpointTrait;
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return 'GET';
     }
-    public function getUri() : string
+    public function getUri(): string
     {
         return str_replace(array('{domain_name}'), array($this->domain_name), '/linuxhostings/{domainName}/phpsettings/availableversions');
     }
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null) : array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return array(array(), null);
     }
-    public function getExtraHeaders() : array
+    public function getExtraHeaders(): array
     {
         return array('Accept' => array('application/json'));
     }
@@ -43,7 +43,7 @@ class GetAvailablePhpVersions extends \Combell\Client\Runtime\Client\BaseEndpoin
             return $serializer->deserialize($body, 'Combell\\Client\\Model\\PhpVersion[]', 'json');
         }
     }
-    public function getAuthenticationScopes() : array
+    public function getAuthenticationScopes(): array
     {
         return array();
     }

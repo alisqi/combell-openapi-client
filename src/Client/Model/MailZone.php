@@ -54,7 +54,7 @@ class MailZone
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -65,7 +65,7 @@ class MailZone
      *
      * @return self
      */
-    public function setName(string $name) : self
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -75,7 +75,7 @@ class MailZone
      *
      * @return bool
      */
-    public function getEnabled() : bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -86,7 +86,7 @@ class MailZone
      *
      * @return self
      */
-    public function setEnabled(bool $enabled) : self
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
         return $this;
@@ -96,7 +96,7 @@ class MailZone
      *
      * @return MailZoneAccount[]
      */
-    public function getAvailableAccounts() : array
+    public function getAvailableAccounts(): array
     {
         return $this->availableAccounts;
     }
@@ -107,7 +107,7 @@ class MailZone
      *
      * @return self
      */
-    public function setAvailableAccounts(array $availableAccounts) : self
+    public function setAvailableAccounts(array $availableAccounts): self
     {
         $this->availableAccounts = $availableAccounts;
         return $this;
@@ -118,7 +118,7 @@ class MailZone
     *
     * @return Alias[]
     */
-    public function getAliases() : array
+    public function getAliases(): array
     {
         return $this->aliases;
     }
@@ -130,7 +130,7 @@ class MailZone
     *
     * @return self
     */
-    public function setAliases(array $aliases) : self
+    public function setAliases(array $aliases): self
     {
         $this->aliases = $aliases;
         return $this;
@@ -140,7 +140,7 @@ class MailZone
      *
      * @return AntiSpam
      */
-    public function getAntiSpam() : AntiSpam
+    public function getAntiSpam(): AntiSpam
     {
         return $this->antiSpam;
     }
@@ -151,7 +151,7 @@ class MailZone
      *
      * @return self
      */
-    public function setAntiSpam(AntiSpam $antiSpam) : self
+    public function setAntiSpam(AntiSpam $antiSpam): self
     {
         $this->antiSpam = $antiSpam;
         return $this;
@@ -161,7 +161,7 @@ class MailZone
      *
      * @return CatchAll
      */
-    public function getCatchAll() : CatchAll
+    public function getCatchAll(): CatchAll
     {
         return $this->catchAll;
     }
@@ -172,7 +172,7 @@ class MailZone
      *
      * @return self
      */
-    public function setCatchAll(CatchAll $catchAll) : self
+    public function setCatchAll(CatchAll $catchAll): self
     {
         $this->catchAll = $catchAll;
         return $this;
@@ -184,7 +184,7 @@ class MailZone
     *
     * @return SmtpDomain[]
     */
-    public function getSmtpDomains() : array
+    public function getSmtpDomains(): array
     {
         return $this->smtpDomains;
     }
@@ -197,7 +197,7 @@ class MailZone
     *
     * @return self
     */
-    public function setSmtpDomains(array $smtpDomains) : self
+    public function setSmtpDomains(array $smtpDomains): self
     {
         $this->smtpDomains = $smtpDomains;
         return $this;

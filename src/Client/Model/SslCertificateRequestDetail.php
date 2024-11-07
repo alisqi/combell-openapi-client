@@ -59,7 +59,7 @@ class SslCertificateRequestDetail
      *
      * @return int
      */
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
@@ -70,7 +70,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setId(int $id) : self
+    public function setId(int $id): self
     {
         $this->id = $id;
         return $this;
@@ -81,7 +81,7 @@ class SslCertificateRequestDetail
     *
     * @return string
     */
-    public function getCertificateType() : string
+    public function getCertificateType(): string
     {
         return $this->certificateType;
     }
@@ -93,7 +93,7 @@ class SslCertificateRequestDetail
     *
     * @return self
     */
-    public function setCertificateType(string $certificateType) : self
+    public function setCertificateType(string $certificateType): self
     {
         $this->certificateType = $certificateType;
         return $this;
@@ -104,7 +104,7 @@ class SslCertificateRequestDetail
     *
     * @return string
     */
-    public function getValidationLevel() : string
+    public function getValidationLevel(): string
     {
         return $this->validationLevel;
     }
@@ -116,7 +116,7 @@ class SslCertificateRequestDetail
     *
     * @return self
     */
-    public function setValidationLevel(string $validationLevel) : self
+    public function setValidationLevel(string $validationLevel): self
     {
         $this->validationLevel = $validationLevel;
         return $this;
@@ -126,7 +126,7 @@ class SslCertificateRequestDetail
      *
      * @return string
      */
-    public function getVendor() : string
+    public function getVendor(): string
     {
         return $this->vendor;
     }
@@ -137,7 +137,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setVendor(string $vendor) : self
+    public function setVendor(string $vendor): self
     {
         $this->vendor = $vendor;
         return $this;
@@ -147,7 +147,7 @@ class SslCertificateRequestDetail
      *
      * @return string
      */
-    public function getCommonName() : string
+    public function getCommonName(): string
     {
         return $this->commonName;
     }
@@ -158,7 +158,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setCommonName(string $commonName) : self
+    public function setCommonName(string $commonName): self
     {
         $this->commonName = $commonName;
         return $this;
@@ -168,7 +168,7 @@ class SslCertificateRequestDetail
      *
      * @return string
      */
-    public function getOrderCode() : string
+    public function getOrderCode(): string
     {
         return $this->orderCode;
     }
@@ -179,7 +179,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setOrderCode(string $orderCode) : self
+    public function setOrderCode(string $orderCode): self
     {
         $this->orderCode = $orderCode;
         return $this;
@@ -189,7 +189,7 @@ class SslCertificateRequestDetail
      *
      * @return SslSubjectAltName[]
      */
-    public function getSubjectAltNames() : array
+    public function getSubjectAltNames(): array
     {
         return $this->subjectAltNames;
     }
@@ -200,7 +200,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setSubjectAltNames(array $subjectAltNames) : self
+    public function setSubjectAltNames(array $subjectAltNames): self
     {
         $this->subjectAltNames = $subjectAltNames;
         return $this;
@@ -210,7 +210,7 @@ class SslCertificateRequestDetail
      *
      * @return SslCertificateRequestValidation[]
      */
-    public function getValidations() : array
+    public function getValidations(): array
     {
         return $this->validations;
     }
@@ -221,7 +221,7 @@ class SslCertificateRequestDetail
      *
      * @return self
      */
-    public function setValidations(array $validations) : self
+    public function setValidations(array $validations): self
     {
         $this->validations = $validations;
         return $this;

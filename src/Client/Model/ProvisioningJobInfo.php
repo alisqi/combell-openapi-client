@@ -27,7 +27,7 @@ class ProvisioningJobInfo
      *
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -38,7 +38,7 @@ class ProvisioningJobInfo
      *
      * @return self
      */
-    public function setId(string $id) : self
+    public function setId(string $id): self
     {
         $this->id = $id;
         return $this;
@@ -48,7 +48,7 @@ class ProvisioningJobInfo
      *
      * @return string
      */
-    public function getStatus() : string
+    public function getStatus(): string
     {
         return $this->status;
     }
@@ -59,7 +59,7 @@ class ProvisioningJobInfo
      *
      * @return self
      */
-    public function setStatus(string $status) : self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
         return $this;
@@ -69,7 +69,7 @@ class ProvisioningJobInfo
      *
      * @return CompletionEstimation
      */
-    public function getCompletion() : CompletionEstimation
+    public function getCompletion(): CompletionEstimation
     {
         return $this->completion;
     }
@@ -80,7 +80,7 @@ class ProvisioningJobInfo
      *
      * @return self
      */
-    public function setCompletion(CompletionEstimation $completion) : self
+    public function setCompletion(CompletionEstimation $completion): self
     {
         $this->completion = $completion;
         return $this;
