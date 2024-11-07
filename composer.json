@@ -3,17 +3,22 @@
     "description": "A PHP client based on Combell's own OpenAPI spec generated with JanePHP.",
     "type": "library",
     "require": {
-        "php": "^7.2 || ^8.0",
-        "jane-php/open-api-runtime": "^6.3"
+        "php": "^8.0",
+        "jane-php/open-api-runtime": "^7.8"
     },
     "require-dev": {
-        "jane-php/open-api-3": "^6.3",
-        "friendsofphp/php-cs-fixer": "^2.18"
+        "jane-php/open-api-3": "^7.8",
+        "friendsofphp/php-cs-fixer": "^3.0"
     },
     "license": "MIT",
     "autoload": {
         "classmap": [
             "src/"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
