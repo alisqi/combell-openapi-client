@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.2.0] - 2024-11-07
 
 ### Added
-- Add CHANGELOG.md.
+- Add CHANGELOG.md. (d5722a8)
 - Add LICENSE information. (a9283e4)
 - Add `.php-cs-fixer.cache` to `.gitignore`. (2a0edd0)
 
