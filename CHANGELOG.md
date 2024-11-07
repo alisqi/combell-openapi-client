@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2024-11-07
+
+### Changed
+- Regenerate OpenAPI Client after dependency update, add disclaimer to README.md (e36cfe5)
+
 ## [0.2.0] - 2024-11-07
 
 ### Added
